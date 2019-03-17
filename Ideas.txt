@@ -1,0 +1,37 @@
+======================
+= Browser start page =
+======================
+
+==> A big greeting line which says 'Good morning', 'hello' or 'good evening'.
+	If visitor is unknown, open welcome page first and let him enter a name.
+
+==> Weather data for today at your place.
+
+==> To-Do-List, including archived To-Dos
+
+	AnglarJS?
+	https://angularjs.org/
+
+	React?
+	https://www.youtube.com/watch?v=sBws8MSXN7A
+
+
+==> NewsFeed
+
+
+... using local storage for settings like visitors name.
+
+
+===========
+APIS to use
+===========
+
+http://ip-api.com/
+
+Geolocation.getCurrentPosition()
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+
+
+Weather:
+Free Code Camp Weather API
+https://fcc-weather-api.glitch.me/
