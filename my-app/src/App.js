@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
 import GetVisitorsName from "./components/GetVisitorsName";
+import Clock from "./components/Clock";
+import CurrentWeather from "./components/CurrentWeather";
+
 
 class App extends Component {
 
@@ -23,6 +26,7 @@ class App extends Component {
 
   setVisitorsName(name) {
     setLocalStorageData("visitorsName", name);
+    setLocalStorageData("firstVisit", false);
     this.setState( {visitorsName: name} );    
   }
 
@@ -33,7 +37,11 @@ class App extends Component {
       <div className="main-container full-height">
         <main className="full-height">
           { visitorsName ? (
-            <h1>Welcome, {visitorsName}!</h1>
+            <React.Fragment>
+              <h1>Welcome, {visitorsName}!</h1>
+              <Clock/>
+              <CurrentWeather/>
+            </React.Fragment>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>
       </div>

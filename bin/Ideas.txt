@@ -5,7 +5,11 @@
 ==> A big greeting line which says 'Good morning', 'hello' or 'good evening'.
 	If visitor is unknown, open welcome page first and let him enter a name.
 
+==> Time and Date
+
 ==> Weather data for today at your place.
+
+==> Detect browser language and provide English (default) or German.
 
 ==> To-Do-List, including archived To-Dos
 
@@ -19,7 +23,7 @@
 ==> NewsFeed
 
 
-... using local storage for settings like visitors name.
+... using local storage for settings like visitors name, first visit.
 
 
 ===========
@@ -27,7 +31,7 @@ APIS to use
 ===========
 
 http://ip-api.com/
-
+or
 Geolocation.getCurrentPosition()
 https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 
@@ -35,3 +39,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 Weather:
 Free Code Camp Weather API
 https://fcc-weather-api.glitch.me/
+
+=====
+TO DO
+=====
+
+- Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
+- Das Wetter muss regelm‰ﬂig aktualisieren.

@@ -21,7 +21,6 @@ function setLocalStorageData(key, value) {
 	}
 	console.log("Sorry, no Web Storage support.");
 	return "Sorry, no Web Storage support.";
-	
 }
 
 
