@@ -1,0 +1,48 @@
+.perfect-centering-contents {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.full-height {
+min-height: 100%;
+/* height: auto !important; */
+height: 100%;
+}
+.flex-column {
+    flex-direction: column;
+}
+.main-container {
+    padding: 1rem;
+}
+
+/*==============================*/
+
+main { display: block; }
+
+/*==============================*/
+
+/* Disable right click context menu (disables all clicks) */
+img { pointer-events: none; }
+button, input[type="submit"] {
+    background: none;
+    color: inherit;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+}
+button.no-button {
+    border: none;
+    text-decoration: underline;
+    color: var(--color1-dark);
+}
+button.no-button:hover {
+    color: var(--color1);
+}
+.large-button {
+    padding: 0.4rem;
+}
+input[type="text"] {
+    font: inherit;
+    padding: 0.4rem;
+}

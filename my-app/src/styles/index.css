@@ -7,15 +7,15 @@
   --medium: #999;
   --light: #eee;
   --lightest: hsl(0, 0%, 96%);
-  --color1: rgb(0, 183, 255);
+  --color1-dark: hsl(197, 100%, 25%);
+  --color1: hsl(197, 100%, 45%);
 
   font-family: monospace;
 
   --trans-time-slow: 0.75s;
 }
 html {
-  /* Disable right click context menu */
-  pointer-events: none;
+  /* height: 100vh; */
   /* scroll-behavior: smooth; */
 }
 * {
@@ -23,18 +23,19 @@ html {
   box-sizing: border-box;
 }
 body {
+  /* min-height: 100%; */
   min-width: 320px;
   background-color: var(--lightest);
   color: var(--darkest);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#root { height: 100vh; }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 
 /*===============*/
