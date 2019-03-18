@@ -30,15 +30,25 @@
 APIS to use
 ===========
 
+LOCATION
 http://ip-api.com/
 or
 Geolocation.getCurrentPosition()
 https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 
 
-Weather:
+WEATHER
+(no api key, no registrations)
+
 Free Code Camp Weather API
 https://fcc-weather-api.glitch.me/
+
+BESSER:
+https://www.metaweather.com/api/
+oder
+http://api.oceandrivers.com/static/docs.html#!/ODWeather
+
+
 
 =====
 TO DO
@@ -46,3 +56,4 @@ TO DO
 
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
 - Das Wetter muss regelmäßig aktualisieren.
+- Die Icons von metaweather.com sind nur für den Tag.
