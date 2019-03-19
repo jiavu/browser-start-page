@@ -2,10 +2,11 @@
   font-size: 25px;
 
   /* COLOR VARS */
-  --darkest: #222;
-  --dark: #444;
-  --medium: #999;
-  --light: #eee;
+  --darkest: hsl(0, 0%, 13%);
+  --dark: hsl(0, 0%, 27%);
+  --dark-t: hsla(0, 0%, 27%, 0.8);
+  --medium: hsl(0, 0%, 60%);
+  --light: hsl(0, 0%, 93%);
   --lightest: hsl(0, 0%, 96%);
   --color1-dark: hsl(197, 100%, 25%);
   --color1: hsl(197, 100%, 45%);

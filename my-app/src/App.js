@@ -34,19 +34,23 @@ class App extends Component {
     const visitorsName = this.state.visitorsName;
     
     return (
-      <div className="main-container full-height">
+      <div className="main-container full-height flex-row-auto-wrap">
         <main className="full-height">
           { visitorsName ? (
-            <React.Fragment>
-              <h1>Welcome, {visitorsName}!</h1>
+            <div className="flex-column">
+              <h1 style={styleWelcome}>Welcome, {visitorsName}!</h1>
               <Clock/>
               <CurrentWeather/>
-            </React.Fragment>
+            </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>
       </div>
     );
   }
 }
+
+const styleWelcome = {
+  padding: "0.2rem 0 0.3rem"
+};
 
 export default App;

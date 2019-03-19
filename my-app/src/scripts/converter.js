@@ -1,7 +1,7 @@
 'use strict';
 
 // http://snowfence.umn.edu/Components/winddirectionanddegreeswithouttable3.htm
-function getWindDirection(deg) {
+function getCompassPoint(deg) {
 	if (deg > 348.75 || deg <= 11.25) return "N";
 	if (deg > 11.25 && deg <= 33.75) return "NNE";
 	if (deg > 33.75 && deg <= 56.25) return "NE";
@@ -19,3 +19,9 @@ function getWindDirection(deg) {
 	if (deg > 303.75 && deg <= 326.25) return "NW";
 	if (deg > 326.25 && deg <= 348.75) return "NNW";
 }
+
+export {getCompassPoint};
+
+
+/* Hier könnten noch die Übersetzungen von Windgeschwindigkeit in 
+Beschreibung hin kommen (Beaufort Skala). */

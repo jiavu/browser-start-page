@@ -1,0 +1,25 @@
+.weather-app-frame {
+    margin: 1rem;
+    padding: 0.8rem;
+    border: 4px ridge var(--dark);
+    border-radius: 1rem;
+    background-color: var(--dark-t);
+    color: var(--light);
+}
+/* Background-Picture should be corresponding to weather :=) */
+body {
+    background-image: url("../img/kenrick-mills-728501-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+.weather-app-frame .head {
+    font-size: 1.8rem;
+}
+.weather-app-frame .descr {
+    font-size: 1.2rem;
+    padding: 0.25rem 0.4rem 0.5rem;
+}
+.weather-app-frame .body {
+    font-size: 0.8rem;
+}

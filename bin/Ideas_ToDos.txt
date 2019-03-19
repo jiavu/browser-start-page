@@ -1,4 +1,4 @@
-======================
+Ôªø======================
 = Browser start page =
 ======================
 
@@ -54,6 +54,12 @@ http://api.oceandrivers.com/static/docs.html#!/ODWeather
 TO DO
 =====
 
+- First-Visit-Seite noch stylen!
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
-- Das Wetter muss regelm‰ﬂig aktualisieren.
-- Die Icons von metaweather.com sind nur f¸r den Tag.
+- navigator.geolocation.getCurrentPosition() hat mal nicht funktioniert. Eventuell
+	k√∂nnte ich solch einen Fehler abfangen und einen Fallback auf die letzten
+	Koordinaten ausf√ºhren lassen. try/catch?
+- Das Wetter muss regelmae√üig aktualisieren. So zum Beispiel auch zum Tageswechsel!
+- Die Icons von metaweather.com sind nur fuer den Tag.
+- metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
+- Leichter shine- / glow-Effekt f√ºr die Schrift

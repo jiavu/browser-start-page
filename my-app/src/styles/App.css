@@ -4,22 +4,30 @@
     justify-content: center;
     align-items: center;
   }
+.flex-row-auto-wrap {
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+}
+.flex-column {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+}
 .full-height {
 min-height: 100%;
 /* height: auto !important; */
 height: 100%;
 }
-.flex-column {
-    flex-direction: column;
-}
-.main-container {
-    padding: 1rem;
-}
+
 
 /*==============================*/
 
 main { display: block; }
 
+.main-container {
+    padding: 1.3rem;
+}
 /*==============================*/
 
 /* Disable right click context menu (disables all clicks) */
