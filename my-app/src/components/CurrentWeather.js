@@ -3,11 +3,11 @@ import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorag
 import "../styles/CurrentWeather.css";
 import { getCompassPoint } from "../scripts/converter";
 
-//let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
+let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
 
 class CurrentWeather extends Component {
 
-	state = { resp: null }
+	state = { response: null }
 
 	// Das Wetter sollte allerdings regelmäßig aktualisieren. Nutze die Uhr, um Aktualisierungen auszuführen?
 	componentDidMount() {
@@ -65,7 +65,7 @@ class CurrentWeather extends Component {
 			sunrise: sunrise.toLocaleTimeString("en-GB", timeFormat),
 			sunset: sunset.toLocaleTimeString("en-GB", timeFormat),
 			location: `${data.name}, ${data.sys.country}`,
-			resp: data
+			response: data
 		})
 	}
 
@@ -73,7 +73,7 @@ class CurrentWeather extends Component {
 
 		return (
 			<section>
-				{this.state.resp && (
+				{this.state.response && (
 					<React.Fragment>
 						<div className="weather-app-frame">
 							<div className="head flex-row-auto-wrap">
@@ -93,7 +93,7 @@ class CurrentWeather extends Component {
 							</div>
 						</div>
 						<div style={codeWindow}>
-							{/* <code>{JSON.stringify(this.state.resp)}</code> */}
+							{/* <code>{JSON.stringify(this.state.response)}</code> */}
 						</div>
 					</React.Fragment>
 				)}

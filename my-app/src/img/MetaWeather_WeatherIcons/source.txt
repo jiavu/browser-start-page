@@ -1,0 +1,7 @@
+https://www.metaweather.com/api/
+
+
+Download icons:
+lr is an example of an abbreviation.
+
+https://www.metaweather.com/static/img/weather/lr.svg

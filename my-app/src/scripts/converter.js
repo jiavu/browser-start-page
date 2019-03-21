@@ -1,6 +1,11 @@
 'use strict';
 
+///////////////////////////////////////////////////////////////////////////////
 // http://snowfence.umn.edu/Components/winddirectionanddegreeswithouttable3.htm
+/**
+ * Degrees to compass point
+ * @param {float} deg - Degrees
+ */
 function getCompassPoint(deg) {
 	if (deg > 348.75 || deg <= 11.25) return "N";
 	if (deg > 11.25 && deg <= 33.75) return "NNE";
@@ -20,7 +25,88 @@ function getCompassPoint(deg) {
 	if (deg > 326.25 && deg <= 348.75) return "NNW";
 }
 
-export {getCompassPoint};
+
+//////////////////////////////////////////////////////////////
+// https://de.wikipedia.org/wiki/Beaufortskala
+// https://de.wikipedia.org/wiki/Windgeschwindigkeit
+//https://de.wikipedia.org/wiki/Windgeschwindigkeit
+/**
+ * converts from ms to Bft (Beaufort). 
+ * @param {float} speed - meter/sec
+ */
+function convertWindSpeed(speed) {
+	// maybe ad 2nd parameter for unit.
+	// if unit is mph instead of m/s, speed *= 0.44704
+
+	if (speed < 0.3) return 0;
+	if (speed >= 0.3 && speed < 1.6) return 1;
+	if (speed  >= 1.6 && speed < 3.4) return 2;
+	if (speed  >= 3.4 && speed < 5.5) return 3;
+	if (speed  >= 5.5 && speed < 8.0)  return 4;
+	if (speed  >= 8.0 && speed < 10.8) return 5;
+	if (speed  >= 10.8 && speed < 13.9) return 6;
+	if (speed  >= 13.9 && speed < 17.2) return 7;
+	if (speed  >= 17.2 && speed < 20.8) return 8;
+	if (speed  >= 20.8 && speed < 24.5) return 9;
+	if( speed  >= 24.5 && speed < 28.5) return 10;
+	if (speed  >= 28.5 && speed < 32.7) return 11;
+	if (speed  >= 32.7) return 12;
+}
+
+
+// Dictionary for wind description of Beaufort skala.
+const windDescription = {
+	english : {
+		0 : "Calm",
+		1 : "Light Air",
+		2 : "Light breeze",
+		3 : "Gentle breeze",
+		4 : "Moderate breeze",
+		5 : "Fresh breeze",
+		6 : "Strong breeze",
+		7 : "Moderate gale",
+		8 : "Fresh gale",
+		9 : "Strong gale",
+		10 : "Storm",
+		11 : "Violent storm",
+		12 : "Hurricane"
+	},
+	german : {
+		0 : "Windstill",
+		1 : "geringer Wind",
+		2 : "leichter Wind",
+		3 : "schwacher Wind",
+		4 : "mäßiger Wind",
+		5 : "frischer Wind",
+		6 : "starker Wind",
+		7 : "stark bis stürmischer Wind",
+		8 : "stürmischer Wind",
+		9 : "Sturm",
+		10 : "schwerer Sturm",
+		11 : "orkanartiger Sturm",
+		12 : "Orkan"
+	}
+}
+
+/*						
+Bft		m/s			German
+0		0,0 – <0,3   | Windstill
+1		0,3 – <1,6   | geringer Wind / leiser Zug
+2		1,6 – <3,4   | leichter Wind / leichte Brise
+3		3,4 – <5,5   | schwacher Wind / schwache Brise
+4		5,5 – <8,0   | mäßiger Wind / mäßige Brise
+5		8,0 – <10,8  | frischer Wind / frische Brise
+6		10,8 – <13,9 | starker Wind
+7		13,9 – <17,2 | stark bis stürmischer Wind / steifer Wind
+8		17,2 – <20,8 | stürmischer Wind
+9		20,8 – <24,5 | Sturm
+10		24,5 – <28,5 | schwerer Sturm
+11		28,5 – <32,7 | orkanartiger Sturm
+12		≥ 32,7       | Orkan
+*/
+
+
+export {getCompassPoint, convertWindSpeed, windDescription};
 
 
 /* Hier könnten noch die Übersetzungen von Windgeschwindigkeit in 

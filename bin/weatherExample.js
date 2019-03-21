@@ -277,7 +277,7 @@ const example = {
 
 
 
-// Location Day... I won't need it. My first thought was this is the forecast.
+// Location Day... I won't need it. My first thought was that this is the forecast.
 // https://www.metaweather.com/api/location/woeid/dateString
 // dateString in format yyy/mm/dd
 
