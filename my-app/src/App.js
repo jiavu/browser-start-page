@@ -3,7 +3,7 @@ import './styles/App.css';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
 import GetVisitorsName from "./components/GetVisitorsName";
 import Clock from "./components/Clock";
-import CurrentWeather from "./components/CurrentWeather";
+import WeatherApp from "./components/WeatherApp";
 
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
             <div className="flex-column">
               <h1 style={styleWelcome}>Welcome, {visitorsName}!</h1>
               <Clock/>
-              <CurrentWeather/>
+              <WeatherApp/>
             </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>

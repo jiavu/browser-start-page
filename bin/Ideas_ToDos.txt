@@ -55,11 +55,14 @@ TO DO
 =====
 
 - First-Visit-Seite noch stylen!
+
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
+
+- Das Wetter muss regelmaeßig aktualisieren. So zum Beispiel auch zum Tageswechsel!
+- Location eventuell häufiger abfragen, für Nutzung auf mobilen Geräten.
+
 - navigator.geolocation.getCurrentPosition() hat mal nicht funktioniert. Eventuell
 	könnte ich solch einen Fehler abfangen und einen Fallback auf die letzten
 	Koordinaten ausführen lassen. try/catch?
-- Das Wetter muss regelmaeßig aktualisieren. So zum Beispiel auch zum Tageswechsel!
-- Die Icons von metaweather.com sind nur fuer den Tag.
+
 - metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
-- Leichter shine- / glow-Effekt für die Schrift
