@@ -49,10 +49,15 @@ oder
 http://api.oceandrivers.com/static/docs.html#!/ODWeather
 
 
+FREE IMAGES:
+https://unsplash.com/
 
 =====
 TO DO
 =====
+
+- Handle missing images...
+	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
 - First-Visit-Seite noch stylen!
 

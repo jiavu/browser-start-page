@@ -1,3 +1,87 @@
 kenrick-mills-728501-unsplash.jpg
 https://unsplash.com/photos/1h2Pg97SXfA
 
+=====================================
+
+https://unsplash.com/
+Find pictures for:
+
+appr    stands for      description
+=======================================================
+c       clear           clear sky
+-------------------------------------------------------
+
+
+=======================================================
+lc      light cloud     few clouds
+-------------------------------------------------------
+
+
+=======================================================
+hc      heavy cloud     scattered clouds, broken clouds
+-------------------------------------------------------
+
+
+=======================================================
+s       showers         rain, with some sun
+-------------------------------------------------------
+
+
+=======================================================
+lr      light rain      shower rain (drizzle)
+-------------------------------------------------------
+
+
+=======================================================
+hr      heavy rain      shower rain
+-------------------------------------------------------
+
+
+=======================================================
+t       thunderstorm    thunderstorm
+-------------------------------------------------------
+Ryan Phillips
+https://unsplash.com/@ryphillips
+https://unsplash.com/photos/Gskggvkp88Y
+https://images.unsplash.com/photo-1537908829143-c49accec9f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1386&q=80
+
+Layne Lawson
+https://unsplash.com/@laynelawson
+https://unsplash.com/photos/2uOcrLACf_4
+https://images.unsplash.com/photo-1465799522714-8eb0e6fccf73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1473&q=80
+
+Dejan Zakic
+https://unsplash.com/@dejan_kide
+https://unsplash.com/photos/typ5koZUP4Y
+https://images.unsplash.com/photo-1529220100082-80957b04a221?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80
+
+Ronald Langeveld
+https://unsplash.com/@ronaldlangeveld
+https://unsplash.com/photos/WTynQFb55Lk
+https://images.unsplash.com/photo-1516188239414-6bfa485294d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80
+
+Jeremy Thomas
+https://unsplash.com/@jeremythomasphoto
+https://unsplash.com/photos/jh2KTqHLMjE
+https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80
+
+Johannes Plenio
+https://unsplash.com/@jplenio
+https://unsplash.com/photos/E-Zuyev2XWo
+https://images.unsplash.com/photo-1500674425229-f692875b0ab7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
+=======================================================
+h      hail             rain (freezing rain)
+-------------------------------------------------------
+
+=======================================================
+sl     sleet            sleet (611)
+-------------------------------------------------------
+
+=======================================================
+sn     snow             snow
+-------------------------------------------------------
+
+
+=======================================================
+--    heavy cloud       fog (group 7xx)
+-------------------------------------------------------
