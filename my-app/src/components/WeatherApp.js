@@ -4,6 +4,20 @@ import "../styles/weatherApp.css";
 import CurrentWeather from "./CurrentWeather";
 import ForecastWeather from "./ForecastWeather";
 
+const circleAround = (
+	<svg className="circle-around">
+		<circle r="25"></circle>
+	</svg>
+)
+
+const blurIcon = (
+	<defs>
+		<filter id="blur">
+			<feOffset></feOffset>
+		</filter>
+	</defs>
+)
+
 
 class WeatherApp extends Component {
 
@@ -34,8 +48,10 @@ class WeatherApp extends Component {
 
 		return (this.state.lat && this.state.lon) ? (
 			<section className="weather-app-frame">
-				<CurrentWeather lat={this.state.lat} lon={this.state.lon}/>
-				<ForecastWeather lat={this.state.lat} lon={this.state.lon}/>
+				<CurrentWeather lat={this.state.lat} lon={this.state.lon}
+					lang={this.props.lang} circleAround={circleAround}/>
+				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
+					lang={this.props.lang} circleAround={circleAround}/>
 			</section>
 		) : null;
 	}

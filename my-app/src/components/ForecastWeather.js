@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
-import { getCompassPoint } from "../scripts/converter";
+import { getCompassPoint, convertWindSpeed, windDescription } from "../scripts/converter";
 import axios from 'axios';
 
 const url = "https://www.metaweather.com/api/location/";
@@ -10,7 +10,8 @@ class ForecastWeather extends React.Component {
 	state = { response: null }
 
 	componentDidMount() {
-		this.getWoeid(this.props.lat, this.props.lon);
+		// Server erlaubt kein CORS
+		//this.getWoeid(this.props.lat, this.props.lon);
 	}
 
 	getWoeid(lat, lon) {

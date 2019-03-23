@@ -1,9 +1,11 @@
 .weather-app-frame {
     margin: 1rem;
     padding: 0.9rem;
+    position: relative;
     border: 4px ridge var(--dark);
     border-radius: 0.8rem;
     background-color: var(--dark-t);
+    font-size: 0.8rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), 0 0.4rem 1.2rem var(--shadow);
     color: white;
     text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.6), 0 0 0.6rem hsla(57, 100%, 99%, 0.6);
@@ -15,13 +17,39 @@ body {
     background-position: left;
     background-size: cover;
 }
-.weather-app-frame .head {
-    font-size: 1.8rem;
+.current-weather .head {
+    font-size: 2.6em;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
-.weather-app-frame .descr {
-    font-size: 1.2rem;
-    padding: 0.25rem 0.4rem 0.5rem;
+.current-weather .weather-icon {
+    height: 1.8em;
 }
-.weather-app-frame .body {
+.current-weather .descr {
+    font-size: 1.55em;
+    padding: 0.25em 0 0.45em;
+}
+/* .current-weather .body {
     font-size: 0.8rem;
+} */
+.wind-descr {
+    margin-bottom: 0.7em;
+}
+.wind-arrow {
+    position: relative;
+    margin-left: 0.5em;
+    font-size: 0.8em;
+    overflow: visible;
+}
+/* .wind-arrow-svg {   /* probably unused
+    fill: white;
+} */
+.circle-around {
+    z-index: 2;
+    position: absolute;
+    left: 0; right: 0;
+    fill: green;
+    stroke: white;
 }

@@ -56,9 +56,9 @@ function convertWindSpeed(speed) {
 
 // Dictionary for wind description of Beaufort skala.
 const windDescription = {
-	english : {
+	"en-GB" : {
 		0 : "Calm",
-		1 : "Light Air",
+		1 : "Light air",
 		2 : "Light breeze",
 		3 : "Gentle breeze",
 		4 : "Moderate breeze",
@@ -71,7 +71,7 @@ const windDescription = {
 		11 : "Violent storm",
 		12 : "Hurricane"
 	},
-	german : {
+	"de-DE" : {
 		0 : "Windstill",
 		1 : "geringer Wind",
 		2 : "leichter Wind",
@@ -105,8 +105,25 @@ Bft		m/s			German
 12		≥ 32,7       | Orkan
 */
 
+//////////////////////////////////////////////////////////////
+// openweathermap.org weatherID to
+// metaweather.com weather state abbreviation
 
-export {getCompassPoint, convertWindSpeed, windDescription};
+function owmIDToMwAbbr(id) {
+	if (id === 800) return "c";
+	if (id === 801) return "lc";
+	if (id >= 802 && id <= 804) return "hc";
+	if (id >= 500 && id <= 504) return "s";
+	if (id >= 300 && id < 400) return "lr";
+	if (id >= 520 && id <= 522 || id === 531) return "hr";
+	if (id >= 200 && id < 300) return "t";
+	if (id === 511) return "h";
+	if (id === 611) return "sl";
+	if (id >= 600 && id < 700) return "sn";
+	if (id === 700) return "hc";
+}
+
+export {getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr};
 
 
 /* Hier könnten noch die Übersetzungen von Windgeschwindigkeit in 

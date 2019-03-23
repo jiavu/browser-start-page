@@ -10,7 +10,7 @@ Day icon	Night icon	weatherID		Description
 01d.png  	01n.png  	800					clear sky
 02d.png  	02n.png  	801					few clouds (ein paar Wolken)
 03d.png  	03n.png  	802					scattered clouds (aufgelockerte Bew�lkung, zertreute Wolken)
-04d.png  	04n.png  	803, 804			broken clouds (durchbrochene Bew�lkung)
+04d.png  	04n.png  	803, 804				broken clouds (durchbrochene Bew�lkung)
 09d.png  	09n.png  	3xx, 520-522, 531			shower rain (Regenschauer)
 10d.png  	10n.png  	500-504				rain (with some sun) (Regen... Anscheinend mit etwas Sonne
 											und weniger als Regenschauer)
@@ -50,7 +50,7 @@ s		Showers			Regen, aber auch mit Sonne		500-504 rain
 lr		Light Rain		Regen ohne Sonne				3xx shower rain (group Drizzle)
 hr		Heavy Rain										520-522, 531 shower rain (group Rain)
 t		Thunderstorm									2xx thunderstorm
-h		Hail			Hagel							511 rain (freezing rain)	?
-sl		Sleet			Schneeregen						511	rain (freezing rain)	?
+h		Hail			Hagel							511 rain (freezing rain)
+sl		Sleet			Schneeregen						611	snow (sleet)
 sn		Snow											6xx	snow
 														7xx Nebel gibt es bei metaweather nicht als icon.

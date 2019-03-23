@@ -5,6 +5,7 @@ import GetVisitorsName from "./components/GetVisitorsName";
 import Clock from "./components/Clock";
 import WeatherApp from "./components/WeatherApp";
 
+const lang = "en-GB";
 
 class App extends Component {
 
@@ -40,7 +41,7 @@ class App extends Component {
             <div className="flex-column">
               <h1 style={styleWelcome}>Welcome, {visitorsName}!</h1>
               <Clock/>
-              <WeatherApp/>
+              <WeatherApp lang ={lang}/>
             </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>
