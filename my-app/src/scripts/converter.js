@@ -45,7 +45,8 @@ function getCompassPoint(deg) {
 	if (deg > 258.75 && deg <= 281.25) return "W";
 	if (deg > 281.25 && deg <= 303.75) return "WNW";
 	if (deg > 303.75 && deg <= 326.25) return "NW";
-	if (deg > 326.25 && deg <= 348.75) return "NNW";
+  if (deg > 326.25 && deg <= 348.75) return "NNW";
+  return "?";
 }
 
 

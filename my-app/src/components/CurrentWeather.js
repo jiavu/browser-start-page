@@ -56,7 +56,7 @@ class CurrentWeather extends Component {
 	render() {
 
 		let rotateArrow = {
-			transform: `rotate(${-(this.state.wind_deg-45)}deg)`
+			transform: `rotate(${this.state.wind_deg + 135}deg)`
 		};
 
 		return this.state.response ? (
