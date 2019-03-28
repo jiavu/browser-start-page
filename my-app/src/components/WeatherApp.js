@@ -30,14 +30,14 @@ class WeatherApp extends Component {
 			window.alert("To show you the current weather, this page has to know your location. Choose 'Allow' if your browser asks.");
 		}
 		this.getGeoLocation();
-		}
+	}
 
 	getGeoLocation() {
 		navigator.geolocation.getCurrentPosition(loc => {
 			let { latitude, longitude } = loc.coords;
 			setLocalStorageData("latitude", latitude);
 			setLocalStorageData("longitude", longitude);
-			this.setState( {lat: latitude, lon: longitude} );
+			this.setState({ lat: latitude, lon: longitude });
 		}, function (err) {
 			console.warn(`ERROR(${err.code}): ${err.message}`);
 			window.alert(`ERROR(${err.code}): ${err.message}.\nNo location = no weather!\nGo to your browser settings and allow location for this webpage.`);
@@ -47,11 +47,11 @@ class WeatherApp extends Component {
 	render() {
 
 		return (this.state.lat && this.state.lon) ? (
-			<section className="weather-app-frame">
+			<section className="app-frame">
 				<CurrentWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang} circleAround={circleAround}/>
+					lang={this.props.lang} circleAround={circleAround} />
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang} circleAround={circleAround}/>
+					lang={this.props.lang} circleAround={circleAround} />
 			</section>
 		) : null;
 	}

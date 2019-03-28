@@ -1,18 +1,7 @@
-.weather-app-frame {
-    margin: 1rem;
-    padding: 0.9rem;
-    position: relative;
-    border: 4px ridge var(--dark);
-    border-radius: 0.8rem;
-    background-color: var(--dark-t);
-    font-size: 0.8rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), 0 0.4rem 1.2rem var(--shadow);
-    color: white;
-    text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.6), 0 0 0.6rem hsla(57, 100%, 99%, 0.6);
-}
+
 /* Background-Picture should be corresponding to weather :=) */
 body {
-    background-image: url("../img/kenrick-mills-728501-unsplash.jpg");
+    /* background-image: url("../img/kenrick-mills-728501-unsplash.jpg"); */
     background-repeat: no-repeat;
     background-position: left;
     background-size: cover;
@@ -39,7 +28,8 @@ body {
 }
 .wind-arrow {
     position: relative;
-    margin-left: 0.5em;
+    margin-left: 0.6em;
+    margin-right: 0.3em;
     font-size: 0.8em;
     overflow: visible;
 }

@@ -1,5 +1,28 @@
 'use strict';
 
+//////////////////////////////////////////////////////////////
+// Time to a Greeting
+
+/**
+ * Converts a daytime (hour) to an appropriate greeting.
+ * hours: 0-23
+ * @param {number|string} hour - The number of day hour to convert.
+ */
+function timeToGreet(hour) {
+	if (hour >= 5 && hour <= 10) return "Good morning";
+	if (hour >= 11 && hour <= 14) return "Good day"; // or "Hello"
+	if (hour >= 15 && hour <= 17) return "Good afternoon";
+	else return "Good evening";
+	/*
+		Nachts: 1-3
+		Morgens: 7-9
+		Mittags: 13-15
+		Abends: 19-21
+	*/
+}
+
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // http://snowfence.umn.edu/Components/winddirectionanddegreeswithouttable3.htm
 /**
@@ -115,7 +138,7 @@ function owmIDToMwAbbr(id) {
 	if (id >= 802 && id <= 804) return "hc";
 	if (id >= 500 && id <= 504) return "s";
 	if (id >= 300 && id < 400) return "lr";
-	if (id >= 520 && id <= 522 || id === 531) return "hr";
+	if ( (id >= 520 && id <= 522) || id === 531) return "hr";
 	if (id >= 200 && id < 300) return "t";
 	if (id === 511) return "h";
 	if (id === 611) return "sl";
@@ -123,7 +146,7 @@ function owmIDToMwAbbr(id) {
 	if (id === 700) return "hc";
 }
 
-export {getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr};
+export {timeToGreet, getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr};
 
 
 /* Hier könnten noch die Übersetzungen von Windgeschwindigkeit in 

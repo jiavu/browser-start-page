@@ -5,19 +5,60 @@
   --shadow: hsla(0, 0%, 13%, 0.3);
   
   --darkest: hsl(0, 0%, 13%);
-  --dark: hsl(0, 0%, 27%);
-  --dark-t: hsla(0, 0%, 27%, 0.7);
+  --dark: hsl(0, 0%, 18%);
+  --dark-t: hsla(0, 0%, 18%, 0.75);
   --medium: hsl(0, 0%, 60%);
-  --light: hsl(0, 0%, 93%);
-  --lightest: hsl(0, 0%, 96%);
+	--light: hsl(0, 0%, 93%);
+	--light-t: hsla(0, 0%, 93%, 0.75);
+	--lightest: hsl(0, 0%, 96%);
+	--lightest-t: hsla(0, 0%, 96%, 0.75);
 
-  --color1-dark: hsl(197, 100%, 25%);
-  --color1: hsl(197, 100%, 45%);
+  --color1-dark: hsl(206, 58%, 25%);
+	--color1: hsl(206, 58%, 50%);
+	--color1-light: hsl(206, 58%, 60%);
+	--color1-light-t: hsla(206, 58%, 60%, 0.75);
 
-  font-family: monospace;
+	--trans-time-slow: 0.75s;
 
-  --trans-time-slow: 0.75s;
+	font-family: 'Josefin Sans', sans-serif;
 }
+
+	/* Base font (from Google Fonts): */
+	/*	
+	<link href="https://fonts.googleapis.com/css?family=Advent+Pro:100|BenchNine:300|Heebo:100|Josefin+Sans:100|Kanit:100|Lato:100|Roboto:100|Source+Sans+Pro:200|Yanone+Kaffeesatz:200|Yantramanav:100" rel="stylesheet">
+  
+  font-family: 'Josefin Sans', sans-serif; maybe
+	font-family: 'Yantramanav', sans-serif; maybe
+	font-family: 'Yanone Kaffeesatz', sans-serif; maybe.
+	font-family: 'Source Sans Pro', sans-serif; maybe.
+	font-family: 'Lato', sans-serif; maybe.
+  font-family: 'Advent Pro', sans-serif; maybe..
+	font-family: 'Heebo', sans-serif; probably not
+	font-family: 'Kanit', sans-serif; probably not
+	font-family: 'BenchNine', sans-serif; probably not
+	font-family: 'Roboto', sans-serif; probably not
+	font-family: 'Wire One', sans-serif; no
+	font-family: 'Assistant', sans-serif; no
+	*/
+
+/* Interesting, but special styles: */
+/* 
+<link href="https://fonts.googleapis.com/css?family=Cute+Font|Iceland|Kirang+Haerang|NTR|Stylish" rel="stylesheet">
+font-family: 'Iceland', cursive;
+font-family: 'NTR', sans-serif;
+font-family: 'Cute Font', cursive;
+font-family: 'Stylish', sans-serif;
+font-family: 'Kirang Haerang', cursive;
+*/
+/* Clock, Numbers, WeatherApp */
+/* 
+<link href="https://fonts.googleapis.com/css?family=Expletus+Sans|Megrim|Stardos+Stencil|Wallpoet" rel="stylesheet">
+font-family: 'Megrim', cursive;
+font-family: 'Wallpoet', cursive;
+font-family: 'Expletus Sans', cursive;
+font-family: 'Stardos Stencil', cursive;
+*/
+
 html {
   /* height: 100vh; */
   /* scroll-behavior: smooth; */
@@ -29,7 +70,8 @@ html {
 body {
   /* min-height: 100%; */
   min-width: 320px;
-  background-color: var(--lightest);
+	background-color: var(--color1-light);
+	background-image: linear-gradient(195deg, var(--color1), var(--light));
   color: var(--darkest);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,29 +81,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-
-/*===============*/
-/* Media queries */
-/*===============*/
-
-@media only screen and (max-width: 451px) {     /* bp 451px */
-
-}
-
-@media only screen and (min-width: 451px) {     /* bp 451px */
-    
-}
-
-@media only screen and (min-width: 600px) {     /* bp 600px */
-
-}
-
-@media only screen and (min-width: 768px) {     /* bp 768px */
-
-}
-
-@media only screen and (min-width: 1080px) {     /* bp 1080px */
-
 }

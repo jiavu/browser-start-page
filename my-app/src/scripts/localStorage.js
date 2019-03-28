@@ -5,8 +5,7 @@ function getLocalStorageData() {
 	} else {
 		console.log("Sorry, no Web Storage support.");
 		return {
-			visitorsName: "anonymous",
-			firstVisit: false
+			visitorsName: "anonymous"
 		}
 	}
 }

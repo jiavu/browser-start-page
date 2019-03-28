@@ -18,7 +18,7 @@ class GetVisitorsName extends React.Component {
 	}
 
 	handleChange(event) {
-		this.setState( {value: event.target.value } )
+		this.setState({ value: event.target.value })
 	}
 	handleSubmit(event) {
 		event.preventDefault();
@@ -32,20 +32,25 @@ class GetVisitorsName extends React.Component {
 	render() {
 
 		return (
-			<section className="perfect-centering-contents full-height flex-column">
-				<p>Hello Visitor, what's your name?</p>
-				<div style={{ textAlign:"center"}}>
-					<form onSubmit={ this.handleSubmit }>
-						<input type="text" placeholder="Please enter your name here"
-							ref={input => this.nameInput = input}
-							onChange={ this.handleChange }/>
-						<br/>
-						<input type="submit" className="large-button" value="Continue"/>
+			<section className="perfect-centering-contents full-height-width flex-column">
+				<div className="app-frame">
+					<h2>Hello Visitor, what's your name?</h2>
+					<div style={{ textAlign: "center" }}>
+						<form onSubmit={this.handleSubmit}>
+							<input type="text" size="28"
+								placeholder="Please enter your name here"
+								ref={input => this.nameInput = input}
+								onChange={this.handleChange} />
+							<br/>
+							<input type="submit" className="large-button" value="Continue" />
 						</form>
-					<button type="button" className="no-button"
-						onClick={this.handleClick}>Continue anonymous -&gt;
-					</button>
+						<button type="button" className="no-button"
+							onClick={this.handleClick}>Continue anonymous -&gt;
+						</button>
+					</div>
 				</div>
+
+				
 			</section>
 		);
 	}

@@ -63,7 +63,7 @@ class CurrentWeather extends Component {
 			<div className="current-weather">
 				<div className="head">
 					<img src={this.state.imgSrc} alt={this.wID} className="weather-icon"/>
-					<p style={{ padding: "0 0.5em" }}>{Math.round(this.state.temp)}°C</p>
+					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
 					<div className="wind-arrow" style={rotateArrow}>
 						<i className="fas fa-location-arrow"></i>
 						{/* this.props.circleAround */}

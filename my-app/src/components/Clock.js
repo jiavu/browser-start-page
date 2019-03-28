@@ -9,7 +9,6 @@ class Clock extends Component {
 
     componentDidMount() {
         this.timerID = setInterval( () => this.tick(), 1000);
-        
     }
 
     componentWillUnmount() {
@@ -18,18 +17,21 @@ class Clock extends Component {
 
     tick() {
         this.setState( { date: new Date() } );
+        this.props.hourOfDay(this.state.date.getHours() );
     }
 
     render() {
+
+        const lang = this.props.lang;
         let options = {
             weekday: "long", year: "numeric", month: "long", day: "numeric"
         }
-        let date = this.state.date.toLocaleDateString("en-GB", options);
-        let time = this.state.date.toLocaleTimeString("en-GB");
+        let date = this.state.date.toLocaleDateString(lang, options);
+        let time = this.state.date.toLocaleTimeString(lang);
 
         return (
             <section>
-                <p>It's {date} at<br/> {time}.</p>
+                <p>It's {date} at<br/> {time}</p>
             </section>
         )
     }

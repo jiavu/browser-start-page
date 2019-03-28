@@ -56,6 +56,10 @@ https://unsplash.com/
 TO DO
 =====
 
+- Font für Uhrzeiten ausprobieren.
+
+- Settings hinzufügen, zur Namensänderung oder evtl. Eingabe von API-Keys.
+
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
@@ -63,14 +67,18 @@ TO DO
 
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
 
-- Das Wetter muss regelmaeßig aktualisieren. So zum Beispiel auch zum Tageswechsel!
-- Location eventuell häufiger abfragen, für Nutzung auf mobilen Geräten.
+- Gleichzeitig aktualisieren: Wetter neu importieren und Begrüßung an die Tageszeit anpassen!
 
+- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
+
+
+(
 - navigator.geolocation.getCurrentPosition() hat mal nicht funktioniert. Eventuell
 	könnte ich solch einen Fehler abfangen und einen Fallback auf die letzten
 	Koordinaten ausführen lassen. try/catch?
 
 - metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
+)
 
 =====================
 Wind Arrows pure html
