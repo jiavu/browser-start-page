@@ -19,7 +19,7 @@ class Greeting extends Component {
 	localStorage.getItem("key"); */
 	componentDidMount() {
 		let visits = getLocalStorageData().visits;
-		this.setState( { visits } );
+    this.setState( { visits } );
 	}
 
 	hourOfDay(hour) {
@@ -34,10 +34,9 @@ class Greeting extends Component {
 
 		return (
 			<section className="app-frame">
-				<h1 style={styleWelcome}>
-					{ visitorsName === "anonymous" ?
-						greeting + "!": `${greeting}, ${visitorsName}!` }
-				</h1>
+          { visitorsName === "anonymous" ?
+            <h1>{greeting}!</h1> : <h1>{greeting}, <br></br> {visitorsName}!</h1>
+          }
 				<Clock lang={this.props.lang} hourOfDay={this.hourOfDay}/>
 			</section>
 		);
@@ -45,8 +44,3 @@ class Greeting extends Component {
 }
 
 export default Greeting;
-
-
-const styleWelcome = {
-  padding: "0.2rem 0 0.3rem"
-};

@@ -81,13 +81,33 @@ button.no-button:hover {
 
 /*==============================*/
 
+.clock {
+  display: inline-block;
+  width: 3.6em;
+  /* 
+  background-color: white;
+  padding: 0.2em 0.5em;
+  font-family: 'Expletus Sans', cursive;
+  color: var(--dark); */
+  }
+  /* 
+  font-family: 'Megrim', cursive;
+font-family: 'Wallpoet', cursive;
+font-family: 'Expletus Sans', cursive;
+font-family: 'Stardos Stencil', cursive;
+  */
+
+
+/*==============================*/
+
 .app-frame {
     margin: 1rem 0;
     padding: 0.9rem;
-    width: auto;
+    max-width: 600px;
     position: relative;
     /* border: 4px ridge var(--dark);
     border-radius: 0.8rem; */
+    overflow: hidden;
     background-color: var(--dark-t);
     font-size: 0.8rem;
     color: white;
@@ -96,7 +116,7 @@ button.no-button:hover {
 }
 
 .app-frame h1, .app-frame h2 { padding: 1rem 0; }
-.app-frame h1 { font-size: 2rem; }
+.app-frame h1 { font-size: 2.5em; }
 .app-frame h2 { font-size: 1.8em; }
 
 /*==============================*/

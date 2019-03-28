@@ -30,8 +30,8 @@ class Clock extends Component {
         let time = this.state.date.toLocaleTimeString(lang);
 
         return (
-            <section>
-                <p>It's {date} at<br/> {time}</p>
+            <section className="date-and-clock">
+                <p>It's {date} at <span className="clock">{time}</span></p>
             </section>
         )
     }

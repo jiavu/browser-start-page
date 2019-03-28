@@ -18,7 +18,7 @@ body {
 }
 .current-weather .descr {
     font-size: 1.55em;
-    padding: 0.25em 0 0.45em;
+    padding: 0.4em 0 0.45em;
 }
 /* .current-weather .body {
     font-size: 0.8rem;

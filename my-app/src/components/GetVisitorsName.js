@@ -37,7 +37,7 @@ class GetVisitorsName extends React.Component {
 					<h2>Hello Visitor, what's your name?</h2>
 					<div style={{ textAlign: "center" }}>
 						<form onSubmit={this.handleSubmit}>
-							<input type="text" size="28"
+							<input type="text" size="28" maxLength="32" 
 								placeholder="Please enter your name here"
 								ref={input => this.nameInput = input}
 								onChange={this.handleChange} />

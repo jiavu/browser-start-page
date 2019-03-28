@@ -75,8 +75,8 @@ class CurrentWeather extends Component {
 					<p>Clouds: {this.state.clouds}%</p>
 
 					<p>
-						Sunrise: {this.state.sunrise} |
-                    Sunset: {this.state.sunset}
+            <span>Sunrise: {this.state.sunrise}</span>
+						<span style={{paddingLeft:"1em"}}>Sunset: {this.state.sunset}</span>
 					</p>
 					<p>{this.state.location}</p>
 				</div>
