@@ -112,7 +112,7 @@ font-family: 'Stardos Stencil', cursive;
     font-size: 0.8rem;
     color: white;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), 0 0.4rem 1.2rem var(--shadow);
-    text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.6), 0 0 0.6rem hsla(57, 100%, 99%, 0.6);
+    text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.2), 0 0 0.6rem hsla(57, 100%, 100%, 0.2);
 }
 
 .app-frame h1, .app-frame h2 { padding: 1rem 0; }
