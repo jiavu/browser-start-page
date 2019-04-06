@@ -18,6 +18,7 @@ class Clock extends Component {
     tick() {
         this.setState( { date: new Date() } );
         this.props.hourOfDay(this.state.date.getHours() );
+        this.props.timer(); // Timer for updating photos and weather
     }
 
     render() {

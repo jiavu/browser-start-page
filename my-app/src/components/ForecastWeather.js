@@ -46,7 +46,7 @@ class ForecastWeather extends React.Component {
 
 	render() {
 		return (
-			<React.Fragment />
+			<section className="app-frame forecast-weather"/>
 		)
 	}
 }

@@ -56,7 +56,9 @@ https://unsplash.com/
 TO DO
 =====
 
-- Windpfeil müsste nun richtig sein.. überprüfen.
+- Fotos laden. Tageszeit mit einbeziehen, _n appendix
+
+- Information über Foto: unsplash.com, Fotograf(verlinkt)
 
 - First visit "Welcome" und visit-counter bei Mount of <Greeting>
 
@@ -64,6 +66,8 @@ TO DO
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
 - Shuzenji-Problem... Wie kommt der response zu Stande, welcher query?
+
+- Fallback weather data... Wenn import fehlschlägt, lasse letze Werte.
 
 Ein Counter, Aktualisierung jede Sekunde von der Componente Clock angestoßen.
 	counter++

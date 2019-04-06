@@ -33,13 +33,3 @@ body {
     font-size: 0.8em;
     overflow: visible;
 }
-/* .wind-arrow-svg {   /* probably unused
-    fill: white;
-} */
-.circle-around {
-    z-index: 2;
-    position: absolute;
-    left: 0; right: 0;
-    fill: green;
-    stroke: white;
-}

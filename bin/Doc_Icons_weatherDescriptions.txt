@@ -54,4 +54,4 @@ t		  Thunderstorm	  						        2xx thunderstorm
 h		  Hail			  Hagel					          511 rain (freezing rain)
 sl		Sleet			  Schneeregen					    611	snow (sleet)
 sn		Snow											          6xx	snow
-														              7xx Nebel gibt es bei metaweather nicht als icon.
+			hc als Ersatz					              7xx Nebel gibt es bei metaweather nicht als icon.

@@ -37,7 +37,8 @@ class Greeting extends Component {
           { visitorsName === "anonymous" ?
             <h1>{greeting}!</h1> : <h1>{greeting}, <br></br> {visitorsName}!</h1>
           }
-				<Clock lang={this.props.lang} hourOfDay={this.hourOfDay}/>
+        <Clock lang={this.props.lang} hourOfDay={this.hourOfDay}
+              timer={this.props.timer}/>
 			</section>
 		);
 	}

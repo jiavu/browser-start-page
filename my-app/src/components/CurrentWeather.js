@@ -6,7 +6,10 @@ let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 80
 
 class CurrentWeather extends Component {
 
-	state = { response: null }
+	state = {
+    response: null,
+    pictureList : null
+  }
 
 	componentDidMount() {
 		this.getWeather(this.props.lat, this.props.lon);
@@ -49,8 +52,38 @@ class CurrentWeather extends Component {
 			sunset: sunset.toLocaleTimeString("en-GB", timeFormat),
 			location: `${data.name}, ${data.sys.country}`,
 			response: data
-		});		
-	}
+    });
+    // Wenn pictureList im State noch undefined ist,
+    // oder wenn Wetter ID nicht die gleiche wie previousWeatherID ist:
+      // führe loadPictureList() aus.
+
+  }
+  
+  /**
+   * import appropriate list of weather photos and mix the order.
+   * @param {number} daytime - hour of the day.
+   * @param {number} ID - WeatherID.
+   */
+  loadPictureList(daytime, ID) {
+    /* übersetze die ID zu abbreviation, speichere den Wert hier in einer lokalen ID-Variable.
+    Überprüfe VORHER:
+    wenn die ID 7xx ist, setze die lokale ID-Variable auf "fog" und fahre fort.*/
+    // Wenn daytime später Abend oder Nacht ist, prüfe Nacht-Liste (wID )
+      // Solange die Länge dieser Liste größer 0 ist:
+        // Kopiere das Array (1-dimensional) sicher in einen Klon.
+      // ansonsten greife auf Tages-Liste zurück und erstelle daraus einen Klon.
+    // mische diesen Klon durch.
+    // Übergebe diese neue Liste an den State.
+    
+  }
+
+  loadPicture() {
+    // lade Bild aus this.state.pictureList.
+    // iteriere... generator funktion?
+    // wird nach ca. 10 sek vom timer ausgelöst
+    // Wenn iterator == Länge der Liste bzw. am Ende angekommen:
+      // fange von vorne an, also setze iterator zurück.
+  }
 
 
 	render() {
@@ -60,7 +93,7 @@ class CurrentWeather extends Component {
 		};
 
 		return this.state.response ? (
-			<div className="current-weather">
+			<section className="app-frame current-weather">
 				<div className="head">
 					<img src={this.state.imgSrc} alt={this.wID} className="weather-icon"/>
 					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
@@ -80,7 +113,7 @@ class CurrentWeather extends Component {
 					</p>
 					<p>{this.state.location}</p>
 				</div>
-			</div>
+			</section>
 		) : null;
 	}
 }

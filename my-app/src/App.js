@@ -12,9 +12,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      visitorsName: ""
+      visitorsName: "",
+      timer : 0
     };
     this.setVisitorsName = this.setVisitorsName.bind(this);
+    this.timer = this.timer.bind(this);
   }
   
   componentDidMount() {
@@ -29,6 +31,12 @@ class App extends Component {
     this.setState( {visitorsName: name} );
   }
 
+  timer() {
+    let newSecond = this.state.timer + 1;
+    this.setState({ timer: newSecond });
+    if (this.state.timer === 300) this.state.timer = 0;
+  }
+
   render() {
     const visitorsName = this.state.visitorsName;
     
@@ -37,7 +45,7 @@ class App extends Component {
         <main className="full-height-width">
           { visitorsName ? (
             <div className="flex-column">
-              <Greeting visitorsName={visitorsName} lang={lang}/>
+              <Greeting visitorsName={visitorsName} lang={lang} timer={this.timer}/>
               <WeatherApp lang={lang}/>
             </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
