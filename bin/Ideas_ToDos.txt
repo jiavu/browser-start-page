@@ -56,9 +56,7 @@ https://unsplash.com/
 TO DO
 =====
 
-- Fotos laden. Tageszeit mit einbeziehen, _n appendix
-
-- Information über Foto: unsplash.com, Fotograf(verlinkt)
+- Transitions: Links, Photos laden. Componenten laden.
 
 - First visit "Welcome" und visit-counter bei Mount of <Greeting>
 

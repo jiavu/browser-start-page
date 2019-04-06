@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
 import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
+import { mixList, arrayGen } from "../scripts/utils";
+import { weatherPictures } from "../img/weatherPictures";
 
 const metaweatherIconsURL = "https://www.metaweather.com/static/img/weather/";
 let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
+
+let index = 0;
 
 class CurrentWeather extends Component {
 
 	state = {
     response: null,
-    pictureList : null
+    prev_wID: null,
+    arrIterator: null,
+    pictureList: null
+  }
+
+  htmlEl = document.createElement("div")
+
+  componentWillUnmount() {
+    this.htmlEl.remove();
   }
 
 	componentDidMount() {
 		this.getWeather(this.props.lat, this.props.lon);
 		// LÖSCHE FOLGENDE ZEILE NACH DEM DESIGNEN:
-		//this.updateState(tempData);
-	}
+    //this.updateState(tempData);
+  }
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.changePic !== prevProps.changePic) {
+      this.loadPicture();
+    }
+  }
 
 	getWeather(lat, lon) {
 		const xhr = new XMLHttpRequest();
@@ -37,12 +55,13 @@ class CurrentWeather extends Component {
 	updateState(data) {
 		let sunrise = new Date(data.sys.sunrise * 1000);
 		let sunset = new Date(data.sys.sunset * 1000);
-		const timeFormat = { hour: "numeric", minute: "2-digit" }
+		const timeFormat = { hour: "numeric", minute: "2-digit" };
 		this.setState({
-			imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg",
-			wID: data.weather[0].id + " " + data.weather[0].main,
+      imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg",
+      wID: data.weather[0].id,
+      // it's for the alt-attribute of img. Concatenates id and short description:
+			wID_descr: data.weather[0].id + " " + data.weather[0].main,
 			descr: data.weather[0].description,
-			/* descr: "scattered clouds", */
 			temp: data.main.temp,
 			wind_speed: data.wind.speed,
 			wind_deg: data.wind.deg,
@@ -53,36 +72,63 @@ class CurrentWeather extends Component {
 			location: `${data.name}, ${data.sys.country}`,
 			response: data
     });
-    // Wenn pictureList im State noch undefined ist,
-    // oder wenn Wetter ID nicht die gleiche wie previousWeatherID ist:
-      // führe loadPictureList() aus.
-
+    if (!this.state.pictureList || this.state.wID !== this.state.prev_wID) {
+      this.loadPictureList( this.props.hourOfDay,
+                            this.state.wID,
+                            sunrise.getHours(),
+                            sunset.getHours()
+                            );
+      this.setState( {prev_wID : this.state.wID} );
+    }
   }
   
   /**
-   * import appropriate list of weather photos and mix the order.
-   * @param {number} daytime - hour of the day.
+   * imports appropriate list of weather photos.
+   * @param {number} hourOfDay - hour of the day.
    * @param {number} ID - WeatherID.
+   * @param {number} sunriseHour
+   * @param {number} sunsetHour
    */
-  loadPictureList(daytime, ID) {
-    /* übersetze die ID zu abbreviation, speichere den Wert hier in einer lokalen ID-Variable.
-    Überprüfe VORHER:
-    wenn die ID 7xx ist, setze die lokale ID-Variable auf "fog" und fahre fort.*/
-    // Wenn daytime später Abend oder Nacht ist, prüfe Nacht-Liste (wID )
-      // Solange die Länge dieser Liste größer 0 ist:
-        // Kopiere das Array (1-dimensional) sicher in einen Klon.
-      // ansonsten greife auf Tages-Liste zurück und erstelle daraus einen Klon.
-    // mische diesen Klon durch.
-    // Übergebe diese neue Liste an den State.
+  loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
+
+    let abbrID = owmIDToMwAbbr(ID);
+    if (  Math.floor(ID / 100) === 7  ) abbrID = "fog";
+    if (hourOfDay >= sunsetHour || hourOfDay < sunriseHour ||
+        weatherPictures[abbrID + "_n"].length > 0 ) abbrID += "_n";
+    const pictureList = mixList([...weatherPictures[abbrID] ]);
+    this.setState( {
+      pictureList : pictureList,
+      arrIterator : arrayGen(pictureList)
+    } );
     
+    this.loadPicture();
   }
 
   loadPicture() {
-    // lade Bild aus this.state.pictureList.
-    // iteriere... generator funktion?
+    let el = this.state.arrIterator.next();
+    console.log("Länge: " + this.state.pictureList.length);
+    console.log(index++);
+    
+    if (el.done) {
+      this.setState( {arrIterator : arrayGen(this.state.pictureList) } );
+      el = this.state.arrIterator.next();
+    }
+    
+    document.body.style.backgroundImage = `url(${el.value.url})`;
+
+    // set photographer info and link to body-bottom.
+    
+    this.htmlEl.id = "photographer-info";
+    this.htmlEl.innerHTML = `
+      <a href=${el.value.profileURL} target="_blank">
+        Photo: ${el.value.name}<br>
+        unsplash.com
+      </a>`;
+    document.body.appendChild(this.htmlEl);
+
     // wird nach ca. 10 sek vom timer ausgelöst
     // Wenn iterator == Länge der Liste bzw. am Ende angekommen:
-      // fange von vorne an, also setze iterator zurück.
+    // fange von vorne an, also setze iterator zurück.
   }
 
 
@@ -95,11 +141,10 @@ class CurrentWeather extends Component {
 		return this.state.response ? (
 			<section className="app-frame current-weather">
 				<div className="head">
-					<img src={this.state.imgSrc} alt={this.wID} className="weather-icon"/>
+					<img src={this.state.imgSrc} alt={this.wID_descr} className="weather-icon"/>
 					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
 					<div className="wind-arrow" style={rotateArrow}>
 						<i className="fas fa-location-arrow"></i>
-						{/* this.props.circleAround */}
 					</div>
 				</div>
 				<div className="descr">{this.state.descr}</div>

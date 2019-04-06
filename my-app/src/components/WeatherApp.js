@@ -43,8 +43,11 @@ class WeatherApp extends Component {
 
 		return (this.state.lat && this.state.lon) ? (
 			<React.Fragment>
-				<CurrentWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang}/>
+        {typeof this.props.hourOfDay === "number" && (
+          <CurrentWeather lat={this.state.lat} lon={this.state.lon}
+            changePic={this.props.changePic}
+					  lang={this.props.lang} hourOfDay={this.props.hourOfDay}/>
+        )}
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
 					lang={this.props.lang}/>
 			</React.Fragment>

@@ -69,7 +69,7 @@ let weatherPictures = {
       {
         name: "Fabian Oelkers",
         profileURL: "https://unsplash.com/@foemedia",
-        url: "https://images.unsplash.com/photo-1479233270217-77d99c494c4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1479233270217-77d99c494c4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
       },
       {
         name: "Andrea Enríquez Cousiño",
@@ -585,7 +585,7 @@ let weatherPictures = {
     ]
 }
 
-
+export { weatherPictures };
 /* 
 metaweather
 abbr	Name											              entspricht möglicherweise (openweathermap)

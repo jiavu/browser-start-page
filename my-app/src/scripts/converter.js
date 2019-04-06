@@ -143,7 +143,7 @@ function owmIDToMwAbbr(id) {
 	if (id >= 200 && id < 300) return "t";
 	if (id === 511) return "h";
 	if (id === 611) return "sl";
-	if (id >= 600 && id < 700) return "sn";
+	if ( Math.floor(id / 100) === 6) return "sn";
   if (id === 700) return "hc";
   // not working for weatherPictures.js. using "fog" there for 7xx
 }

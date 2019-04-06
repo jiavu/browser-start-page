@@ -13,9 +13,13 @@ class App extends Component {
     super();
     this.state = {
       visitorsName: "",
-      timer : 0
+      hourOfDay: null,
+      timer : 0,
+      changePic : false
     };
+
     this.setVisitorsName = this.setVisitorsName.bind(this);
+    this.setHourOfDay = this.setHourOfDay.bind(this);
     this.timer = this.timer.bind(this);
   }
   
@@ -31,10 +35,16 @@ class App extends Component {
     this.setState( {visitorsName: name} );
   }
 
+  setHourOfDay(hour) {
+		// die hourOfDay wird sekündlich von der Clock aktualisiert...
+		this.setState( {hourOfDay: hour } );
+	}
+
   timer() {
     let newSecond = this.state.timer + 1;
     this.setState({ timer: newSecond });
-    if (this.state.timer === 300) this.state.timer = 0;
+    if (this.state.timer % 5 === 0) this.setState( {changePic : !this.state.changePic} );
+    if (this.state.timer === 300) this.setState( { timer : 0} );
   }
 
   render() {
@@ -45,8 +55,9 @@ class App extends Component {
         <main className="full-height-width">
           { visitorsName ? (
             <div className="flex-column">
-              <Greeting visitorsName={visitorsName} lang={lang} timer={this.timer}/>
-              <WeatherApp lang={lang}/>
+              <Greeting visitorsName={visitorsName} lang={lang}
+                        timer={this.timer} setHourOfDay={this.setHourOfDay}/>
+              <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay} changePic={this.state.changePic}/>
             </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>

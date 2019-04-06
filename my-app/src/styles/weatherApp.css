@@ -1,5 +1,5 @@
 
-/* Background-Picture should be corresponding to weather :=) */
+/* Background-Picture corresponding to weather :=) */
 body {
     /* background-image: url("../img/kenrick-mills-728501-unsplash.jpg"); */
     background-repeat: no-repeat;
@@ -32,4 +32,15 @@ body {
     margin-right: 0.3em;
     font-size: 0.8em;
     overflow: visible;
+}
+
+#photographer-info {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  /* background-color: hsla(0, 0%, 18%, 0.15); */
+  color: var(--medium);
+  font-size: 0.6rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0; right: 0;
 }
