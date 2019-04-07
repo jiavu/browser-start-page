@@ -1,4 +1,4 @@
-"use strict";
+//"use strict"; // unecessary
 
 // Helper Functions, Utilities
 
@@ -16,7 +16,7 @@ const mixList = arr => {
 }
 
 /**
- * This is an Array generator.
+ * This is a simple Array generator.
  * @param {array} arr
  */
 const arrayGen = function* (arr) {
@@ -25,5 +25,18 @@ const arrayGen = function* (arr) {
   }
 }
 
+/**
+ * infinite generator, after end of Array it starts from beginning again.
+ * @param {array} arr 
+ */
+const arrayGen2 = function*(arr) {
+  let i = 0;
+  while (true) {
+    yield arr[i];
+    i++;
+    if (i === arr.length) i = 0;
+  }  
+}
 
-export {mixList, arrayGen};
+
+export {mixList, arrayGen, arrayGen2 };

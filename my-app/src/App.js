@@ -15,7 +15,8 @@ class App extends Component {
       visitorsName: "",
       hourOfDay: null,
       timer : 0,
-      changePic : false
+      changePic : false,
+      updateWeather : false
     };
 
     this.setVisitorsName = this.setVisitorsName.bind(this);
@@ -43,8 +44,11 @@ class App extends Component {
   timer() {
     let newSecond = this.state.timer + 1;
     this.setState({ timer: newSecond });
-    if (this.state.timer % 5 === 0) this.setState( {changePic : !this.state.changePic} );
-    if (this.state.timer === 300) this.setState( { timer : 0} );
+    if (this.state.timer % 10 === 0) this.setState( {changePic : !this.state.changePic} );
+    if (this.state.timer === 600) {
+      this.setState( { timer : 0} );
+      this.setState( {updateWeather : !this.state.updateWeather} );
+    }
   }
 
   render() {
@@ -55,9 +59,11 @@ class App extends Component {
         <main className="full-height-width">
           { visitorsName ? (
             <div className="flex-column">
-              <Greeting visitorsName={visitorsName} lang={lang}
+              <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
                         timer={this.timer} setHourOfDay={this.setHourOfDay}/>
-              <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay} changePic={this.state.changePic}/>
+              <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
+                          changePic={this.state.changePic}
+                          updateWeather={this.state.updateWeather}/>
             </div>
           ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
         </main>

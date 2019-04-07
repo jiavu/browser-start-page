@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
-import { mixList, arrayGen } from "../scripts/utils";
+import { mixList, arrayGen2 } from "../scripts/utils";
 import { weatherPictures } from "../img/weatherPictures";
 
 const metaweatherIconsURL = "https://www.metaweather.com/static/img/weather/";
-let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
-
-let index = 0;
+//let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
 
 class CurrentWeather extends Component {
 
@@ -32,6 +30,9 @@ class CurrentWeather extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.changePic !== prevProps.changePic) {
       this.loadPicture();
+    }
+    if (this.props.updateWeather !== prevProps.updateWeather) {
+      this.getWeather(this.props.lat, this.props.lon);
     }
   }
 
@@ -93,12 +94,12 @@ class CurrentWeather extends Component {
 
     let abbrID = owmIDToMwAbbr(ID);
     if (  Math.floor(ID / 100) === 7  ) abbrID = "fog";
-    if (hourOfDay >= sunsetHour || hourOfDay < sunriseHour ||
+    if ( (hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
         weatherPictures[abbrID + "_n"].length > 0 ) abbrID += "_n";
     const pictureList = mixList([...weatherPictures[abbrID] ]);
     this.setState( {
       pictureList : pictureList,
-      arrIterator : arrayGen(pictureList)
+      arrIterator : arrayGen2(pictureList)
     } );
     
     this.loadPicture();
@@ -106,18 +107,9 @@ class CurrentWeather extends Component {
 
   loadPicture() {
     let el = this.state.arrIterator.next();
-    console.log("Länge: " + this.state.pictureList.length);
-    console.log(index++);
-    
-    if (el.done) {
-      this.setState( {arrIterator : arrayGen(this.state.pictureList) } );
-      el = this.state.arrIterator.next();
-    }
-    
     document.body.style.backgroundImage = `url(${el.value.url})`;
-
-    // set photographer info and link to body-bottom.
     
+    // set photographer info and link to body-bottom.
     this.htmlEl.id = "photographer-info";
     this.htmlEl.innerHTML = `
       <a href=${el.value.profileURL} target="_blank">

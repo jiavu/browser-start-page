@@ -18,7 +18,7 @@
 	--color1-light: hsl(206, 58%, 60%);
 	--color1-light-t: hsla(206, 58%, 60%, 0.75);
 
-  --trans-time-slow: 0.75s;
+  --trans-time-slow: 1s;
   --trans-time-fast: 0.3s;
 
 	font-family: 'Josefin Sans', sans-serif;
@@ -77,6 +77,8 @@ body {
   color: var(--darkest);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: background-image var(--trans-time-slow);
+  transition: background-image var(--trans-time-slow);
 }
 #root { height: 100vh; }
 

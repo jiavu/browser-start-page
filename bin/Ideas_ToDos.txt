@@ -56,29 +56,27 @@ https://unsplash.com/
 TO DO
 =====
 
-- Transitions: Links, Photos laden. Componenten laden.
+- BROWSER-TESTS! Es gab einmal eine Exception bei FF mit dem iterator, der null war.
 
-- First visit "Welcome" und visit-counter bei Mount of <Greeting>
+- Transitions: Links, Photos laden. Componenten laden.
+  Check: image slide shows, preloaded pics?
+  css transitions and React (possible for mounting components?)
+- Images sollten am besten vorgeladen werden, da sonst die transition nicht flüssig ist.
+
+- FullscreenMode
 
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
 - Shuzenji-Problem... Wie kommt der response zu Stande, welcher query?
+  Wenn Wetter == Shuzenji, nochmal versuchen...
 
 - Fallback weather data... Wenn import fehlschlägt, lasse letze Werte.
 
-Ein Counter, Aktualisierung jede Sekunde von der Componente Clock angestoßen.
-	counter++
-	wenn counter % 10 (oder vielleicht 15) === 0, lade neues Bild.
-	Wenn counter auf 300, Wetter aktualisieren und counter auf 0 zurücksetzen.
-	Wenn Wetter == Shuzenji, nochmal versuchen...
-	
-- Wetter neu importieren, ca. alle 5 Minuten. s. o.^
+- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
 
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
 	(Der Response sollte dann vermutlich ein http error wie 404 sein.)
-
-- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
 
 - Abfangen: Wenn Windrichtung fehlt, Pfeil weg. <response>.wind[deg]
 

@@ -1,4 +1,4 @@
-'use strict';
+//"use strict"; // unecessary
 
 //////////////////////////////////////////////////////////////
 // Time to a Greeting
@@ -9,6 +9,7 @@
  * @param {number|string} hour - The number of day hour to convert.
  */
 function timeToGreet(hour) {
+  
 	if (hour >= 5 && hour <= 10) return "Good morning";
 	if (hour >= 11 && hour <= 14) return "Good day"; // or "Hello"
 	if (hour >= 15 && hour <= 17) return "Good afternoon";
