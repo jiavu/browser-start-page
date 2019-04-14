@@ -17,3 +17,10 @@ to get the weather
 https://cors-anywhere.herokuapp.com/
 enables cross-origin requests to anywhere. License: https://github.com/Rob--W/cors-anywhere/
 Needed because no 'Access-Control-Allow-Origin' Header set on metaweather.com
+
+
+=========
+= Icons =
+=========
+
+fontawesome?
