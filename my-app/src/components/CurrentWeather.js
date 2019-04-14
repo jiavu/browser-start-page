@@ -23,8 +23,7 @@ class CurrentWeather extends Component {
 
 	componentDidMount() {
 		this.getWeather(this.props.lat, this.props.lon);
-		// LÖSCHE FOLGENDE ZEILE NACH DEM DESIGNEN:
-    //this.updateState(tempData);
+    //this.updateState(tempData);   // DELETE after production!
   }
   
   componentDidUpdate(prevProps) {
@@ -56,7 +55,8 @@ class CurrentWeather extends Component {
 	updateState(data) {
 		let sunrise = new Date(data.sys.sunrise * 1000);
 		let sunset = new Date(data.sys.sunset * 1000);
-		const timeFormat = { hour: "numeric", minute: "2-digit" };
+    const timeFormat = { hour: "numeric", minute: "2-digit" };
+    
 		this.setState({
       imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg",
       wID: data.weather[0].id,
@@ -68,11 +68,12 @@ class CurrentWeather extends Component {
 			wind_deg: data.wind.deg,
 			wind_descr : windDescription[this.props.lang][convertWindSpeed(data.wind.speed)],
 			clouds: data.clouds.all,
-			sunrise: sunrise.toLocaleTimeString("en-GB", timeFormat),
-			sunset: sunset.toLocaleTimeString("en-GB", timeFormat),
+			sunrise: sunrise.toLocaleTimeString(this.props.lang, timeFormat),
+			sunset: sunset.toLocaleTimeString(this.props.lang, timeFormat),
 			location: `${data.name}, ${data.sys.country}`,
 			response: data
     });
+    
     if (!this.state.pictureList || this.state.wID !== this.state.prev_wID) {
       this.loadPictureList( this.props.hourOfDay,
                             this.state.wID,

@@ -1,0 +1,19 @@
+=======
+= API =
+=======
+
+CurrentWeather:
+https://fcc-weather-api.glitch.me/api/current?lat={}&lon={}
+
+
+Weather Forecast:
+https://www.metaweather.com/api/location/search/?lattlong={},{}
+to get the woeid
+
+https://www.metaweather.com/api/location/${woeid}/
+to get the weather
+
+
+https://cors-anywhere.herokuapp.com/
+enables cross-origin requests to anywhere. License: https://github.com/Rob--W/cors-anywhere/
+Needed because no 'Access-Control-Allow-Origin' Header set on metaweather.com

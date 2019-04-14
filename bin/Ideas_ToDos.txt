@@ -58,6 +58,8 @@ TO DO
 
 - BROWSER-TESTS! Es gab einmal eine Exception bei FF mit dem iterator, der null war.
 
+- propTypes setzen?
+
 - Transitions: Links, Photos laden. Componenten laden.
   Check: image slide shows, preloaded pics?
   css transitions and React (possible for mounting components?)

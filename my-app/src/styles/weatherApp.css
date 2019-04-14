@@ -44,3 +44,12 @@ body {
   position: absolute;
   bottom: 0; right: 0;
 }
+
+/*==================*/
+/* FORECAST WEATHER */
+/*==================*/
+
+.forecast-weather .forecast-body {
+  display: -webkit-flex;
+  display: flex;
+}
