@@ -52,4 +52,5 @@ body {
 .forecast-weather .forecast-body {
   display: -webkit-flex;
   display: flex;
+  
 }
