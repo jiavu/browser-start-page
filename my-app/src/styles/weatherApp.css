@@ -49,7 +49,20 @@ body {
 /* FORECAST WEATHER */
 /*==================*/
 
+.forecast-weather .forecast-head {
+
+}
 .forecast-weather .forecast-body {
+  margin-top: 0.5em;
   display: -webkit-flex;
   display: flex;
+}
+.forecast-weather .forecast-tile {
+  width: 9em;
+  /* text-align: center; */
+  padding: 0.3em 0.4em 0;
+}
+.forecast-weather .forecast-icon-wrapper {
+  margin: 0.4em 0;
+  width: 4em;
 }

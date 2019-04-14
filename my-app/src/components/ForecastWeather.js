@@ -72,12 +72,14 @@ class ForecastWeather extends React.Component {
 	render() {
 		return this.state.response ? (
 			<section className="app-frame forecast-weather">
-      <div>At {this.state.location} </div>
+      <div className="forecast-head">At {this.state.location} </div>
       <div className="forecast-body">
         { this.state.w_data.map( (day, i) => (
-          <div key={i}>
-            <h3>{day.day}</h3>
-            <img src={day.imgSrc} alt={day.abbr}></img>
+          <div key={i} className="forecast-tile">
+            <h3>{i === 0 ? "Today" : day.day}</h3>
+            <div className="forecast-icon-wrapper">
+              <img src={day.imgSrc} alt={day.abbr}></img>
+            </div>
             <p>{Math.round(day.min_temp)}° / {Math.round(day.max_temp)}°</p>
           </div>
         )) }
