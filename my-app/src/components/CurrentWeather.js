@@ -94,12 +94,14 @@ class CurrentWeather extends Component {
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
+    // all 7xx are "fog":
     if (  Math.floor(ID / 100) === 7  ) abbrID = "fog";
+    // Night mode:
     if ( (hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
         weatherPictures[abbrID + "_n"].length > 0 ) abbrID += "_n";
     const pictureList = mixList([...weatherPictures[abbrID] ]);
     this.setState( {
-      pictureList : pictureList,
+      pictureList,
       arrIterator : arrayGen2(pictureList)
     } );
     
@@ -107,21 +109,58 @@ class CurrentWeather extends Component {
   }
 
   loadPicture() {
-    let el = this.state.arrIterator.next();
-    document.body.style.backgroundImage = `url(${el.value.url})`;
-    
-    // set photographer info and link to body-bottom.
-    this.htmlEl.id = "photographer-info";
-    this.htmlEl.innerHTML = `
-      <a href=${el.value.profileURL} target="_blank">
-        Photo: ${el.value.name}<br>
-        unsplash.com
-      </a>`;
-    document.body.appendChild(this.htmlEl);
+    /* Maybe that's not the React-way. */
 
-    // wird nach ca. 10 sek vom timer ausgelöst
-    // Wenn iterator == Länge der Liste bzw. am Ende angekommen:
-    // fange von vorne an, also setze iterator zurück.
+    // get next picture from Iterator:
+    let el = this.state.arrIterator.next();
+
+    let bgDivNew = document.createElement("div");
+    bgDivNew.classList.add("bg-fs-fixed");
+    let bgDiv = document.querySelector(".bg-fs-fixed");
+    let rootEl = document.querySelector("#root");
+    rootEl.insertBefore(bgDivNew, bgDiv);
+
+    // create img, load img src URL:
+    let promise = new Promise( (resolve, reject) => {
+      const msgF = `Failed to load img URL:\n${el.value.name}\n${el.value.url}`;
+      
+      let img = document.createElement("img");
+      bgDivNew.appendChild(img);
+      img.alt = el.value.name;
+      img.src = el.value.url;
+      if (img.complete) resolve(img);
+      else {
+        img.addEventListener("load", e => resolve(img) );
+        img.addEventListener("error", e => reject(new Error(msgF) ));
+      }
+    });
+
+    // when img is loaded, attach to DOM and fade-over:
+    promise.then( img => {
+      // Fade-over (css transition):      
+      bgDiv.style.opacity = 0;
+
+      // bgDiv aus dem DOM entfernen:      
+      window.setTimeout( ()=> {
+        bgDiv.remove();
+      }, 2500); // In css --trans-time-slow is set to 2s.
+
+      // set photographer info and link to body-bottom.
+      this.htmlEl.id = "photographer-info";
+      this.htmlEl.innerHTML = `
+        <a href=${el.value.profileURL} target="_blank">
+          Photo: ${el.value.name}<br>
+          unsplash.com
+        </a>`;
+      document.body.appendChild(this.htmlEl);
+
+    }, err => {
+      console.error(err);
+      bgDivNew.remove();
+      window.setTimeout( this.loadPicture.bind(this), 1000);
+      // could create an infinity loop
+    });
+
   }
 
 

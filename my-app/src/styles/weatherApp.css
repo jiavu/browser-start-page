@@ -1,11 +1,19 @@
 
 /* Background-Picture corresponding to weather :=) */
-body {
-    /* background-image: url("../img/kenrick-mills-728501-unsplash.jpg"); */
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover;
+
+.bg-fs-fixed {
+  position: fixed;
+  top: 0; left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  -webkit-transition: opacity var(--trans-time-slow);
+  transition: opacity var(--trans-time-slow);
 }
+.bg-fs-fixed > img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .current-weather .head {
     font-size: 2.6em;
     display: -webkit-flex;

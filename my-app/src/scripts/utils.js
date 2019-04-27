@@ -1,4 +1,4 @@
-//"use strict"; // unecessary
+//"use strict"; // unnecessary
 
 // Helper Functions, Utilities
 
