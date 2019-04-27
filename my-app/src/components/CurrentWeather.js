@@ -15,6 +15,8 @@ class CurrentWeather extends Component {
     pictureList: null
   }
 
+  elementRef = React.createRef()
+
   htmlEl = document.createElement("div")
 
   componentWillUnmount() {
@@ -24,8 +26,20 @@ class CurrentWeather extends Component {
 	componentDidMount() {
 		this.getWeather(this.props.lat, this.props.lon);
     //this.updateState(tempData);   // DELETE after production!
+
+    // fade-in (css transition):
+    this.fadeInAfterMount();
   }
-  
+
+  fadeInAfterMount() {
+    // fade-in (css transition):
+    window.setTimeout(() => {
+      const elt = this.elementRef.current;
+      if (!elt) this.fadeInAfterMount();
+      else elt.style.opacity = "1";
+    }, 50);
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.changePic !== prevProps.changePic) {
       this.loadPicture();
@@ -114,20 +128,15 @@ class CurrentWeather extends Component {
     // get next picture from Iterator:
     let el = this.state.arrIterator.next();
 
-    let bgDivNew = document.createElement("div");
-    bgDivNew.classList.add("bg-fs-fixed");
-    let bgDiv = document.querySelector(".bg-fs-fixed");
-    let rootEl = document.querySelector("#root");
-    rootEl.insertBefore(bgDivNew, bgDiv);
-
-    // create img, load img src URL:
     let promise = new Promise( (resolve, reject) => {
       const msgF = `Failed to load img URL:\n${el.value.name}\n${el.value.url}`;
       
+      // create img, load img src URL:
       let img = document.createElement("img");
-      bgDivNew.appendChild(img);
       img.alt = el.value.name;
       img.src = el.value.url;
+      img.classList.add("bg-fs-fixed");
+
       if (img.complete) resolve(img);
       else {
         img.addEventListener("load", e => resolve(img) );
@@ -137,12 +146,15 @@ class CurrentWeather extends Component {
 
     // when img is loaded, attach to DOM and fade-over:
     promise.then( img => {
-      // Fade-over (css transition):      
-      bgDiv.style.opacity = 0;
+      let rootEl = document.querySelector("#root");
+      let currBg = document.querySelector(".bg-fs-fixed");
+      rootEl.insertBefore(img, currBg);
+      // Fade-over (css transition):
+      currBg.style.opacity = 0;
 
       // bgDiv aus dem DOM entfernen:      
       window.setTimeout( ()=> {
-        bgDiv.remove();
+        currBg.remove();
       }, 2500); // In css --trans-time-slow is set to 2s.
 
       // set photographer info and link to body-bottom.
@@ -156,9 +168,8 @@ class CurrentWeather extends Component {
 
     }, err => {
       console.error(err);
-      bgDivNew.remove();
       window.setTimeout( this.loadPicture.bind(this), 1000);
-      // could create an infinity loop
+      // could create an infinity loop if no image url can be loaded
     });
 
   }
@@ -171,7 +182,7 @@ class CurrentWeather extends Component {
 		};
 
 		return this.state.response ? (
-			<section className="app-frame current-weather">
+			<section className="app-frame current-weather" ref={this.elementRef}>
 				<div className="head">
 					<img src={this.state.imgSrc} alt={this.wID_descr} className="weather-icon"/>
 					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>

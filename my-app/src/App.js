@@ -29,10 +29,6 @@ class App extends Component {
     this.setState( {
       visitorsName: storage.visitorsName
     });
-    /* Blödsinn
-    window.addEventListener("resize", ()=> {
-      document.querySelector("#root").style.height = "100vh";
-    }) */
   }
 
   setVisitorsName(name) {
@@ -48,7 +44,7 @@ class App extends Component {
   timer() {
     let newSecond = this.state.timer + 1;
     this.setState({ timer: newSecond });
-    if (this.state.timer % 10 === 0) this.setState( {changePic : !this.state.changePic} );
+    if (this.state.timer % 18 === 0) this.setState( {changePic : !this.state.changePic} );
     if (this.state.timer === 600) {
       this.setState( { timer : 0} );
       this.setState( {updateWeather : !this.state.updateWeather} );
@@ -63,7 +59,7 @@ class App extends Component {
         <div className="bg-fs-fixed"/>
 
         <div className="main-container full-height-width flex-row-auto-wrap">
-          <main className="full-height-width">
+          <main className="full-height-width perfect-centering-contents">
             { visitorsName ? (
               <div className="flex-column">
                 <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}

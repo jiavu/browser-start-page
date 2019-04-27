@@ -10,12 +10,26 @@ const imgUrl = "https://www.metaweather.com/static/img/weather/";
 
 class ForecastWeather extends React.Component {
 
-	state = { response: null }
+  state = { response: null }
+  
+  elementRef = React.createRef()
 
 	componentDidMount() {
     this.getWoeid(this.props.lat, this.props.lon);
     //this.updateState(example); // DELETE after production!
-	}
+
+    // fade-in (css transition):
+    this.fadeInAfterMount();
+  }
+
+  fadeInAfterMount() {
+    // fade-in (css transition):
+    window.setTimeout(() => {
+      const elt = this.elementRef.current;
+      if (!elt) this.fadeInAfterMount();
+      else elt.style.opacity = "1";
+    }, 50);
+  }
 
 	getWoeid(lat, lon) {
 		fetch(proxyUrl + url + `search/?lattlong=${lat},${lon}`, {
@@ -71,7 +85,7 @@ class ForecastWeather extends React.Component {
 
 	render() {
 		return this.state.response ? (
-			<section className="app-frame forecast-weather">
+			<section className="app-frame forecast-weather" ref={this.elementRef}>
       <div className="forecast-head">At {this.state.location} </div>
       <div className="forecast-body">
         { this.state.w_data.map( (day, i) => (

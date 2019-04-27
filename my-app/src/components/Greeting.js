@@ -8,6 +8,8 @@ class Greeting extends Component {
 
   state = { greeting : "Welcome" }
 
+  elementRef = React.createRef()
+
 	//setLocalStorageData("firstVisit", false);
 	/* localStorage.setItem("key", "value");
 	localStorage.getItem("key"); */
@@ -19,6 +21,17 @@ class Greeting extends Component {
       setLocalStorageData("visits", ++visits);
     }
     this.setState( { visits } );
+
+    this.fadeInAfterMount();
+  }
+
+  fadeInAfterMount() {
+    // fade-in (css transition):
+    window.setTimeout(() => {
+      const elt = this.elementRef.current;
+      if (!elt) this.fadeInAfterMount();
+      else elt.style.opacity = "1";
+    }, 50);
   }
   
   componentDidUpdate(prevProps) {
@@ -32,7 +45,7 @@ class Greeting extends Component {
 		let visitorsName = this.props.visitorsName;
 
 		return (
-			<section className="app-frame">
+			<section className="app-frame" ref={this.elementRef}>
           { visitorsName === "anonymous" ?
             <h1>{this.state.greeting}!</h1>
           : <h1>{this.state.greeting}, <br></br> {visitorsName}!</h1>
