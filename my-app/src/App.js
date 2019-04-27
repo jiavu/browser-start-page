@@ -29,6 +29,10 @@ class App extends Component {
     this.setState( {
       visitorsName: storage.visitorsName
     });
+    /* Blödsinn
+    window.addEventListener("resize", ()=> {
+      document.querySelector("#root").style.height = "100vh";
+    }) */
   }
 
   setVisitorsName(name) {
@@ -55,19 +59,23 @@ class App extends Component {
     const visitorsName = this.state.visitorsName;
     
     return (
-      <div className="main-container full-height-width flex-row-auto-wrap">
-        <main className="full-height-width">
-          { visitorsName ? (
-            <div className="flex-column">
-              <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
-                        timer={this.timer} setHourOfDay={this.setHourOfDay}/>
-              <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
-                          changePic={this.state.changePic}
-                          updateWeather={this.state.updateWeather}/>
-            </div>
-          ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
-        </main>
-      </div>
+      <React.Fragment>
+        <div className="bg-fs-fixed"/>
+
+        <div className="main-container full-height-width flex-row-auto-wrap">
+          <main className="full-height-width">
+            { visitorsName ? (
+              <div className="flex-column">
+                <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
+                          timer={this.timer} setHourOfDay={this.setHourOfDay}/>
+                <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
+                            changePic={this.state.changePic}
+                            updateWeather={this.state.updateWeather}/>
+              </div>
+            ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
+          </main>
+        </div>
+      </React.Fragment>
     );
   }
 }
