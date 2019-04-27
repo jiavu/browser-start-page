@@ -95,6 +95,7 @@ class ForecastWeather extends React.Component {
               <img src={day.imgSrc} alt={day.abbr}></img>
             </div>
             <p>{Math.round(day.min_temp)}° / {Math.round(day.max_temp)}°</p>
+            <p>pred. {day.pred}%</p>
           </div>
         )) }
       </div>

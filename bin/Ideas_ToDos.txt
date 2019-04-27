@@ -22,7 +22,6 @@
 
 ==> NewsFeed
 
-
 ... using local storage for settings like visitors name, first visit.
 
 
@@ -60,10 +59,8 @@ TO DO
 
 - propTypes setzen?
 
-- Transitions: Links, Photos laden. Componenten laden.
-  Check: image slide shows, preloaded pics?
-  css transitions and React (possible for mounting components?)
-- Images sollten am besten vorgeladen werden, da sonst die transition nicht flüssig ist.
+- mobile: Ich will eine progressive web app! (service workers & Co)
+- responsive design. Es gibt Probleme mit vh und vw.
 
 - FullscreenMode
 
