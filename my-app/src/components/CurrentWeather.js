@@ -94,12 +94,14 @@ class CurrentWeather extends Component {
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
+    // all 7xx are "fog":
     if (  Math.floor(ID / 100) === 7  ) abbrID = "fog";
+    // Night mode:
     if ( (hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
         weatherPictures[abbrID + "_n"].length > 0 ) abbrID += "_n";
     const pictureList = mixList([...weatherPictures[abbrID] ]);
     this.setState( {
-      pictureList : pictureList,
+      pictureList,
       arrIterator : arrayGen2(pictureList)
     } );
     
@@ -118,10 +120,6 @@ class CurrentWeather extends Component {
         unsplash.com
       </a>`;
     document.body.appendChild(this.htmlEl);
-
-    // wird nach ca. 10 sek vom timer ausgelöst
-    // Wenn iterator == Länge der Liste bzw. am Ende angekommen:
-    // fange von vorne an, also setze iterator zurück.
   }
 
 
