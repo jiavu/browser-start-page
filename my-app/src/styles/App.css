@@ -18,7 +18,6 @@
 .full-height-width {
 min-height: 100%;
 /* height: auto !important; */
-height: 100%;
 width: 100%;
 }
 
@@ -114,7 +113,7 @@ font-family: 'Stardos Stencil', cursive;
     transition: opacity var(--trans-time-fast);
     margin: 1rem 0;
     padding: 0.9rem;
-    max-width: 600px;
+    /* max-width: 600px; */
     position: relative;
     /* border: 4px ridge var(--dark);
     border-radius: 0.8rem; */
@@ -132,7 +131,10 @@ font-family: 'Stardos Stencil', cursive;
 
 /*==============================*/
 
-main { display: block; }
+main {
+  display: block;
+  padding: 0 0.5rem;
+}
 
 /*===============*/
 /* Media queries */
@@ -141,23 +143,21 @@ main { display: block; }
 /* I guess I will take 375px as the smallest size. */
 
 @media only screen and (max-width: 451px) {     /* bp 451px */
-    .main-container {
-        padding: 0.5rem;
-    }
+
 }
 
 @media only screen and (min-width: 451px) {     /* bp 451px */
-    .main-container {}
+
 }
 
 @media only screen and (min-width: 600px) {     /* bp 600px */
-    .main-container {}
+
 }
 
 @media only screen and (min-width: 768px) {     /* bp 768px */
-    .main-container {}
+
 }
 
 @media only screen and (min-width: 1080px) {     /* bp 1080px */
-    .main-container {}
+
 }

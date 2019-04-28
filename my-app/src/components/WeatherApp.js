@@ -4,7 +4,7 @@ import "../styles/weatherApp.css";
 import CurrentWeather from "./CurrentWeather";
 import ForecastWeather from "./ForecastWeather";
 
-
+/* 
 const blurIcon = (
 	<defs>
 		<filter id="blur">
@@ -12,7 +12,7 @@ const blurIcon = (
 		</filter>
 	</defs>
 )
-
+ */
 
 class WeatherApp extends Component {
 

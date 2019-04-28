@@ -3,11 +3,11 @@
 // WEITERMACHEN MIT SHOWERS (rain with some sun)
 // suche nach rainbows (rain + sun )
 
-// 15 bis 20 Bilder pro Kategorie ist eine ganz gute Richtung.
+// Search for 15 up to 20 pictures for each category.
 
 /* 
 metaweather
-abbr	Name											              entspricht möglicherweise (openweathermap)
+abbr	Name											              corresponds (openweathermap)
 
 c		  Clear											              800	clear sky
 lc		Light Cloud		                          Sonne mit leichten Wolken		801 few clouds
@@ -975,7 +975,7 @@ export { weatherPictures };
 //////////////////////////////////////////////////////
 /*=========================*/
 //#region CHECK COLLECTION //
-
+/* 
 function analyseImageCollection() {
   let info = {
     insgesamt: 0
@@ -998,6 +998,6 @@ function analyseImageCollection() {
   
 }
 
-//analyseImageCollection();
-
+analyseImageCollection();
+ */
 //#endregion
