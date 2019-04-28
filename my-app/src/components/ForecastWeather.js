@@ -84,22 +84,33 @@ class ForecastWeather extends Component {
   }
 
 	render() {
+
 		return this.state.response ? (
 			<section className="app-frame forecast-weather" ref={this.elementRef}>
-      <div className="forecast-head">At {this.state.location} </div>
-      <div className="forecast-body flex-row-auto-wrap">
-        { this.state.w_data.map( (day, i) => (
-          <div key={i} className="forecast-tile">
-            <h3>{i === 0 ? "Today" : day.day}</h3>
-            <div className="forecast-icon-wrapper">
-              <img src={day.imgSrc} alt={day.abbr}></img>
-            </div>
-            <p>{Math.round(day.min_temp)}° / {Math.round(day.max_temp)}°</p>
-            <p>pred. {day.pred}%</p>
-          </div>
-        )) }
-      </div>
+        <div className="forecast-head">At {this.state.location} </div>
+        
+        <div className="forecast-body">
 
+          { this.state.w_data.map( (day, i) => (
+            <div key={i} className="forecast-tile">
+              <h3>{i === 0 ? "Today" : day.day}</h3>
+              <div className="forecast-icon-wrapper">
+                <img src={day.imgSrc} alt={day.abbr}></img>
+              </div>
+              <p>{Math.round(day.min_temp)}° / {Math.round(day.max_temp)}°</p>
+              <p className="fc-wind-descr">
+                {convertWindSpeed(day.wind_speed)} Bft
+                  <i className="fas fa-location-arrow wind-arrow"
+                      style={{
+                        transform: `rotate(${day.wind_deg + 135}deg)`
+                      }}>
+                  </i>
+              </p>
+              <p className="pred">pred. {day.pred}%</p>
+            </div>
+          )) }
+
+        </div>
       
       </section>
 		) : null;

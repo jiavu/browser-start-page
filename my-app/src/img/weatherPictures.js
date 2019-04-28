@@ -382,12 +382,12 @@ let weatherPictures = {
       {
         name: "Lori M. Sousa",
         profileURL: "https://unsplash.com/@loriseuss",
-        url: "https://images.unsplash.com/photo-1436228625646-f30c3e8447b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+        url: "https://images.unsplash.com/photo-1436228625646-f30c3e8447b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
       },
       {
         name: "Billy Huynh",
         profileURL: "https://unsplash.com/@billy_huy",
-        url: "https://images.unsplash.com/photo-1503355292172-d861fcfa2228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1503355292172-d861fcfa2228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "Jeremy Goldberg",
@@ -397,47 +397,47 @@ let weatherPictures = {
       {
         name: "Bryan Minear",
         profileURL: "https://unsplash.com/@bryanminear",
-        url: "https://images.unsplash.com/photo-1503509701200-f488aa927c02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1503509701200-f488aa927c02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "Bryan Minear",
         profileURL: "https://unsplash.com/@bryanminear",
-        url: "https://images.unsplash.com/photo-1542296140-47fd7d838e76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+        url: "https://images.unsplash.com/photo-1542296140-47fd7d838e76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
       },
       {
         name: "Andrew Small",
         profileURL: "https://unsplash.com/@andsmall",
-        url: "https://images.unsplash.com/photo-1472068113808-609faf3a6cf1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1472068113808-609faf3a6cf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "George Kedenburg III",
         profileURL: "https://unsplash.com/@gk3",
-        url: "https://images.unsplash.com/photo-1508184360431-51989b9a586f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1508184360431-51989b9a586f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "Nick Scheerbart",
         profileURL: "https://unsplash.com/@nck",
-        url: "https://images.unsplash.com/photo-1429734956993-8a9b0555e122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1079&q=80"
+        url: "https://images.unsplash.com/photo-1429734956993-8a9b0555e122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1379&q=80"
       },
       {
         name: "Linda Xu",
         profileURL: "https://unsplash.com/@rhindaxu",
-        url: "https://images.unsplash.com/photo-1480947787678-b5676c5a4d18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
+        url: "https://images.unsplash.com/photo-1480947787678-b5676c5a4d18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
       },
       {
         name: "Saketh Garuda",
         profileURL: "https://unsplash.com/@sakethgaruda",
-        url: "https://images.unsplash.com/photo-1503424932503-3907c660eea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1503424932503-3907c660eea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "Abigail Keenan",
         profileURL: "https://unsplash.com/@akeenster",
-        url: "https://images.unsplash.com/photo-1437915219556-8c287594737a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        url: "https://images.unsplash.com/photo-1437915219556-8c287594737a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       },
       {
         name: "Dino Reichmuth",
         profileURL: "https://unsplash.com/@dinoreichmuth",
-        url: "https://images.unsplash.com/photo-1445364030979-677898992bf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=972&q=80"
+        url: "https://images.unsplash.com/photo-1445364030979-677898992bf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1344&q=80"
       },
       {
         name: "Taylor Peissner",

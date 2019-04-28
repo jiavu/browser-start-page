@@ -55,11 +55,14 @@ https://unsplash.com/
 TO DO
 =====
 
-- BROWSER-TESTS! Es gab einmal eine Exception bei FF mit dem iterator, der null war.
+- Höhe von main soll mindestens den ganzen Bildschirm einnehmen, es sei denn, der content ist höher.
+- forecast width bei wrap ist blöd.
 
-- propTypes setzen?
+- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
+  https://www.w3schools.com/howto/howto_css_tooltip.asp
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
+
 - responsive design. Es gibt Probleme mit vh und vw.
 
 - FullscreenMode
@@ -77,9 +80,9 @@ TO DO
 - Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
 	(Der Response sollte dann vermutlich ein http error wie 404 sein.)
 
-- Abfangen: Wenn Windrichtung fehlt, Pfeil weg. <response>.wind[deg]
+- BROWSER-TESTS
 
-- Settings hinzufügen, zur Namensänderung oder evtl. Eingabe von API-Keys.
+- propTypes setzen
 
 (
 - im Response von fcc-weather sind manchmal 2/mehrere Wetter unter <response>.weather[0] oder halt [1] (Objects).

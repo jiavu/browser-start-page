@@ -177,24 +177,31 @@ class CurrentWeather extends Component {
 
 	render() {
 
-		let rotateArrow = {
-			transform: `rotate(${this.state.wind_deg + 135}deg)`
-		};
-
 		return this.state.response ? (
 			<section className="app-frame current-weather" ref={this.elementRef}>
+
 				<div className="head">
 					<img src={this.state.imgSrc} alt={this.wID_descr} className="weather-icon"/>
 					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
-					<div className="wind-arrow" style={rotateArrow}>
-						<i className="fas fa-location-arrow"></i>
-					</div>
 				</div>
-				<div className="descr">{this.state.descr}</div>
-				<div className="body">
-					<p className="wind-descr">{this.state.wind_descr} from {getCompassPoint(this.state.wind_deg)}</p>
-					<p>Clouds: {this.state.clouds}%</p>
 
+				<div className="descr">{this.state.descr}</div>
+
+				<div className="body">
+
+					<p className="wind-descr">{this.state.wind_descr} from {getCompassPoint(this.state.wind_deg)}</p>
+					
+          <p>
+            {convertWindSpeed(this.state.wind_speed)} Bft
+              { this.state.wind_deg && (
+                <i className="fas fa-location-arrow wind-arrow"
+                  style={{
+                    transform: `rotate(${this.state.wind_deg + 135}deg)`
+                  }}>
+              </i>
+              )}
+          </p>
+          <p>Clouds: {this.state.clouds}%</p>
 					<p>
             <span>Sunrise: {this.state.sunrise}</span>
 						<span style={{paddingLeft:"1em"}}>Sunset: {this.state.sunset}</span>

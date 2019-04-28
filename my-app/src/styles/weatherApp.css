@@ -13,6 +13,7 @@
 
 .current-weather .head {
     font-size: 2.6em;
+    padding-right: 1em;
     display: -webkit-flex;
     display: flex;
     flex-wrap: nowrap;
@@ -28,15 +29,13 @@
 /* .current-weather .body {
     font-size: 0.8rem;
 } */
-.wind-descr {
+.current-weather .wind-descr {
     margin-bottom: 0.7em;
 }
+
 .wind-arrow {
-    position: relative;
-    margin-left: 0.6em;
-    margin-right: 0.3em;
     font-size: 0.8em;
-    overflow: visible;
+    margin-left: 0.8em;
 }
 
 #photographer-info {
@@ -58,14 +57,13 @@
 
 }
 .forecast-weather .forecast-body {
-  margin-top: 0.5em;
   /* flex: */
-  justify-content: space-around;
-
-  /* Wenn wrap, dann body heigth so festlegen,
-  das space zwischen den tiles oben und unten ist (flex, align-items(?) ) */
+  /* justify-content: space-around; */
 }
 .forecast-weather .forecast-tile {
+  float: left;
+  padding-top: 0.75em;
+  padding-bottom: 0.45em;
   width: calc( (320px - 1rem - 1.8rem) / 2 );
   /* text-align: center; */
   /* padding: 0.3em 0.4em 0; */
@@ -73,5 +71,11 @@
 .forecast-weather .forecast-icon-wrapper {
   margin: 0.4em 0;
   width: 4em;
-  
+}
+.forecast-weather .fc-wind-descr {
+  padding: 0.4em 0;
+  font-size: 0.8em;
+}
+.forecast-weather .pred {
+  font-size: 0.8em;
 }
