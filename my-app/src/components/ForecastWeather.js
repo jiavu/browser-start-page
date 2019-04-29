@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
-import { getCompassPoint, convertWindSpeed, windDescription } from "../scripts/converter";
+import { convertWindSpeed } from "../scripts/converter";
 
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const url = "https://www.metaweather.com/api/location/";
@@ -89,7 +89,7 @@ class ForecastWeather extends Component {
 			<section className="app-frame forecast-weather" ref={this.elementRef}>
         <div className="forecast-head">At {this.state.location} </div>
         
-        <div className="forecast-body">
+        <div className="forecast-body flex-row-auto-wrap">
 
           { this.state.w_data.map( (day, i) => (
             <div key={i} className="forecast-tile">

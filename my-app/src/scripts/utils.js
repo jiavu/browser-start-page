@@ -38,5 +38,26 @@ const arrayGen2 = function*(arr) {
   }  
 }
 
+/**
+ * Creates a function that keeps back a function from running and delays run
+ * of this function after a given number of milliseconds.
+ * @param {function} func - The callback function to debounce
+ * @param {number} ms - The milliseconds to wait until callback function will run.
+ */
+const debounce = function(func, ms) {
 
-export {mixList, arrayGen, arrayGen2 };
+	let timeout;
+	
+	return (...args) => {
+		if (timeout) {
+			clearTimeout(timeout);
+			timeout = null;
+		}
+		timeout = setTimeout( () => {
+			clearTimeout(timeout);
+			func.apply(null, args);
+		}, ms);
+	};
+};
+
+export {mixList, arrayGen, arrayGen2, debounce };

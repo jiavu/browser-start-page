@@ -140,8 +140,6 @@ main {
 /* Media queries */
 /*===============*/
 
-/* I guess I will take 375px as the smallest size. */
-
 @media only screen and (max-width: 451px) {     /* bp 451px */
 
 }

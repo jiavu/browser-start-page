@@ -58,11 +58,11 @@
 }
 .forecast-weather .forecast-body {
   /* flex: */
-  /* justify-content: space-around; */
+  justify-content: space-around;
 }
 .forecast-weather .forecast-tile {
-  float: left;
-  padding-top: 0.75em;
+  /* float: left; */
+  padding-top: 0.9em;
   padding-bottom: 0.45em;
   width: calc( (320px - 1rem - 1.8rem) / 2 );
   /* text-align: center; */

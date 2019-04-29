@@ -55,7 +55,10 @@ https://unsplash.com/
 TO DO
 =====
 
-- Höhe von main soll mindestens den ganzen Bildschirm einnehmen, es sei denn, der content ist höher.
+- Wird das forecast-weather aktualisiert?
+
+- FullscreenMode
+
 - forecast width bei wrap ist blöd.
 
 - forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
@@ -63,14 +66,17 @@ TO DO
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
-- responsive design. Es gibt Probleme mit vh und vw.
-
-- FullscreenMode
 
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
 - Shuzenji-Problem... Wie kommt der response zu Stande, welcher query?
+  Shuzenji hat die Koordinaten
+    lat= 34.979087
+    lon= 138.949264
+  Berlin hat
+    lat= 52.4500992
+    lon= 13.3185536
   Wenn Wetter == Shuzenji, nochmal versuchen...
 
 - Fallback weather data... Wenn import fehlschlägt, lasse letze Werte.

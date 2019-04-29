@@ -79,9 +79,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* CHANGE THAT: Some JS to detect innerHeight and -width with listener to onresize */
-#root { min-height: 100vh; }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
