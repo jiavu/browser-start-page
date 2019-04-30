@@ -55,6 +55,40 @@ https://unsplash.com/
 TO DO
 =====
 
+- unsplash developer docu: https://unsplash.com/documentation#dynamically-resizable-images
+  dynamic resizing. -> get window sizes and set query string of urls dynamically!
+                    -> on resize: set new query strings!
+  example:
+    url:
+      https://images.unsplash.com/photo-1500673922987-e212871fec22
+  
+    query parameters:
+      ixlib=rb-1.2.1
+      ixid=eyJhcHBfaWQiOjEyMDd9     // URL must contain this parameter (always the same)
+      auto=format
+      fit=crop
+      w=1950    // dimension in px
+      q=80      // quality, compression
+
+      auto=format   //  will choose an optimal image format depending on browser.
+
+      I will need:
+      url + ixid + auto=format + h={window.innerHeight} + q=80
+      
+      https://docs.imgix.com/apis/url/size/fit
+      do I need fit=crop and/or fit=max?
+      probably not because of my object-fit: cover css.
+      default is fit=clip.
+
+- https://unsplash.com/api-terms
+  hotlinking
+  If I am linking to other pages I need to have a legal terms page.
+  Do I have to publish a privacy policy because of linking to unsplash profiles?
+  I must provide notice of every download to unsplash..
+  https://unsplash.com/license
+  free to use, for commercial use, without crediting.
+  licence to modify is granted.
+
 - Wird das forecast-weather aktualisiert?
 
 - In den query strings der URLs zu den Bildern steckt die Bildergröße mit drin.
