@@ -57,6 +57,11 @@ TO DO
 
 - Wird das forecast-weather aktualisiert?
 
+- In den query strings der URLs zu den Bildern steckt die Bildergröße mit drin.
+  Ohne query string scheint man die Original-Größe zu bekommen (kann schon mal 16MB groß sein.)
+  Ich sollte mal die api-documentation lesen und überlegen, welche Größe geladen werden soll.
+  kleinere für mobile? (so 1050 vs 1950 z. B.)
+
 - FullscreenMode
 
 - forecast width bei wrap ist blöd.
