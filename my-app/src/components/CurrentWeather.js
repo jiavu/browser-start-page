@@ -128,13 +128,24 @@ class CurrentWeather extends Component {
     // get next picture from Iterator:
     let el = this.state.arrIterator.next();
 
+    // append query string to url:
+    let imgURL = el.value.url;
+    let ixlib = "ixlib=rb-1.2.1";
+    let ixid = "ixid=eyJhcHBfaWQiOjEyMDd9";
+    let format = "auto=format";
+    let fit = "fit=crop";
+    let width = "w=" + window.innerWidth;
+    let height = "h=" + window.innerHeight;
+    let quality = "q=80";
+    imgURL += `?${ixlib}&${ixid}&${format}&${fit}&${width}&${height}&${quality}`;
+
     let promise = new Promise( (resolve, reject) => {
-      const msgF = `Failed to load img URL:\n${el.value.name}\n${el.value.url}`;
+      const msgF = `Failed to load img URL:\n${el.value.name}\n${imgURL}`;
       
       // create img, load img src URL:
       let img = document.createElement("img");
       img.alt = el.value.name;
-      img.src = el.value.url;
+      img.src = imgURL;
       img.classList.add("bg-fs-fixed");
 
       if (img.complete) resolve(img);
