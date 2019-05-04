@@ -55,6 +55,8 @@ https://unsplash.com/
 TO DO
 =====
 
+- icon entfernen
+
 - unsplash developer docu: https://unsplash.com/documentation#dynamically-resizable-images
   dynamic resizing. -> get window sizes and set query string of urls dynamically!
                     -> on resize: set new query strings!

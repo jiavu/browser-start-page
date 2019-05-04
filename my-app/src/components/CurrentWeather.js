@@ -41,9 +41,8 @@ class CurrentWeather extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.changePic !== prevProps.changePic) {
-      this.loadPicture();
-    }
+    if (this.props.changePic !== prevProps.changePic &&
+        this.state.arrIterator) this.loadPicture();
     if (this.props.updateWeather !== prevProps.updateWeather) {
       this.getWeather(this.props.lat, this.props.lon);
     }
@@ -58,8 +57,15 @@ class CurrentWeather extends Component {
 		xhr.onreadystatechange = () => {
 
 			if (xhr.readyState === XMLHttpRequest.DONE) {
-				// Fehler werden hier noch nicht abgefangen. falsey response?
-				this.updateState(xhr.response);
+        if (xhr.response) {
+          /* Shuzenji?? False answer. Try again. Sorry Shuzenji. */
+          if (xhr.response.name === "Shuzenji") {
+            console.log( xhr.response.name );
+            window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
+          } else {
+            this.updateState(xhr.response);
+          }
+        } else console.log(xhr);
 			}
 		};
 		xhr.open("GET", url);

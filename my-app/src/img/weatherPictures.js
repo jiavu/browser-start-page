@@ -209,10 +209,6 @@ const weatherPictures = {
     { name: 'Fabian Oelkers',
       profileURL: 'https://unsplash.com/@foemedia',
       url:
-       'https://images.unsplash.com/photo-1479233270217-77d99c494c4e' },
-    { name: 'Fabian Oelkers',
-      profileURL: 'https://unsplash.com/@foemedia',
-      url:
        'https://images.unsplash.com/photo-1532894964196-a805f29171ee' } ],
   
   // ligth cloud, few clouds
@@ -386,10 +382,6 @@ const weatherPictures = {
       profileURL: 'https://unsplash.com/@fancycrave',
       url:
        'https://images.unsplash.com/photo-1492225427505-8d5130acce70' },
-    { name: 'Nick Scheerbart',
-      profileURL: 'https://unsplash.com/@nck',
-      url:
-       'https://images.unsplash.com/photo-1429734956993-8a9b0555e122' },
     { name: 'Noah Näf',
       profileURL: 'https://unsplash.com/@noahdavis',
       url:
@@ -406,10 +398,6 @@ const weatherPictures = {
       profileURL: 'https://unsplash.com/@jplenio',
       url:
        'https://images.unsplash.com/flagged/photo-1552863045-98478b36b024' },
-    { name: 'George Kedenburg III',
-      profileURL: 'https://unsplash.com/@gk3',
-      url:
-       'https://images.unsplash.com/photo-1508184360431-51989b9a586f' },
     { name: 'eberhard grossgasteiger',
       profileURL: 'https://unsplash.com/@eberhardgross',
       url: 'https://images.unsplash.com/photo-1543176633-f692a21fab58' } ],
@@ -767,10 +755,6 @@ const weatherPictures = {
       profileURL: 'https://unsplash.com/@tevintrinh',
       url:
        'https://images.unsplash.com/photo-1515789978829-1418c77d67f6' },
-    { name: 'Kristine Weilert',
-      profileURL: 'https://unsplash.com/@kristineweilert',
-      url:
-       'https://images.unsplash.com/photo-1462290625486-c142817fb94d' },
     { name: 'Sebastian Unrau',
       profileURL: 'https://unsplash.com/@sebastian_unrau',
       url:
@@ -841,7 +825,9 @@ function analyseImageCollection() {
   for (let el in weatherPictures) {
     info[el] = weatherPictures[el].length;
     weatherPictures[el].forEach( e => {
-      if (all.includes(e.url)) dublicates.push(e);
+      if (all.includes(e.url) && ! dublicates.includes(e) ) {
+        dublicates.push( Object.assign( {}, e) );
+      }
       all.push(e.url);
       info.insgesamt++;
     });
@@ -851,7 +837,6 @@ function analyseImageCollection() {
   console.table(info);
   console.log("Dublikate:");
   console.log(dublicates);
-  
 }
 
 analyseImageCollection();
