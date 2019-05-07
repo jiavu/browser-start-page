@@ -10,7 +10,7 @@ class CurrentWeather extends Component {
 
 	state = {
     response: null,
-    prev_wID: null,
+    prev_abbrID: null,
     arrIterator: null,
     pictureList: null
   }
@@ -49,6 +49,7 @@ class CurrentWeather extends Component {
   }
 
 	getWeather(lat, lon) {
+
 		const xhr = new XMLHttpRequest();
 		const endpoint = "https://fcc-weather-api.glitch.me/";
 		const url = endpoint + `api/current?lat=${lat}&lon=${lon}`;
@@ -72,60 +73,63 @@ class CurrentWeather extends Component {
 		xhr.send();
 	}
 
-	updateState(data) {
-		let sunrise = new Date(data.sys.sunrise * 1000);
-		let sunset = new Date(data.sys.sunset * 1000);
+  updateState(data) {
+    let sunrise = new Date(data.sys.sunrise * 1000);
+    let sunset = new Date(data.sys.sunset * 1000);
     const timeFormat = { hour: "numeric", minute: "2-digit" };
-    
-		this.setState({
-      imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg",
+
+    this.setState({
+      abbrID: owmIDToMwAbbr(data.weather[0].id),
+      imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg", // Weather icon
       wID: data.weather[0].id,
       // it's for the alt-attribute of img. Concatenates id and short description:
-			wID_descr: data.weather[0].id + " " + data.weather[0].main,
-			descr: data.weather[0].description,
-			temp: data.main.temp,
-			wind_speed: data.wind.speed,
-			wind_deg: data.wind.deg,
-			wind_descr : windDescription[this.props.lang][convertWindSpeed(data.wind.speed)],
-			clouds: data.clouds.all,
-			sunrise: sunrise.toLocaleTimeString(this.props.lang, timeFormat),
-			sunset: sunset.toLocaleTimeString(this.props.lang, timeFormat),
-			location: `${data.name}, ${data.sys.country}`,
-			response: data
+      wID_descr: data.weather[0].id + " " + data.weather[0].main,
+      descr: data.weather[0].description,
+      temp: data.main.temp,
+      wind_speed: data.wind.speed,
+      wind_deg: data.wind.deg,
+      wind_descr: windDescription[this.props.lang][convertWindSpeed(data.wind.speed)],
+      clouds: data.clouds.all,
+      sunrise: sunrise.toLocaleTimeString(this.props.lang, timeFormat),
+      sunset: sunset.toLocaleTimeString(this.props.lang, timeFormat),
+      location: `${data.name}, ${data.sys.country}`,
+      response: data
     });
-    
-    if (!this.state.pictureList || this.state.wID !== this.state.prev_wID) {
-      this.loadPictureList( this.props.hourOfDay,
-                            this.state.wID,
-                            sunrise.getHours(),
-                            sunset.getHours()
-                            );
-      this.setState( {prev_wID : this.state.wID} );
-    }
+
+    this.loadPictureList(this.props.hourOfDay,
+      this.state.wID,
+      sunrise.getHours(),
+      sunset.getHours()
+    );
   }
-  
+
   /**
-   * imports appropriate list of weather photos.
-   * @param {number} hourOfDay - hour of the day.
-   * @param {number} ID - WeatherID.
-   * @param {number} sunriseHour
-   * @param {number} sunsetHour
-   */
+  * imports appropriate list of weather photos.
+  * @param {number} hourOfDay - hour of the day.
+  * @param {number} ID - WeatherID.
+  * @param {number} sunriseHour
+  * @param {number} sunsetHour
+  */
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
     // all 7xx are "fog":
-    if (  Math.floor(ID / 100) === 7  ) abbrID = "fog";
+    if (Math.floor(ID / 100) === 7) abbrID = "fog";
     // Night mode:
-    if ( (hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
-        weatherPictures[abbrID + "_n"].length > 0 ) abbrID += "_n";
-    const pictureList = mixList([...weatherPictures[abbrID] ]);
-    this.setState( {
-      pictureList,
-      arrIterator : arrayGen2(pictureList)
-    } );
-    
-    this.loadPicture();
+    if ((hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
+      weatherPictures[abbrID + "_n"].length > 0) abbrID += "_n";
+
+    /* Load new picture set?
+    If weather or day/night state didn't change, keep old picture set. */
+    if (!this.state.pictureList || this.state.abbrID !== this.state.prev_abbrID) {
+      const pictureList = mixList([...weatherPictures[abbrID]]);
+      this.setState({
+        pictureList,
+        arrIterator: arrayGen2(pictureList)
+      });
+      this.setState({ prev_abbrID: this.state.abbrID });
+      this.loadPicture();
+    }
   }
 
   loadPicture() {
