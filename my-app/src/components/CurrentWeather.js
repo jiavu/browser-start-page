@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
-import { mixList, arrayGen2 } from "../scripts/utils";
+import { mixList, arrayGen2, fadeInAfterMount } from "../scripts/utils";
 import { weatherPictures } from "../img/weatherPictures";
 
 import windsock from "../img/windsock.svg";
@@ -28,18 +28,7 @@ class CurrentWeather extends Component {
 	componentDidMount() {
 		this.getWeather(this.props.lat, this.props.lon);
     //this.updateState(tempData);   // DELETE after production!
-
-    // fade-in (css transition):
-    this.fadeInAfterMount();
-  }
-
-  fadeInAfterMount() {
-    // fade-in (css transition):
-    window.setTimeout(() => {
-      const elt = this.elementRef.current;
-      if (!elt) this.fadeInAfterMount();
-      else elt.style.opacity = "1";
-    }, 50);
+    fadeInAfterMount.call(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -175,7 +164,7 @@ class CurrentWeather extends Component {
       // Fade-over (css transition):
       currBg.style.opacity = 0;
 
-      // bgDiv aus dem DOM entfernen:      
+      // bgDiv aus dem DOM entfernen:
       window.setTimeout( ()=> {
         currBg.remove();
       }, 2500); // In css --trans-time-slow is set to 2s.

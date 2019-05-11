@@ -30,8 +30,8 @@ input[type="text"] {
     font: inherit;
     font-size: 0.9rem;
     font-weight: bold;
-    padding: 0.5rem;
-    margin: 0.4rem;
+    padding: 0.55rem 0.5rem 0.5rem;
+    margin: 0.5rem 0;
     outline: none;
     background-color: var(--lightest);
 }
@@ -50,25 +50,27 @@ input[type="text"] {
 
 a, a:visited {
   color: inherit;
-  text-decoration: none;
+  /* text-decoration: none; */
   -webkit-transition: color var(--trans-time-fast); /* Safari */
   transition: color var(--trans-time-fast);
 }
-a:hover { color: var(--light); }
+a:hover { color: var(--color1-light); }
 
 button, input[type="submit"] {
-    margin: 0.3rem;
+    margin: 0.4rem 0;
     /* background: none;
     color: inherit; */
     outline: none;
     font: inherit;
     cursor: pointer;
+    -webkit-transition: var(--trans-time-fast); /* Safari */
+    transition: var(--trans-time-fast);
     text-shadow: inherit;
 }
 button.no-button { /* showed as link */
     border: none;
     text-decoration: none;
-    color: var(--ligth);
+    color: var(--light);
     background: none;
 }
 button.no-button:hover {
@@ -111,7 +113,7 @@ button.no-button:hover {
     -webkit-transition: opacity var(--trans-time-fast);
     transition: opacity var(--trans-time-fast);
     z-index: 2;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     padding: 0.9rem;
     /* max-width: 600px; */
     position: relative;
@@ -131,6 +133,19 @@ button.no-button:hover {
 }
 .app-frame h1 { font-size: 2.5em; }
 .app-frame h2 { font-size: 1.8em; }
+
+#options {
+  opacity: 1;
+}
+#options p {
+  line-height: 1.5;
+}
+#options .full-screen-icon {
+  font-size: 2rem;
+  margin-left: 2rem;
+  height: 100%;
+  transform: rotate(45deg);
+}
 
 /*==============================*/
 

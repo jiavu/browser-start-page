@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
 import { convertWindSpeed } from "../scripts/converter";
+import { fadeInAfterMount } from '../scripts/utils';
 
 import windsock from "../img/windsock.svg";
 
@@ -19,18 +20,7 @@ class ForecastWeather extends Component {
 	componentDidMount() {
     this.getWoeid(this.props.lat, this.props.lon);
     //this.updateState(example); // DELETE after production!
-
-    // fade-in (css transition):
-    this.fadeInAfterMount();
-  }
-
-  fadeInAfterMount() {
-    // fade-in (css transition):
-    window.setTimeout(() => {
-      const elt = this.elementRef.current;
-      if (!elt) this.fadeInAfterMount();
-      else elt.style.opacity = "1";
-    }, 50);
+    fadeInAfterMount.call(this);
   }
 
 	getWoeid(lat, lon) {

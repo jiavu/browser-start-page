@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { fadeInAfterMount } from '../scripts/utils';
 
 class GetVisitorsName extends React.Component {
-
 
 	constructor(props) {
 		super(props);
@@ -17,19 +16,8 @@ class GetVisitorsName extends React.Component {
 	componentDidMount() {
     /* check on mobile, maybe distracting
     because keyboard will be shown immediately: */
-    this.nameInput.focus();
-    
-    // fade-in (css transition):
-    this.fadeInAfterMount();
-  }
-
-  fadeInAfterMount() {
-    // fade-in (css transition):
-    window.setTimeout(() => {
-      const elt = this.elementRef.current;
-      if (!elt) this.fadeInAfterMount();
-      else elt.style.opacity = "1";
-    }, 50);
+    //this.nameInput.focus();
+    fadeInAfterMount.call(this);
   }
 
 	handleChange(event) {
@@ -47,26 +35,22 @@ class GetVisitorsName extends React.Component {
 	render() {
 
 		return (
-			<section className="perfect-centering-contents full-height-width">
-				<div className="app-frame" ref={this.elementRef}>
-					<h2>Hello Visitor, what's your name?</h2>
-					<div style={{ textAlign: "center" }}>
-						<form onSubmit={this.handleSubmit}>
-							<input type="text" size="28" maxLength="32" 
-								placeholder="Please enter your name here"
-								ref={input => this.nameInput = input}
-								onChange={this.handleChange} />
-							<br/>
-							<input type="submit" className="large-button" value="Continue" />
-						</form>
-						<button type="button" className="no-button"
-							onClick={this.handleClick}>Continue anonymous -&gt;
-						</button>
-					</div>
-				</div>
-
-				
-			</section>
+      <section className="app-frame" ref={this.elementRef}>
+        <h2>Hello Visitor, what's your name?</h2>
+        <div style={{ textAlign: "center" }}>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" size="28" maxLength="32" 
+              placeholder="Please enter your name here"
+              ref={input => this.nameInput = input}
+              onChange={this.handleChange} />
+            <br/>
+            <input type="submit" className="large-button" value="Continue" />
+          </form>
+          <button type="button" className="no-button"
+            onClick={this.handleClick}>Continue anonymous -&gt;
+          </button>
+        </div>
+				</section>
 		);
 	}
 

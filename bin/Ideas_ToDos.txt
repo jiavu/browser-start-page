@@ -28,7 +28,7 @@
 ========
 FEATURES      // done
 ========
-- Current weather, dayly forecast weather
+- Current weather, daily forecast weather
 - Weather Pictures: Night Mode
 - Smooth Background Image Loader
 - Intelligent sizing of background images (unsplash.com uses the Imgix API)
@@ -97,6 +97,10 @@ Dynamic resizing of unsplash photos
 =====
 TO DO
 =====
+
+- setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
+  Component müssen diese direkt zurückgesetzt werden!
+  componentWillUnmount()
 
 - Beide Wetter-Apps rendern im Sekundentakt...
 

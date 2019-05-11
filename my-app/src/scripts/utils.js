@@ -60,4 +60,18 @@ const debounce = function(func, ms) {
 	};
 };
 
-export {mixList, arrayGen, arrayGen2, debounce };
+/**
+ * Sets opacity of a referenced HTML element of a React Component to 1.
+ * With css transition set for opacity, that element will fade in.
+ * If referenced element is not rendered yet, function will do polling.
+ */
+function fadeInAfterMount() {
+  window.setTimeout( () => {
+    const curr = this.elementRef.current;
+    if (!curr) fadeInAfterMount.call(this);
+    else curr.style.opacity = "1";
+  }, 50);
+};
+
+
+export {mixList, arrayGen, arrayGen2, debounce, fadeInAfterMount };

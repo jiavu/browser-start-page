@@ -1,0 +1,16 @@
+.settings {
+  text-align: center;
+}
+.settings h3 {
+  margin: 1.1rem 0 0.6rem;
+}
+.settings h3:first-child {
+  margin-top: 0;
+}
+.settings p {
+  margin: 0.5rem;
+  line-height: 1.08;
+}
+.settings .my-credits p {
+  line-height: 1.2;
+}

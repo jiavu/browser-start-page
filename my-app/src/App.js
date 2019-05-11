@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './styles/App.css';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
+import './styles/App.css';
+import fullscreen from './img/fullscreen.svg';
 // Components:
 import GetVisitorsName from "./components/GetVisitorsName";
 import Greeting from "./components/Greeting";
@@ -35,8 +36,11 @@ class App extends Component {
   }
 
   setVisitorsName(name) {
-    setLocalStorageData("visitorsName", name);
-    this.setState( {visitorsName: name} );
+    name = name.trim();
+    if (name) {
+      setLocalStorageData("visitorsName", name);
+      this.setState( {visitorsName: name} );
+    }
   }
 
   setHourOfDay(hour) {
@@ -69,24 +73,31 @@ class App extends Component {
                 <React.Fragment>
                   <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
                     timer={this.timer} setHourOfDay={this.setHourOfDay} />
-                  {/* 
+                  
                 <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
                             changePic={this.state.changePic}
                             updateWeather={this.state.updateWeather}/>
-              */}
+              
                 </React.Fragment>
               ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
 
-              <div>
-                <Link to="/settings">About</Link>
-                 | FS
+              <div id="options" className="app-frame flex-row-auto-wrap">
+                <Link to="/settings"><b>About</b></Link>
+                <i className="fas fa-arrows-alt full-screen-icon"></i>
+                {/* 
+                <div>
+                  <img src={fullscreen} alt="FS"/>
+                </div>
+                 */}
               </div>
               </React.Fragment>
             )}/>
           </div>
+          <Route path="/settings" render={ () => (
+            <Settings visitorsName={this.state.visitorsName}
+                      setVisitorsName={this.setVisitorsName}/>
+          ) } />
         </main>
-        <Route path="/settings" render={ () => <Settings /> } />
-        
       </Router>
     );
   }

@@ -16,7 +16,6 @@ const blurIcon = (
 
 class WeatherApp extends Component {
 
-
 	state = { lat: null, lon: null }
 
 	// Das Wetter sollte allerdings regelmäßig aktualisieren. Nutze die Uhr, um Aktualisierungen auszuführen?
@@ -26,7 +25,6 @@ class WeatherApp extends Component {
 			window.alert("To show you the current weather, this page has to know your location. Choose 'Allow' if your browser asks.");
     }
     
-
     // FOR TESTING ONLY!!!
     // Göttingen
     /* const lat = 51.532808,

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import '../styles/greeting.css';
 import Clock from "./Clock";
 import {getLocalStorageData, setLocalStorageData} from "../scripts/localStorage";
+import { fadeInAfterMount } from '../scripts/utils';
 import {timeToGreet} from "../scripts/converter";
 
 class Greeting extends Component {
 
-  state = { greeting : "Welcome" }
+  state = { greeting: null }
 
   elementRef = React.createRef()
 
@@ -20,29 +21,22 @@ class Greeting extends Component {
     } else {
       setLocalStorageData("visits", ++visits);
     }
-    this.setState( { visits } );
+    this.setState( {
+      visits,
+      greeting: visits > 1 ? timeToGreet(this.props.hourOfDay) : "Welcome"
+    } );
 
-    this.fadeInAfterMount();
-  }
-
-  fadeInAfterMount() {
-    // fade-in (css transition):
-    window.setTimeout(() => {
-      const elt = this.elementRef.current;
-      if (!elt) this.fadeInAfterMount();
-      else elt.style.opacity = "1";
-    }, 50);
+    fadeInAfterMount.call(this);
   }
   
   componentDidUpdate(prevProps) {
-        
     if (this.props.hourOfDay !== prevProps.hourOfDay) {
-      this.state.visits > 1 && this.setState( {greeting : timeToGreet(this.props.hourOfDay)})
+      this.state.visits > 1 && this.setState( {greeting : timeToGreet(this.props.hourOfDay)});
     }
   }
 
 	render() {
-		let visitorsName = this.props.visitorsName;
+    let visitorsName = this.props.visitorsName;
 
 		return (
 			<section className="app-frame" ref={this.elementRef}>
