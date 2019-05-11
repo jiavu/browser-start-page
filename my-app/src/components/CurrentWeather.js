@@ -3,6 +3,8 @@ import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } fro
 import { mixList, arrayGen2 } from "../scripts/utils";
 import { weatherPictures } from "../img/weatherPictures";
 
+import windsock from "../img/windsock.svg";
+
 const metaweatherIconsURL = "https://www.metaweather.com/static/img/weather/";
 //let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
 
@@ -221,6 +223,9 @@ class CurrentWeather extends Component {
                   }}>
               </i>
               )}
+              { this.state.wind_speed > 10.8 && (
+                <img src={windsock} alt="ws" className="wind-sock"/>
+              )}              
           </p>
           <p>Clouds: {this.state.clouds}%</p>
 					<p>

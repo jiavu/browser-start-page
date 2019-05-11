@@ -4,12 +4,38 @@
 .bg-fs-fixed {
   position: fixed;
   top: 0; left: 0;
+  z-index: -1;
   height: 100%;
   width: 100%;
   object-fit: cover;
   -webkit-transition: opacity var(--trans-time-slow);
   transition: opacity var(--trans-time-slow);
 }
+
+.wind-arrow {
+  font-size: 0.8em;
+  margin-left: 0.8em;
+}
+
+.wind-sock {
+  height: 0.9em;
+  padding-left: 0.75em;
+}
+
+#photographer-info {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  /* background-color: hsla(0, 0%, 18%, 0.15); */
+  color: var(--medium);
+  font-size: 0.6rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0; right: 0;
+}
+
+/*=================*/
+/* Current Weather */
+/*=================*/
 
 .current-weather .head {
     font-size: 2.6em;
@@ -31,22 +57,6 @@
 } */
 .current-weather .wind-descr {
     margin-bottom: 0.7em;
-}
-
-.wind-arrow {
-    font-size: 0.8em;
-    margin-left: 0.8em;
-}
-
-#photographer-info {
-  margin: 0.2rem;
-  padding: 0.2rem;
-  /* background-color: hsla(0, 0%, 18%, 0.15); */
-  color: var(--medium);
-  font-size: 0.6rem;
-  text-align: center;
-  position: fixed;
-  bottom: 0; right: 0;
 }
 
 /*==================*/

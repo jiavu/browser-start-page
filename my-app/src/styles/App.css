@@ -99,18 +99,18 @@ button.no-button:hover {
   }
   /* 
   font-family: 'Megrim', cursive;
-font-family: 'Wallpoet', cursive;
-font-family: 'Expletus Sans', cursive;
-font-family: 'Stardos Stencil', cursive;
-  */
-
+  font-family: 'Wallpoet', cursive;
+  font-family: 'Expletus Sans', cursive;
+  font-family: 'Stardos Stencil', cursive;
+ */
 
 /*==============================*/
 
 .app-frame {
-    opacity: 0; /* Don't forget to set to 1 after componentDidMount */
+    opacity: 0; /* Will be set to 1 after componentDidMount */
     -webkit-transition: opacity var(--trans-time-fast);
     transition: opacity var(--trans-time-fast);
+    z-index: 2;
     margin: 1rem 0;
     padding: 0.9rem;
     /* max-width: 600px; */
@@ -125,7 +125,10 @@ font-family: 'Stardos Stencil', cursive;
     text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.2), 0 0 0.6rem hsla(57, 100%, 100%, 0.2);
 }
 
-.app-frame h1, .app-frame h2 { padding-bottom: 1rem; }
+.app-frame h1, .app-frame h2 {
+  padding-bottom: 1rem;
+  line-height: 1.25;
+}
 .app-frame h1 { font-size: 2.5em; }
 .app-frame h2 { font-size: 1.8em; }
 

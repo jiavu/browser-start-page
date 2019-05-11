@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
 import { convertWindSpeed } from "../scripts/converter";
 
+import windsock from "../img/windsock.svg";
+
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const url = "https://www.metaweather.com/api/location/";
 const imgUrl = "https://www.metaweather.com/static/img/weather/";
@@ -105,6 +107,9 @@ class ForecastWeather extends Component {
                         transform: `rotate(${day.wind_deg + 135}deg)`
                       }}>
                   </i>
+                { this.state.wind_speed > 10.8 && (
+                  <img src={windsock} alt="ws" className="wind-sock"/>
+                )}
               </p>
               <p className="pred">pred. {day.pred}%</p>
             </div>

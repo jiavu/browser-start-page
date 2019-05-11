@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './styles/App.css';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
+// Components:
 import GetVisitorsName from "./components/GetVisitorsName";
 import Greeting from "./components/Greeting";
 import WeatherApp from "./components/WeatherApp";
+import Settings from "./components/Settings";
 
 const lang = "en-GB";
 
@@ -55,22 +58,36 @@ class App extends Component {
     const visitorsName = this.state.visitorsName;
     
     return (
-      <React.Fragment>
+      <Router>
         <div className="bg-fs-fixed"/>
 
         <main className="full-height-width perfect-centering-contents">
-          { visitorsName ? (
-            <div className="flex-column">
-              <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
-                        timer={this.timer} setHourOfDay={this.setHourOfDay}/>
-              <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
-                          changePic={this.state.changePic}
-                          updateWeather={this.state.updateWeather}/>
-            </div>
-          ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
+          <div className="flex-column">
+            <Route exact path="/" render={ () => (
+              <React.Fragment>
+              { visitorsName ? (
+                <React.Fragment>
+                  <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
+                    timer={this.timer} setHourOfDay={this.setHourOfDay} />
+                  {/* 
+                <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
+                            changePic={this.state.changePic}
+                            updateWeather={this.state.updateWeather}/>
+              */}
+                </React.Fragment>
+              ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
+
+              <div>
+                <Link to="/settings">About</Link>
+                 | FS
+              </div>
+              </React.Fragment>
+            )}/>
+          </div>
         </main>
+        <Route path="/settings" render={ () => <Settings /> } />
         
-      </React.Fragment>
+      </Router>
     );
   }
 }

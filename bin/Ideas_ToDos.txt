@@ -25,6 +25,17 @@
 ... using local storage for settings like visitors name, first visit.
 
 
+========
+FEATURES      // done
+========
+- Current weather, dayly forecast weather
+- Weather Pictures: Night Mode
+- Smooth Background Image Loader
+- Intelligent sizing of background images (unsplash.com uses the Imgix API)
+  -> smaller download sizes on mobile devices
+- Starkwindwarnung ab 6 Bft
+
+
 ===========
 APIS to use
 ===========
@@ -51,11 +62,9 @@ http://api.oceandrivers.com/static/docs.html#!/ODWeather
 FREE IMAGES:
 https://unsplash.com/
 
-=====
-TO DO
-=====
 
-- icon entfernen
+Dynamic resizing of unsplash photos
+-----------------------------------
 
 - unsplash developer docu: https://unsplash.com/documentation#dynamically-resizable-images
   dynamic resizing. -> get window sizes and set query string of urls dynamically!
@@ -84,6 +93,22 @@ TO DO
       probably not because of my object-fit: cover css.
       default is fit=clip.
 
+
+=====
+TO DO
+=====
+
+- Beide Wetter-Apps rendern im Sekundentakt...
+
+- React icon entfernen
+
+- imprint/about/settings
+
+- FullscreenMode
+
+- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
+  https://www.w3schools.com/howto/howto_css_tooltip.asp
+
 - https://unsplash.com/api-terms
   hotlinking
   If I am linking to other pages I need to have a legal terms page.
@@ -95,32 +120,13 @@ TO DO
 
 - Wird das forecast-weather aktualisiert?
 
-- In den query strings der URLs zu den Bildern steckt die Bildergröße mit drin.
-  Ohne query string scheint man die Original-Größe zu bekommen (kann schon mal 16MB groß sein.)
-  Ich sollte mal die api-documentation lesen und überlegen, welche Größe geladen werden soll.
-  kleinere für mobile? (so 1050 vs 1950 z. B.)
-
-- FullscreenMode
-
 - forecast width bei wrap ist blöd.
-
-- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
-  https://www.w3schools.com/howto/howto_css_tooltip.asp
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
 
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
-
-- Shuzenji-Problem... Wie kommt der response zu Stande, welcher query?
-  Shuzenji hat die Koordinaten
-    lat= 34.979087
-    lon= 138.949264
-  Berlin hat
-    lat= 52.4500992
-    lon= 13.3185536
-  Wenn Wetter == Shuzenji, nochmal versuchen...
 
 - Fallback weather data... Wenn import fehlschlägt, lasse letze Werte.
 
@@ -141,54 +147,3 @@ TO DO
 
 - metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
 )
-
-=====================
-Wind Arrows pure html
-=====================
-
-Upwards Two-Headed Arrow from Small Circle
-&#10569;
-
-Three-D Right Lighted Upwards Equilateral Arrowhead
-&#11161;
-
-Upwards Arrow with Notched Tail
-&#129177;
-
-Rightwards Arrow with Tail (! -90° !!!)
-&#8611;
-
-Rightwards two-headed arrow with tail (! -90° !!!)
-&#10518;
-
-Wedge-tailed rightwards arrow (! -90° !!!)
-&#10172;
-
-===============
-Wind Arrows svg
-===============
-
-cursor.svg
-https://image.flaticon.com/icons/svg/25/25222.svg
-(-45° !!!)
-Credit:
-<div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
------
-right-arrow.svg
-https://image.flaticon.com/icons/svg/724/724954.svg
-(-90° !!!)
-Credit:
-<div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
------
-navigation.svg
-https://image.flaticon.com/icons/svg/149/149430.svg
-(-45° !!!)
-Credit:
-<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-==================
-Font Awesome arrow
-==================
-(-45° !!!)
-<i class="fas fa-location-arrow"></i>
-
