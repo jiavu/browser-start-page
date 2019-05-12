@@ -83,20 +83,17 @@ class App extends Component {
 
               <div id="options" className="app-frame flex-row-auto-wrap">
                 <Link to="/settings"><b>About</b></Link>
-                <i className="fas fa-arrows-alt full-screen-icon"></i>
-                {/* 
-                <div>
+                {/* <i className="fas fa-arrows-alt full-screen-icon"></i> */}
                   <img src={fullscreen} alt="FS"/>
-                </div>
-                 */}
               </div>
               </React.Fragment>
             )}/>
-          </div>
           <Route path="/settings" render={ () => (
-            <Settings visitorsName={this.state.visitorsName}
+            <Settings className="flex-row-auto-wrap"
+                      visitorsName={this.state.visitorsName}
                       setVisitorsName={this.setVisitorsName}/>
-          ) } />
+          ) } />  
+          </div>
         </main>
       </Router>
     );

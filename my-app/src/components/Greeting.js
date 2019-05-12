@@ -42,7 +42,11 @@ class Greeting extends Component {
 			<section className="app-frame" ref={this.elementRef}>
           { visitorsName === "anonymous" ?
             <h1>{this.state.greeting}!</h1>
-          : <h1>{this.state.greeting}, <br></br> {visitorsName}!</h1>
+          : (
+              <h1>{this.state.greeting},
+              <br/>
+              <span className="tabspace">{visitorsName}!</span></h1>
+            )
           }
         <Clock lang={this.props.lang} setHourOfDay={this.props.setHourOfDay}
               timer={this.props.timer}/>

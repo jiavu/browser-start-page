@@ -30,6 +30,7 @@ input[type="text"] {
     font: inherit;
     font-size: 0.9rem;
     font-weight: bold;
+    text-align: center;
     padding: 0.55rem 0.5rem 0.5rem;
     margin: 0.5rem 0;
     outline: none;
@@ -50,7 +51,8 @@ input[type="text"] {
 
 a, a:visited {
   color: inherit;
-  /* text-decoration: none; */
+  text-decoration: none;
+  font-weight: 600;
   -webkit-transition: color var(--trans-time-fast); /* Safari */
   transition: color var(--trans-time-fast);
 }
@@ -105,6 +107,7 @@ button.no-button:hover {
   font-family: 'Expletus Sans', cursive;
   font-family: 'Stardos Stencil', cursive;
  */
+ .tabspace { padding-left: 1em; }
 
 /*==============================*/
 
@@ -113,7 +116,8 @@ button.no-button:hover {
     -webkit-transition: opacity var(--trans-time-fast);
     transition: opacity var(--trans-time-fast);
     z-index: 2;
-    margin: 0.5rem 0;
+    width: 100%;
+    margin: 0;
     padding: 0.9rem;
     /* max-width: 600px; */
     position: relative;
@@ -128,7 +132,7 @@ button.no-button:hover {
 }
 
 .app-frame h1, .app-frame h2 {
-  padding-bottom: 1rem;
+  padding: 0.75rem 0 1rem;
   line-height: 1.25;
 }
 .app-frame h1 { font-size: 2.5em; }
@@ -136,10 +140,18 @@ button.no-button:hover {
 
 #options {
   opacity: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 }
+#options img {
+  height: 1.5rem;
+}
+/* 
 #options p {
   line-height: 1.5;
 }
+*/
 #options .full-screen-icon {
   font-size: 2rem;
   margin-left: 2rem;
@@ -151,7 +163,7 @@ button.no-button:hover {
 
 main {
   display: block;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 }
 
 /*===============*/
