@@ -18,7 +18,6 @@ class WeatherApp extends Component {
 
 	state = { lat: null, lon: null }
 
-	// Das Wetter sollte allerdings regelmäßig aktualisieren. Nutze die Uhr, um Aktualisierungen auszuführen?
 	componentDidMount() {
 		let storage = getLocalStorageData();
 		if (!storage.latitude && !storage.longitude) {

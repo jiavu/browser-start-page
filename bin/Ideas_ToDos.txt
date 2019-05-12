@@ -98,6 +98,8 @@ Dynamic resizing of unsplash photos
 TO DO
 =====
 
+- Name rechtsbündig. Wenn noch passt, dann erste Zeile, sonst zweite.
+
 - setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
   Component müssen diese direkt zurückgesetzt werden!
   componentWillUnmount()
