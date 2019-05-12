@@ -33,6 +33,8 @@ input[type="text"] {
     text-align: center;
     padding: 0.55rem 0.5rem 0.5rem;
     margin: 0.5rem 0;
+    width: 12rem;
+    max-width: 100%;
     outline: none;
     background-color: var(--lightest);
 }
@@ -78,6 +80,9 @@ button.no-button { /* showed as link */
 button.no-button:hover {
     color: var(--color1-light);
 }
+button.fs-button:hover {
+  transform: scale(1.1);
+}
 .large-button {
     padding: 0.5rem 1rem;
     color: var(--lightest);
@@ -107,7 +112,7 @@ button.no-button:hover {
   font-family: 'Expletus Sans', cursive;
   font-family: 'Stardos Stencil', cursive;
  */
- .tabspace { padding-left: 1em; }
+ .tabspace { padding-left: 0.8em; }
 
 /*==============================*/
 
@@ -144,10 +149,12 @@ button.no-button:hover {
   opacity: 1;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.9rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.2rem;
 }
 #options img {
-  height: 1.5rem;
+  height: 1.2rem;
 }
 #options .photographer-info {
   color: var(--medium);
@@ -177,22 +184,23 @@ main {
 /* Media queries */
 /*===============*/
 
-@media only screen and (max-width: 451px) {     /* bp 451px */
+/* 
+@media only screen and (max-width: 451px) {     /* bp 451px
 
 }
 
-@media only screen and (min-width: 451px) {     /* bp 451px */
+@media only screen and (min-width: 451px) {     /* bp 451px
 
 }
 
-@media only screen and (min-width: 600px) {     /* bp 600px */
+@media only screen and (min-width: 600px) {     /* bp 600px
 
 }
 
-@media only screen and (min-width: 768px) {     /* bp 768px */
+@media only screen and (min-width: 768px) {     /* bp 768px
 
 }
 
-@media only screen and (min-width: 1080px) {     /* bp 1080px */
+@media only screen and (min-width: 1080px) {     /* bp 1080px
 
-}
+} */

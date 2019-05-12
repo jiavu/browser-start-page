@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
 import './styles/App.css';
-import fullscreen from './img/fullscreen.svg';
+import fullscreen from './img/expand.svg';
 // Components:
 import GetVisitorsName from "./components/GetVisitorsName";
 import Greeting from "./components/Greeting";
@@ -63,13 +63,22 @@ class App extends Component {
     }
   }
 
+  toggleFullscreen() {
+    let doc = window.document;
+    let docEl = doc.documentElement;    // returns the root element of the document (<html>)
+    let requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    let cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+    if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
+    } else { cancelFullScreen.call(doc)};
+  }
+
   render() {
     const visitorsName = this.state.visitorsName;
     
     return (
       <Router>
         <div className="bg-fs-fixed"/>
-
         <main className="full-height-width perfect-centering-contents">
           <div className="flex-column">
             <Route exact path="/" render={ () => (
@@ -93,7 +102,10 @@ class App extends Component {
                   {this.state.photographerInfo}
                 </div>
                 {/* <i className="fas fa-arrows-alt full-screen-icon"></i> */}
-                  <img src={fullscreen} alt="FS"/>
+                  <button className="no-button fs-button"
+                          onClick={this.toggleFullscreen}>
+                    <img src={fullscreen} alt="FS"/>
+                  </button>
               </div>
               </React.Fragment>
             )}/>

@@ -103,16 +103,12 @@ TO DO
   componentWillUnmount()
   Möglicherweise auch currBg.remove() in CurrentWeather.js.
 
-- Beide Wetter-Apps rendern im Sekundentakt...
-
-- React icon entfernen
-
-- imprint/about/settings
-
-- FullscreenMode
+- Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
 
 - forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
   https://www.w3schools.com/howto/howto_css_tooltip.asp
+
+- mobile: Ich will eine progressive web app! (service workers & Co)
 
 - https://unsplash.com/api-terms
   hotlinking
@@ -123,28 +119,19 @@ TO DO
   free to use, for commercial use, without crediting.
   licence to modify is granted.
 
-- Wird das forecast-weather aktualisiert?
+- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
 
-- forecast width bei wrap ist blöd.
+- propTypes setzen
 
-- mobile: Ich will eine progressive web app! (service workers & Co)
-
+- BROWSER-TESTS
 
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
 
-- Fallback weather data... Wenn import fehlschlägt, lasse letze Werte.
-
-- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
-
-- Fehler in der Wetter-App abfangen, wenn der response nicht die Wetter-Daten sind.
-	(Der Response sollte dann vermutlich ein http error wie 404 sein.)
-
-- BROWSER-TESTS
-
-- propTypes setzen
-
 (
+- Beide Wetter-Apps rendern im Sekundentakt..
+- React icon ersetzen
+- forecast width bei wrap ist blöd.
 - im Response von fcc-weather sind manchmal 2/mehrere Wetter unter <response>.weather[0] oder halt [1] (Objects).
 - navigator.geolocation.getCurrentPosition() hat mal nicht funktioniert. Eventuell
 	könnte ich solch einen Fehler abfangen und einen Fallback auf die letzten

@@ -24,6 +24,10 @@
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+@media only screen and (max-width: 350px) {   /* Custom breakpoint */
+  :root { font-size: 20px; }
+}
+
 	/* Base font (from Google Fonts): */
 	/*	
 	<link href="https://fonts.googleapis.com/css?family=Advent+Pro:100|BenchNine:300|Heebo:100|Josefin+Sans:100|Kanit:100|Lato:100|Roboto:100|Source+Sans+Pro:200|Yanone+Kaffeesatz:200|Yantramanav:100" rel="stylesheet">

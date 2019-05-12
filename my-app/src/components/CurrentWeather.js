@@ -22,7 +22,7 @@ class CurrentWeather extends Component {
   timeOutIDs = []
 
   componentWillUnmount() {
-    this.htmlEl.remove();
+    
   }
 
 	componentDidMount() {
@@ -42,8 +42,8 @@ class CurrentWeather extends Component {
 	getWeather(lat, lon) {
 
 		const xhr = new XMLHttpRequest();
-		const endpoint = "https://fcc-weather-api.glitch.me/";
-		const url = endpoint + `api/current?lat=${lat}&lon=${lon}`;
+		const url = "https://fcc-weather-api.glitch.me/";
+		const endpoint = url + `api/current?lat=${lat}&lon=${lon}`;
 
 		xhr.responseType = "json";
 		xhr.onreadystatechange = () => {
@@ -60,7 +60,7 @@ class CurrentWeather extends Component {
         } else console.log(xhr);
 			}
 		};
-		xhr.open("GET", url);
+		xhr.open("GET", endpoint);
 		xhr.send();
 	}
 
