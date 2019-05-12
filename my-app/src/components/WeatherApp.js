@@ -53,7 +53,8 @@ class WeatherApp extends Component {
           <CurrentWeather lat={this.state.lat} lon={this.state.lon}
             changePic={this.props.changePic}
             updateWeather={this.props.updateWeather}
-					  lang={this.props.lang} hourOfDay={this.props.hourOfDay}/>
+					  lang={this.props.lang} hourOfDay={this.props.hourOfDay}
+            setPhotographerInfo={this.props.setPhotographerInfo}/>
         )}
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
 					lang={this.props.lang}/>

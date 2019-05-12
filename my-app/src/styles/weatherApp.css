@@ -24,17 +24,6 @@
   padding-left: 0.75em;
 }
 
-#photographer-info {
-  margin: 0.2rem;
-  padding: 0.2rem;
-  /* background-color: hsla(0, 0%, 18%, 0.15); */
-  color: var(--medium);
-  font-size: 0.6rem;
-  text-align: center;
-  position: fixed;
-  bottom: 0; right: 0;
-}
-
 /*=================*/
 /* Current Weather */
 /*=================*/

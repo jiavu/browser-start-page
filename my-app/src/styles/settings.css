@@ -11,6 +11,15 @@
 .settings p {
   margin: 0.5rem;
   line-height: 1.08;
+  color: var(--light-t);
+}
+.settings p a {
+  font-weight: normal;
+  /* text-decoration: underline;  */
+  color: white;
+}
+.settings p a:hover {
+  color: var(--color1-light);
 }
 .settings .my-credits p {
   line-height: 1.2;

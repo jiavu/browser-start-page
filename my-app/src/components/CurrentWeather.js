@@ -19,7 +19,7 @@ class CurrentWeather extends Component {
 
   elementRef = React.createRef()
 
-  htmlEl = document.createElement("div")
+  timeOutIDs = []
 
   componentWillUnmount() {
     this.htmlEl.remove();
@@ -129,7 +129,7 @@ class CurrentWeather extends Component {
     // get next picture from Iterator:
     let el = this.state.arrIterator.next();
 
-    // append query string to url:
+    // append query string to url (Imgix API params):
     let imgURL = el.value.url;
     let ixlib = "ixlib=rb-1.2.1";
     let ixid = "ixid=eyJhcHBfaWQiOjEyMDd9";
@@ -164,19 +164,20 @@ class CurrentWeather extends Component {
       // Fade-over (css transition):
       currBg.style.opacity = 0;
 
-      // bgDiv aus dem DOM entfernen:
+      // delete bgDiv from DOM after fade:
       window.setTimeout( ()=> {
         currBg.remove();
       }, 2500); // In css --trans-time-slow is set to 2s.
 
-      // set photographer info and link to body-bottom.
-      this.htmlEl.id = "photographer-info";
-      this.htmlEl.innerHTML = `
-        <a href=${el.value.profileURL} target="_blank">
-          Photo: ${el.value.name}<br>
-          unsplash.com
-        </a>`;
-      document.body.appendChild(this.htmlEl);
+      // send JSX element to App.js, containing photographer info:
+      this.props.setPhotographerInfo(
+        (
+          <a href={el.value.profileURL} target="_blank" rel="noopener noreferrer">
+            Photo:<br/>{el.value.name}<br/>
+            unsplash.com
+          </a>
+        )
+      );
 
     }, err => {
       console.error(err);

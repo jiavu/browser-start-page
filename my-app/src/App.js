@@ -20,7 +20,8 @@ class App extends Component {
       hourOfDay: null,
       timer : 0,
       changePic : false,
-      updateWeather : false
+      updateWeather : false,
+      photographerInfo : null
     };
 
     this.setVisitorsName = this.setVisitorsName.bind(this);
@@ -46,7 +47,11 @@ class App extends Component {
   setHourOfDay(hour) {
 		// die hourOfDay wird sekündlich von der Clock aktualisiert...
 		this.setState( {hourOfDay: hour } );
-	}
+  }
+  
+  setPhotographerInfo = newHTMLElement => {
+    this.setState( {photographerInfo: newHTMLElement} );
+  }
 
   timer() {
     let newSecond = this.state.timer + 1;
@@ -76,13 +81,17 @@ class App extends Component {
                   
                 <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
                             changePic={this.state.changePic}
-                            updateWeather={this.state.updateWeather}/>
+                            updateWeather={this.state.updateWeather}
+                            setPhotographerInfo={this.setPhotographerInfo}/>
               
                 </React.Fragment>
               ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
 
               <div id="options" className="app-frame flex-row-auto-wrap">
                 <Link to="/settings"><b>About</b></Link>
+                <div className="photographer-info">
+                  {this.state.photographerInfo}
+                </div>
                 {/* <i className="fas fa-arrows-alt full-screen-icon"></i> */}
                   <img src={fullscreen} alt="FS"/>
               </div>
