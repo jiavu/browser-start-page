@@ -70,7 +70,6 @@ class CurrentWeather extends Component {
     const timeFormat = { hour: "numeric", minute: "2-digit" };
 
     this.setState({
-      abbrID: owmIDToMwAbbr(data.weather[0].id),
       imgSrc: metaweatherIconsURL + owmIDToMwAbbr(data.weather[0].id) + ".svg", // Weather icon
       wID: data.weather[0].id,
       // it's for the alt-attribute of img. Concatenates id and short description:
@@ -87,7 +86,8 @@ class CurrentWeather extends Component {
       response: data
     });
 
-    this.loadPictureList(this.props.hourOfDay,
+    this.loadPictureList(
+      this.props.hourOfDay,
       this.state.wID,
       sunrise.getHours(),
       sunset.getHours()
@@ -112,7 +112,7 @@ class CurrentWeather extends Component {
 
     /* Load new picture set?
     If weather or day/night state didn't change, keep old picture set. */
-    if (!this.state.pictureList || this.state.abbrID !== this.state.prev_abbrID) {
+    if (!this.state.pictureList || abbrID !== this.state.prev_abbrID) {
       const pictureList = mixList([...weatherPictures[abbrID]]);
       this.setState({
         pictureList,

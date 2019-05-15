@@ -25,10 +25,17 @@ class WeatherApp extends Component {
     }
     
     // FOR TESTING ONLY!!!
+    // Frankfurt
+    /* 
+    const lat = 50.100231,
+          lon = 8.685312;
+    */
     // Göttingen
-    /* const lat = 51.532808,
+    /* 
+    const lat = 51.532808,
           lon = 9.935340;
-    this.setState( {lat, lon} ); */
+    */
+    //this.setState( {lat, lon} );
 		this.getGeoLocation();
 	}
 

@@ -73,5 +73,16 @@ function fadeInAfterMount() {
   }, 50);
 };
 
+/* 
+function showTraffic() {
+  const trfcMonitor = document.createElement("div");
+  trfcMonitor.id = "trfcMonitor";
+  window.appendChild(trfcMonitor);
+  chrome.downloads.onChanged.addListener( delta => {
+    trfcMonitor.innerText = delta.fileSize;
+  });
+}
+ */
+
 
 export {mixList, arrayGen, arrayGen2, debounce, fadeInAfterMount };
