@@ -98,17 +98,26 @@ Dynamic resizing of unsplash photos
 TO DO
 =====
 
-- Name rechtsbündig. Wenn noch passt, dann erste Zeile, sonst zweite.
-
-- setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
-  Component müssen diese direkt zurückgesetzt werden!
-  componentWillUnmount()
-  Möglicherweise auch currBg.remove() in CurrentWeather.js.
-
-- Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
-
 - forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
   https://www.w3schools.com/howto/howto_css_tooltip.asp
+
+- mehr Photos
+
+- Bug: Mit Testdaten für current weather.
+  Uncaught TypeError: Invalid attempt to spread non-iterable instance
+
+- Lösung für client side routing. Serverseitig registrieren?
+
+- Das 'loading' (+ Fehlermeldung und fade-in!) umsetzen, oder weglassen?
+
+- Asynchronous tasks und subscriptions in componentWillUnmount canceln.
+    setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
+    Component müssen diese direkt zurückgesetzt werden!
+    componentWillUnmount()
+    Möglicherweise auch currBg.remove() in CurrentWeather.js.
+    http-Anfragen unterbrechen?
+
+- Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
@@ -121,11 +130,13 @@ TO DO
   free to use, for commercial use, without crediting.
   licence to modify is granted.
 
-- Location eventuell auch mehr als nur einmal zu Beginn abfragen, für Nutzung auf mobilen Geräten.
-
 - propTypes setzen
 
 - BROWSER-TESTS
+
+
+Sonstiges
+---------
 
 - Handle missing images...
 	https://blog.imagekit.io/how-to-handle-loading-images-that-may-not-exist-on-your-website-92e6c3c6ea63
@@ -135,9 +146,5 @@ TO DO
 - React icon ersetzen
 - forecast width bei wrap ist blöd.
 - im Response von fcc-weather sind manchmal 2/mehrere Wetter unter <response>.weather[0] oder halt [1] (Objects).
-- navigator.geolocation.getCurrentPosition() hat mal nicht funktioniert. Eventuell
-	könnte ich solch einen Fehler abfangen und einen Fallback auf die letzten
-	Koordinaten ausführen lassen. try/catch?
-
 - metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
 )

@@ -43,9 +43,10 @@ class Greeting extends Component {
           { visitorsName === "anonymous" ?
             <h1>{this.state.greeting}!</h1>
           : (
-              <h1>{this.state.greeting},
-              <br/>
-              <span className="tabspace">{visitorsName}!</span></h1>
+              <h1 className="flex-row-auto-wrap">
+                <span>{this.state.greeting}</span>,&nbsp;
+                <span className="visitors-name">{visitorsName}!</span>
+              </h1>
             )
           }
         <Clock lang={this.props.lang} setHourOfDay={this.props.setHourOfDay}

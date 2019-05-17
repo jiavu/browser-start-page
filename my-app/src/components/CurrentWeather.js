@@ -5,8 +5,12 @@ import { weatherPictures } from "../img/weatherPictures";
 
 import windsock from "../img/windsock.svg";
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const url = "https://fcc-weather-api.glitch.me/";
+const path = "api/current";
+
 const metaweatherIconsURL = "https://www.metaweather.com/static/img/weather/";
-//let tempData = { "coord": { "lon": 13.32, "lat": 52.45 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783" }], "base": "stations", "main": { "temp": 2.37, "pressure": 1028, "humidity": 69, "temp_min": -0.57, "temp_max": 5 }, "visibility": 10000, "wind": { "speed": 1.5, "deg": 300 }, "clouds": { "all": 0 }, "dt": 1553027464, "sys": { "type": 1, "id": 1275, "message": 0.0053, "country": "DE", "sunrise": 1552972363, "sunset": 1553015792 }, "id": 2880498, "name": "Lankwitz", "cod": 200 };
+let tempData = {"coord":{"lon":13.32,"lat":52.45},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783"}],"base":"stations","main":{"temp":15.57,"pressure":1009,"humidity":72,"temp_min":13.33,"temp_max":17.22},"visibility":10000,"wind":{"speed":3.6,"deg":90},"clouds":{"all":0},"dt":1558122258,"sys":{"type":1,"id":1275,"message":0.0055,"country":"DE","sunrise":1558062514,"sunset":1558119471},"id":2880498,"name":"Lankwitz","cod":200};
 
 class CurrentWeather extends Component {
 
@@ -26,9 +30,9 @@ class CurrentWeather extends Component {
   }
 
 	componentDidMount() {
-		this.getWeather(this.props.lat, this.props.lon);
-    //this.updateState(tempData);   // DELETE after production!
     fadeInAfterMount.call(this);
+    this.getWeather(this.props.lat, this.props.lon);
+    //this.updateState(tempData);   // DELETE after production!
   }
 
   componentDidUpdate(prevProps) {
@@ -41,9 +45,9 @@ class CurrentWeather extends Component {
 
 	getWeather(lat, lon) {
 
-		const xhr = new XMLHttpRequest();
-		const url = "https://fcc-weather-api.glitch.me/";
-		const endpoint = url + `api/current?lat=${lat}&lon=${lon}`;
+    const xhr = new XMLHttpRequest();
+    
+    const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
 
 		xhr.responseType = "json";
 		xhr.onreadystatechange = () => {
@@ -104,10 +108,12 @@ class CurrentWeather extends Component {
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
+    
     // all 7xx are "fog":
     if (Math.floor(ID / 100) === 7) abbrID = "fog";
     // Night mode:
     if ((hourOfDay >= sunsetHour || hourOfDay < sunriseHour) &&
+      weatherPictures[abbrID + "_n"] &&
       weatherPictures[abbrID + "_n"].length > 0) abbrID += "_n";
 
     /* Load new picture set?
@@ -190,42 +196,45 @@ class CurrentWeather extends Component {
 
 	render() {
 
-		return this.state.response ? (
+		return (
 			<section className="app-frame current-weather" ref={this.elementRef}>
+        { this.state.response ? (
+          <React.Fragment>
+            <div className="head">
+              <img src={this.state.imgSrc} alt={this.wID_descr} className="weather-icon"/>
+              <p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
+            </div>
 
-				<div className="head">
-					<img src={this.state.imgSrc} alt={this.wID_descr} className="weather-icon"/>
-					<p style={{ paddingLeft: "0.5em" }}>{Math.round(this.state.temp)}°C</p>
-				</div>
+            <div className="descr">{this.state.descr}</div>
 
-				<div className="descr">{this.state.descr}</div>
+            <div className="body">
 
-				<div className="body">
-
-					<p className="wind-descr">{this.state.wind_descr} from {getCompassPoint(this.state.wind_deg)}</p>
-					
-          <p>
-            {convertWindSpeed(this.state.wind_speed)} Bft
-              { this.state.wind_deg && (
-                <i className="fas fa-location-arrow wind-arrow"
-                  style={{
-                    transform: `rotate(${this.state.wind_deg + 135}deg)`
-                  }}>
-              </i>
-              )}
-              { this.state.wind_speed > 10.8 && (
-                <img src={windsock} alt="ws" className="wind-sock"/>
-              )}              
-          </p>
-          <p>Clouds: {this.state.clouds}%</p>
-					<p>
-            <span>Sunrise: {this.state.sunrise}</span>
-						<span style={{paddingLeft:"1em"}}>Sunset: {this.state.sunset}</span>
-					</p>
-					<p>{this.state.location}</p>
-				</div>
+              <p className="wind-descr">{this.state.wind_descr} from {getCompassPoint(this.state.wind_deg)}</p>
+              
+              <p>
+                {convertWindSpeed(this.state.wind_speed)} Bft
+                  { this.state.wind_deg && (
+                    <i className="fas fa-location-arrow wind-arrow"
+                      style={{
+                        transform: `rotate(${this.state.wind_deg + 135}deg)`
+                      }}>
+                  </i>
+                  )}
+                  { this.state.wind_speed > 10.8 && (
+                    <img src={windsock} alt="ws" className="wind-sock"/>
+                  )}              
+              </p>
+              <p>Clouds: {this.state.clouds}%</p>
+              <p>
+                <span>Sunrise: {this.state.sunrise}</span>
+                <span style={{paddingLeft:"1em"}}>Sunset: {this.state.sunset}</span>
+              </p>
+              <p>{this.state.location}</p>
+            </div>
+          </React.Fragment>
+        ) : <p><i>Current Weather loading...</i></p> }
 			</section>
-		) : null;
+		);
 	}
 }
 
