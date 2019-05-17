@@ -98,17 +98,15 @@ Dynamic resizing of unsplash photos
 TO DO
 =====
 
-- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
-  https://www.w3schools.com/howto/howto_css_tooltip.asp
+- BROWSER-TESTS
 
-- mehr Photos
+Bugs
+----
 
 - Bug: Mit Testdaten für current weather.
   Uncaught TypeError: Invalid attempt to spread non-iterable instance
 
 - Lösung für client side routing. Serverseitig registrieren?
-
-- Das 'loading' (+ Fehlermeldung und fade-in!) umsetzen, oder weglassen?
 
 - Asynchronous tasks und subscriptions in componentWillUnmount canceln.
     setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
@@ -117,22 +115,38 @@ TO DO
     Möglicherweise auch currBg.remove() in CurrentWeather.js.
     http-Anfragen unterbrechen?
 
+- Fullscreen function/F11 bug
+
+- propTypes setzen
+
+
+Features
+--------
+
+- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
+  https://www.w3schools.com/howto/howto_css_tooltip.asp
+
+- mehr Photos
+
+- Das 'loading' (+ Fehlermeldung und fade-in!) umsetzen, oder weglassen?
+
 - Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
+
+Legal
+-----
+
 - https://unsplash.com/api-terms
   hotlinking
-  If I am linking to other pages I need to have a legal terms page.
+  If I am linking to other pages do I need to have a legal terms page ?
   Do I have to publish a privacy policy because of linking to unsplash profiles?
-  I must provide notice of every download to unsplash..
-  https://unsplash.com/license
-  free to use, for commercial use, without crediting.
-  licence to modify is granted.
-
-- propTypes setzen
-
-- BROWSER-TESTS
+  I must provide notice of every download to unsplash..?
+  
+https://unsplash.com/license
+free to use, for commercial use, without crediting.
+licence to modify is granted.
 
 
 Sonstiges
