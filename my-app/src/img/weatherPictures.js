@@ -24,8 +24,7 @@ sn		Snow											              6xx	snow
 
 const weatherPictures = {
   // clear sky
-  c:
-  [
+  c: [
     { name: 'Teddy Kelley',
       profileURL: 'https://unsplash.com/@teddykelley',
       url:
@@ -101,11 +100,25 @@ const weatherPictures = {
     { name: 'Oliver & Hen Pritchard-Barrett',
       profileURL: 'https://unsplash.com/@olliepb',
       url:
-       'https://images.unsplash.com/photo-1428535172630-fb1c050ac3e0' } ],
+       'https://images.unsplash.com/photo-1428535172630-fb1c050ac3e0'
+    },{
+      name: "Micah Hallahan",
+      profileURL: "https://unsplash.com/@micah_hallahan",
+      url: "https://images.unsplash.com/photo-1438179152657-8ce7dfda4f0b"
+    },{
+      name: "Jonas Weckschmied",
+      profileURL: "https://unsplash.com/@jweckschmied",
+      url: "https://images.unsplash.com/photo-1470137430626-983a37b8ea46"
+    },
+    {
+      name: "Leo Wieling",
+      profileURL: "https://unsplash.com/@leowieling",
+      url: "https://images.unsplash.com/photo-1540141709893-21c6273b507c"
+    }
+  ],
 
- c_n:
- [
-   { name: 'Ivana Cajina',
+  c_n: [
+    { name: 'Ivana Cajina',
       profileURL: 'https://unsplash.com/@von_co',
       url:
        'https://images.unsplash.com/photo-1500534623283-312aade485b7' },
@@ -212,8 +225,8 @@ const weatherPictures = {
        'https://images.unsplash.com/photo-1532894964196-a805f29171ee' } ],
   
   // ligth cloud, few clouds
-  lc:
-  [ { name: 'Ohmky',
+  lc: [
+    { name: 'Ohmky',
       profileURL: 'https://unsplash.com/@ohmky2540',
       url:
        'https://images.unsplash.com/photo-1508347112266-c513b71211d2' },
@@ -324,10 +337,20 @@ const weatherPictures = {
     { name: 'Johannes Plenio',
       profileURL: 'https://unsplash.com/@jplenio',
       url:
-       'https://images.unsplash.com/photo-1525291529786-4bb8cf9d6a97' } ],
+       'https://images.unsplash.com/photo-1525291529786-4bb8cf9d6a97'
+    },{
+      name: "Leo Wieling",
+      profileURL: "https://unsplash.com/@leowieling",
+      url: "https://images.unsplash.com/photo-1533934245110-69e70e2a5098"
+    },{
+      name: "Leo Wieling",
+      profileURL: "https://unsplash.com/@leowieling",
+      url: "https://images.unsplash.com/photo-1540141800614-409074725241"
+    }
+  ],
  
- lc_n:
-  [ { name: 'Lori M. Sousa',
+  lc_n: [
+    { name: 'Lori M. Sousa',
       profileURL: 'https://unsplash.com/@loriseuss',
       url:
        'https://images.unsplash.com/photo-1436228625646-f30c3e8447b0' },
@@ -400,10 +423,16 @@ const weatherPictures = {
        'https://images.unsplash.com/flagged/photo-1552863045-98478b36b024' },
     { name: 'eberhard grossgasteiger',
       profileURL: 'https://unsplash.com/@eberhardgross',
-      url: 'https://images.unsplash.com/photo-1543176633-f692a21fab58' } ],
+      url: 'https://images.unsplash.com/photo-1543176633-f692a21fab58'
+    },{
+      name: "Paul Rysz",
+      profileURL: "https://unsplash.com/@paulrysz",
+      url: "https://images.unsplash.com/photo-1491771966163-57e58bcba7f7"
+    }
+  ],
  
- // heavy cloud, scattered clouds, broken clouds
- hc:
+  // heavy cloud, scattered clouds, broken clouds
+  hc:
   [ { name: 'Martin Adams',
       profileURL: 'https://unsplash.com/@martinadams',
       url:
@@ -465,10 +494,15 @@ const weatherPictures = {
        'https://images.unsplash.com/photo-1459236914855-982c6a11b8ee' },
     { name: 'Jason Wong',
       profileURL: 'https://unsplash.com/@jasonhk1920',
-      url:
-       'https://images.unsplash.com/photo-1503662549813-28954e75f215' } ],
+      url: 'https://images.unsplash.com/photo-1503662549813-28954e75f215'
+    },{
+      name: "Brian Cook",
+      profileURL: "https://unsplash.com/@briancook5",
+      url: "https://images.unsplash.com/photo-1501415753052-e620be3cb38a"
+    }
+  ],
  
- hc_n:
+  hc_n:
   [ { name: 'Tom Barrett',
       profileURL: 'https://unsplash.com/@wistomsin',
       url:
@@ -516,9 +550,9 @@ const weatherPictures = {
       url:
        'https://images.unsplash.com/photo-1492645110833-bf92f4368257' } ],
  
- // showers. rain with some sun // moon
- s:
-  [ { name: 'Kelly Sikkema',
+  // showers. rain with some sun // moon
+  s: [
+    { name: 'Kelly Sikkema',
       profileURL: 'https://unsplash.com/@kellysikkema',
       url:
        'https://images.unsplash.com/photo-1500297211576-5f1628bc4262' },
@@ -541,105 +575,157 @@ const weatherPictures = {
     { name: 'Mark Doda',
       profileURL: 'https://unsplash.com/@markdoda',
       url:
-       'https://images.unsplash.com/13/unsplash_523bf67db73f1_1.JPG' } ],
+       'https://images.unsplash.com/13/unsplash_523bf67db73f1_1.JPG'
+    },{
+      name: "Todd Cravens",
+      profileURL: "https://unsplash.com/@toddcravens",
+      url: "https://images.unsplash.com/photo-1463743981180-c90485a4f274"
+    },{
+      name: "Micah Hallahan",
+      profileURL: "https://unsplash.com/@micah_hallahan",
+      url: "https://images.unsplash.com/photo-1446696577247-2fef509e6641"
+    },{
+      name: "Brian Taylor",
+      profileURL: "https://unsplash.com/@batman2",
+      url: "https://images.unsplash.com/photo-1544672804-900c962b8213"
+    }
+  ],
  
  s_n: [],
  
  // ligth rain, drizzle, shower rain. no sun.
- lr:
-  [ { name: '兆航 樊',
+  lr: [
+    { name: '兆航 樊',
       profileURL: 'https://unsplash.com/@bolijojo',
-      url:
-       'https://images.unsplash.com/photo-1524476007393-f88428db5c02' },
+      url: 'https://images.unsplash.com/photo-1524476007393-f88428db5c02' },
     { name: 'freddie marriage',
       profileURL: 'https://unsplash.com/@fredmarriage',
-      url:
-       'https://images.unsplash.com/photo-1485797460056-2310c82d1213' },
+      url: 'https://images.unsplash.com/photo-1485797460056-2310c82d1213' },
     { name: 'reza shayestehpour',
       profileURL: 'https://unsplash.com/@r_shayesrehpour',
-      url:
-       'https://images.unsplash.com/photo-1428592953211-077101b2021b' },
+      url: 'https://images.unsplash.com/photo-1428592953211-077101b2021b' },
     { name: 'Riley Briggs',
       profileURL: 'https://unsplash.com/@rileybriggs',
       url: 'https://images.unsplash.com/18/trickle.JPG' },
     { name: 'Noah Silliman',
       profileURL: 'https://unsplash.com/@noahsilliman',
-      url:
-       'https://images.unsplash.com/photo-1477847616630-cf9cf8815fda' },
+      url: 'https://images.unsplash.com/photo-1477847616630-cf9cf8815fda' },
     { name: 'Nick Scheerbart',
       profileURL: 'https://unsplash.com/@nck',
-      url:
-       'https://images.unsplash.com/photo-1476044591369-74ee6ac6899c' } ],
+      url: 'https://images.unsplash.com/photo-1476044591369-74ee6ac6899c'
+    },{
+      name: "Jessie Bell",
+      profileURL: "https://unsplash.com/@jessbowbess",
+      url: "https://images.unsplash.com/photo-1430769860170-bea225f02277"
+    },{
+      name: "James Zwadlo",
+      profileURL: "https://unsplash.com/@jzwadlo",
+      url: "https://images.unsplash.com/photo-1462040700793-fcd2dbc0edf0"
+    },{
+      name: "Francesco Gallarotti",
+      profileURL: "https://unsplash.com/@gallarotti",
+      url: "https://images.unsplash.com/photo-1415394171664-b29caa4dca77"
+    },{
+      name: "Ana Silva",
+      profileURL: "https://unsplash.com/@noqas",
+      url: "https://images.unsplash.com/photo-1469225297065-2fd47d56c9c4"
+    },{
+      name: "Andrea Rosina",
+      profileURL: "https://unsplash.com/@geobracc",
+      url: "https://images.unsplash.com/photo-1557238236-d4fa6f18b32a"
+    }, {
+      name: "Patrick Hendry",
+      profileURL: "https://unsplash.com/@worldsbetweenlines",
+      url: "https://images.unsplash.com/photo-1550548660-fc8d761b6ae7"
+    }, {
+      name: "Tomas Robertson",
+      profileURL: "https://unsplash.com/@tomasrobertson",
+      url: "https://images.unsplash.com/photo-1553182648-061019fa5e86"
+    }
+  ],
  
  lr_n:
   [ { name: 'Ohmky',
       profileURL: 'https://unsplash.com/@ohmky2540',
-      url:
-       'https://images.unsplash.com/photo-1536424868245-13b715e11e71' },
+      url: 'https://images.unsplash.com/photo-1536424868245-13b715e11e71' },
     { name: 'Todd Diemer',
       profileURL: 'https://unsplash.com/@todd_diemer',
-      url:
-       'https://images.unsplash.com/photo-1468476396571-4d6f2a427ee7' },
+      url: 'https://images.unsplash.com/photo-1468476396571-4d6f2a427ee7' },
     { name: 'Luca Bravo',
       profileURL: 'https://unsplash.com/@lucabravo',
-      url:
-       'https://images.unsplash.com/photo-1521794286957-348245b517a0' },
+      url: 'https://images.unsplash.com/photo-1521794286957-348245b517a0' },
     { name: 'Luca Bravo',
       profileURL: 'https://unsplash.com/@lucabravo',
-      url:
-       'https://images.unsplash.com/photo-1521794414102-37606728dd9c' },
-    { name: 'oshua K. Jackson',
-      profileURL: 'https://unsplash.com/@joshua',
-      url:
-       'https://images.unsplash.com/photo-1519219481154-3def552ca367' },
-    { name: 'Geetanjal Khanna',
-      profileURL: 'https://unsplash.com/@geetanjalkhanna',
-      url:
-       'https://images.unsplash.com/photo-1460013477427-b0cce3e30151' },
-    { name: 'reza shayestehpour',
-      profileURL: 'https://unsplash.com/@r_shayesrehpour',
-      url:
-       'https://images.unsplash.com/photo-1428592953211-077101b2021b' },
-    { name: 'Gabriel Santiago',
-      profileURL: 'https://unsplash.com/@whileimout',
-      url:
-       'https://images.unsplash.com/photo-1432836431433-925d3cc0a5cd' } ],
+      url: 'https://images.unsplash.com/photo-1521794414102-37606728dd9c' },
+     {
+       name: 'oshua K. Jackson',
+       profileURL: 'https://unsplash.com/@joshua',
+       url: 'https://images.unsplash.com/photo-1519219481154-3def552ca367'
+     },{
+       name: 'Geetanjal Khanna',
+       profileURL: 'https://unsplash.com/@geetanjalkhanna',
+       url: 'https://images.unsplash.com/photo-1460013477427-b0cce3e30151'
+     },{
+       name: 'reza shayestehpour',
+       profileURL: 'https://unsplash.com/@r_shayesrehpour',
+       url: 'https://images.unsplash.com/photo-1428592953211-077101b2021b'
+     },{
+       name: 'Gabriel Santiago',
+       profileURL: 'https://unsplash.com/@whileimout',
+       url: 'https://images.unsplash.com/photo-1432836431433-925d3cc0a5cd'
+     },{
+       name: "Rowan Heuvel",
+       profileURL: "Rowan Heuvel",
+       url: "https://images.unsplash.com/photo-1438260483147-81148f799f25"
+     }
+  ],
  
- // heavy rain, shower rain.
- hr:
-  [ { name: 'Noah Silliman',
+  // heavy rain, shower rain.
+  hr: [
+    { name: 'Noah Silliman',
       profileURL: 'https://unsplash.com/@noahsilliman',
-      url:
-       'https://images.unsplash.com/photo-1493314894560-5c412a56c17c' },
+      url: 'https://images.unsplash.com/photo-1493314894560-5c412a56c17c' },
     { name: 'Eutah Mizushima',
       profileURL: 'https://unsplash.com/@eutahm',
-      url:
-       'https://images.unsplash.com/photo-1437624155766-b64bf17eb2ce' },
+      url: 'https://images.unsplash.com/photo-1437624155766-b64bf17eb2ce' },
     { name: 'Christopher',
       profileURL: 'https://unsplash.com/@kismet',
-      url:
-       'https://images.unsplash.com/photo-1434118489318-42a0e62c6235' },
+      url: 'https://images.unsplash.com/photo-1434118489318-42a0e62c6235' },
     { name: 'michael podger',
       profileURL: 'https://unsplash.com/@jammypodger7470',
-      url:
-       'https://images.unsplash.com/photo-1494007485290-ce668e189d92' },
+      url: 'https://images.unsplash.com/photo-1494007485290-ce668e189d92' },
     { name: 'Anjana Menon',
       profileURL: 'https://unsplash.com/@anjimenon',
-      url:
-       'https://images.unsplash.com/photo-1487762488615-8a011458b53e' },
+      url: 'https://images.unsplash.com/photo-1487762488615-8a011458b53e' },
     { name: 'Thanun Buranapong',
       profileURL: 'https://unsplash.com/@thanunburanapong',
       url: 'https://images.unsplash.com/19/drops.JPG' },
     { name: 'Lola Guti',
       profileURL: 'https://unsplash.com/@lolaguti',
-      url:
-       'https://images.unsplash.com/photo-1444384851176-6e23071c6127' } ],
+      url: 'https://images.unsplash.com/photo-1444384851176-6e23071c6127'
+    },{
+      name: "Mete Myagkiy",
+      profileURL: "https://unsplash.com/@mmiyahki",
+      url: "https://images.unsplash.com/photo-1493985925742-321dd437e002"
+    },{
+      name: "Paul Rysz",
+      profileURL: "https://unsplash.com/@paulrysz",
+      url: "https://images.unsplash.com/photo-1496102592344-dfc6d617e6fb"
+    },{
+      name: "Anna King",
+      profileURL: "https://unsplash.com/@ak1",
+      url: "https://images.unsplash.com/photo-1498847559558-1e4b1a7f7a2f"
+    },{
+      name: "Ameen Fahmy",
+      profileURL: "https://unsplash.com/@ameenfahmy_",
+      url: "https://images.unsplash.com/photo-1494694081617-38b4cba8fc36"
+    }
+  ],
  
- hr_n:
-  [ { name: 'pan xiaozhen',
+  hr_n: [
+    { name: 'pan xiaozhen',
       profileURL: 'https://unsplash.com/@zhenhappy',
-      url:
-       'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8' },
+      url: 'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8' },
     { name: 'Dollar Gill',
       profileURL: 'https://unsplash.com/@dollargill',
       url: 'https://images.unsplash.com/photo-1550938147-1202a4c1aa3e' },
@@ -651,58 +737,52 @@ const weatherPictures = {
       url: 'https://images.unsplash.com/photo-1550938156-a474a8d5e253' },
     { name: 'Dollar Gill',
       profileURL: 'https://unsplash.com/@dollargill',
-      url: 'https://images.unsplash.com/photo-1550938147-146607757c41' } ],
+      url: 'https://images.unsplash.com/photo-1550938147-146607757c41'
+    },{
+      name: "Dominik Schröder",
+      profileURL: "https://unsplash.com/@wirhabenzeit",
+      url: "https://images.unsplash.com/photo-1428908200541-d395094cc816"
+    }
+  ],
  
  // thunderstorm
- t:
-  [ { name: 'Ryan Phillips',
+  t: [
+    { name: 'Ryan Phillips',
       profileURL: 'https://unsplash.com/@ryphillips',
-      url:
-       'https://images.unsplash.com/photo-1537908829143-c49accec9f80' },
+      url: 'https://images.unsplash.com/photo-1537908829143-c49accec9f80' },
     { name: 'Layne Lawson',
       profileURL: 'https://unsplash.com/@laynelawson',
-      url:
-       'https://images.unsplash.com/photo-1465799522714-8eb0e6fccf73' },
+      url: 'https://images.unsplash.com/photo-1465799522714-8eb0e6fccf73' },
     { name: 'Dejan Zakic',
       profileURL: 'https://unsplash.com/@dejan_kide',
-      url:
-       'https://images.unsplash.com/photo-1529220100082-80957b04a221' },
+      url: 'https://images.unsplash.com/photo-1529220100082-80957b04a221' },
     { name: 'Ronald Langeveld',
       profileURL: 'https://unsplash.com/@ronaldlangeveld',
-      url:
-       'https://images.unsplash.com/photo-1516188239414-6bfa485294d8' },
+      url: 'https://images.unsplash.com/photo-1516188239414-6bfa485294d8' },
     { name: 'Jeremy Thomas',
       profileURL: 'https://unsplash.com/@jeremythomasphoto',
-      url:
-       'https://images.unsplash.com/photo-1472145246862-b24cf25c4a36' },
+      url: 'https://images.unsplash.com/photo-1472145246862-b24cf25c4a36' },
     { name: 'Johannes Plenio',
       profileURL: 'https://unsplash.com/@jplenio',
-      url:
-       'https://images.unsplash.com/photo-1500674425229-f692875b0ab7' },
+      url: 'https://images.unsplash.com/photo-1500674425229-f692875b0ab7' },
     { name: 'Jeremy Bishop',
       profileURL: 'https://unsplash.com/@jeremybishop',
-      url:
-       'https://images.unsplash.com/photo-1457528877294-b48235bdaa68' },
+      url: 'https://images.unsplash.com/photo-1457528877294-b48235bdaa68' },
     { name: 'Angela Compagnone',
       profileURL: 'https://unsplash.com/@angelacompagnone',
-      url:
-       'https://images.unsplash.com/photo-1505144992585-d281c0e2cff8' },
+      url: 'https://images.unsplash.com/photo-1505144992585-d281c0e2cff8' },
     { name: 'Felix Mittermeier',
       profileURL: 'https://unsplash.com/@felixmittermeier',
-      url:
-       'https://images.unsplash.com/photo-1537210249814-b9a10a161ae4' },
+      url: 'https://images.unsplash.com/photo-1537210249814-b9a10a161ae4' },
     { name: 'Josep Castells',
       profileURL: 'https://unsplash.com/@paniscusbcn',
-      url:
-       'https://images.unsplash.com/photo-1516490981167-dc990a242afe' },
+      url: 'https://images.unsplash.com/photo-1516490981167-dc990a242afe' },
     { name: 'Johannes Plenio',
       profileURL: 'https://unsplash.com/@jplenio',
-      url:
-       'https://images.unsplash.com/photo-1504123010103-b1f3fe484a32' },
+      url: 'https://images.unsplash.com/photo-1504123010103-b1f3fe484a32' },
     { name: 'Breno Machado',
       profileURL: 'https://unsplash.com/@brenomachado',
-      url:
-       'https://images.unsplash.com/photo-1431440869543-efaf3388c585' } ],
+      url: 'https://images.unsplash.com/photo-1431440869543-efaf3388c585' } ],
  
  // hail, freezing rain
  h: [],
@@ -711,74 +791,71 @@ const weatherPictures = {
  sl: [],
  
  // snow
- sn: [],
+ sn: [
+   {
+     name: "Osman Rana",
+     profileURL: "https://unsplash.com/@osmanrana",
+     url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef"
+   }
+ ],
  
  // 7xx Atmosphere, fog
- fog:
-  [ { name: 'Johannes Plenio',
-      profileURL: 'https://unsplash.com/@jplenio',
-      url:
-       'https://images.unsplash.com/photo-1500673922987-e212871fec22' },
-    { name: 'Kristine Weilert',
-      profileURL: 'https://unsplash.com/@kristineweilert',
-      url:
-       'https://images.unsplash.com/photo-1462290625486-c142817fb94d' },
-    { name: 'Teddy Kelley',
-      profileURL: 'https://unsplash.com/@teddykelley',
-      url:
-       'https://images.unsplash.com/photo-1458935416903-006892a9d8ca' },
-    { name: 'Phoebe Strafford',
-      profileURL: 'https://unsplash.com/@phoebeann',
-      url:
-       'https://images.unsplash.com/photo-1446729444801-31245ddba81a' },
-    { name: 'Susan Yin',
-      profileURL: 'https://unsplash.com/@syinq',
-      url:
-       'https://images.unsplash.com/photo-1461397932544-11132a69bf46' },
-    { name: 'Thomas Griesbeck',
-      profileURL: 'https://unsplash.com/@jack_scorner',
-      url:
-       'https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e' },
-    { name: 'Roksolana Zasiadko',
-      profileURL: 'https://unsplash.com/@cieloadentro',
-      url:
-       'https://images.unsplash.com/photo-1469106233956-20341cc41f8b' },
-    { name: 'Taylor Leopold',
-      profileURL: 'https://unsplash.com/@taylorleopold',
-      url:
-       'https://images.unsplash.com/reserve/D9xlw7UxTBqQw5sLf8cJ_reef%20insp-72.jpg' },
-    { name: 'Sebastian Unrau',
-      profileURL: 'https://unsplash.com/@sebastian_unrau',
-      url:
-       'https://images.unsplash.com/photo-1440847899694-90043f91c7f9' },
-    { name: 'Tevin Trinh',
-      profileURL: 'https://unsplash.com/@tevintrinh',
-      url:
-       'https://images.unsplash.com/photo-1515789978829-1418c77d67f6' },
-    { name: 'Sebastian Unrau',
-      profileURL: 'https://unsplash.com/@sebastian_unrau',
-      url:
-       'https://images.unsplash.com/photo-1445964047600-cdbdb873673d' },
+  fog: [
     { name: 'Johannes Plenio',
       profileURL: 'https://unsplash.com/@jplenio',
-      url:
-       'https://images.unsplash.com/photo-1518562180175-34a163b1a9a6' },
+      url: 'https://images.unsplash.com/photo-1500673922987-e212871fec22' },
+    { name: 'Kristine Weilert',
+      profileURL: 'https://unsplash.com/@kristineweilert',
+      url: 'https://images.unsplash.com/photo-1462290625486-c142817fb94d' },
+    { name: 'Teddy Kelley',
+      profileURL: 'https://unsplash.com/@teddykelley',
+      url: 'https://images.unsplash.com/photo-1458935416903-006892a9d8ca' },
+    { name: 'Phoebe Strafford',
+      profileURL: 'https://unsplash.com/@phoebeann',
+      url: 'https://images.unsplash.com/photo-1446729444801-31245ddba81a' },
+    { name: 'Susan Yin',
+      profileURL: 'https://unsplash.com/@syinq',
+      url: 'https://images.unsplash.com/photo-1461397932544-11132a69bf46' },
+    { name: 'Thomas Griesbeck',
+      profileURL: 'https://unsplash.com/@jack_scorner',
+      url: 'https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e' },
+    { name: 'Roksolana Zasiadko',
+      profileURL: 'https://unsplash.com/@cieloadentro',
+      url: 'https://images.unsplash.com/photo-1469106233956-20341cc41f8b' },
+    { name: 'Taylor Leopold',
+      profileURL: 'https://unsplash.com/@taylorleopold',
+      url: 'https://images.unsplash.com/reserve/D9xlw7UxTBqQw5sLf8cJ_reef%20insp-72.jpg' },
     { name: 'Sebastian Unrau',
       profileURL: 'https://unsplash.com/@sebastian_unrau',
-      url:
-       'https://images.unsplash.com/photo-1448375240586-882707db888b' },
+      url: 'https://images.unsplash.com/photo-1440847899694-90043f91c7f9' },
+    { name: 'Tevin Trinh',
+      profileURL: 'https://unsplash.com/@tevintrinh',
+      url: 'https://images.unsplash.com/photo-1515789978829-1418c77d67f6' },
+    { name: 'Sebastian Unrau',
+      profileURL: 'https://unsplash.com/@sebastian_unrau',
+      url: 'https://images.unsplash.com/photo-1445964047600-cdbdb873673d' },
+    { name: 'Johannes Plenio',
+      profileURL: 'https://unsplash.com/@jplenio',
+      url: 'https://images.unsplash.com/photo-1518562180175-34a163b1a9a6' },
+    { name: 'Sebastian Unrau',
+      profileURL: 'https://unsplash.com/@sebastian_unrau',
+      url: 'https://images.unsplash.com/photo-1448375240586-882707db888b' },
     { name: 'Justin Luebke',
       profileURL: 'https://unsplash.com/@jluebke',
-      url:
-       'https://images.unsplash.com/photo-1446602320560-d871472aa0b9' },
+      url: 'https://images.unsplash.com/photo-1446602320560-d871472aa0b9' },
     { name: 'Matthew Henry',
       profileURL: 'https://unsplash.com/@matthewhenry',
-      url:
-       'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e' } ]
+      url: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e'
+    },{
+      name: "Sensei Minimal",
+      profileURL: "https://unsplash.com/@senseiminimal",
+      url: "https://images.unsplash.com/photo-1508179070693-6f044d6d1c43"
+    }
+  ]
 }
        
 
-export { weatherPictures };
+//export { weatherPictures };
 
 
 //////////////////////////////////////////////////////
@@ -815,7 +892,7 @@ function writeNewCollection() {
   return newObj;
 } */
 
-/* 
+
 function analyseImageCollection() {
   let info = {
     insgesamt: 0
@@ -840,6 +917,6 @@ function analyseImageCollection() {
 }
 
 analyseImageCollection();
- */
+
 
 //#endregion
