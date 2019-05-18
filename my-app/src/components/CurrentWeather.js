@@ -23,10 +23,15 @@ class CurrentWeather extends Component {
 
   elementRef = React.createRef()
 
-  timeOutIDs = []
+  timeoutIDs = {}
+
+  xhr = null;
 
   componentWillUnmount() {
-    
+    for (let el in this.timeoutIDs) {
+      window.clearTimeout(this.timeoutIDs[el]);
+    }
+    if (this.xhr) this.xhr.abort();
   }
 
 	componentDidMount() {
@@ -45,27 +50,27 @@ class CurrentWeather extends Component {
 
 	getWeather(lat, lon) {
 
-    const xhr = new XMLHttpRequest();
+    this.xhr = new XMLHttpRequest();
     
     const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
 
-		xhr.responseType = "json";
-		xhr.onreadystatechange = () => {
+		this.xhr.responseType = "json";
+		this.xhr.onreadystatechange = () => {
 
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.response) {
+			if (this.xhr.readyState === XMLHttpRequest.DONE) {
+        if (this.xhr.response) {
           /* Shuzenji?? False answer. Try again. Sorry Shuzenji. */
-          if (xhr.response.name === "Shuzenji") {
-            console.log( xhr.response.name );
-            window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
+          if (this.xhr.response.name === "Shuzenji") {
+            console.log( this.xhr.response.name );
+            this.timeoutIDs.shuzenjiTryAgain = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
           } else {
-            this.updateState(xhr.response);
+            this.updateState(this.xhr.response);
           }
-        } else console.log(xhr);
+        } else console.log(this.xhr);
 			}
 		};
-		xhr.open("GET", endpoint);
-		xhr.send();
+		this.xhr.open("GET", endpoint);
+		this.xhr.send();
 	}
 
   updateState(data) {
@@ -165,6 +170,7 @@ class CurrentWeather extends Component {
     // when img is loaded, attach to DOM and fade-over:
     promise.then( img => {
       let rootEl = document.querySelector("#root");
+      // the first one of this class will be choosen:
       let currBg = document.querySelector(".bg-fs-fixed");
       rootEl.insertBefore(img, currBg);
       // Fade-over (css transition):
@@ -174,6 +180,9 @@ class CurrentWeather extends Component {
       window.setTimeout( ()=> {
         currBg.remove();
       }, 2500); // In css --trans-time-slow is set to 2s.
+      /* this timeout doesn't have to be added to the "reset" list this.timeoutIDs
+      After dismounting of this Component, variable currBg and the value of it (= html node)
+      will still be known! */
 
       // send JSX element to App.js, containing photographer info:
       this.props.setPhotographerInfo(
@@ -187,7 +196,7 @@ class CurrentWeather extends Component {
 
     }, err => {
       console.error(err);
-      window.setTimeout( this.loadPicture.bind(this), 1000);
+      this.timeoutIDs.loadPicTryAgain = window.setTimeout( this.loadPicture.bind(this), 1000);
       // could create an infinity loop if no image url can be loaded
     });
 

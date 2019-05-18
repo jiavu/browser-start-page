@@ -29,11 +29,12 @@
 FEATURES      // done
 ========
 - Current weather, daily forecast weather
-- Weather Pictures: Night Mode
+- Background slide show: Photos according to current weather
+- Weather Pictures: "Night Mode"; in the night the app will show night pictures.
 - Smooth Background Image Loader
 - Intelligent sizing of background images (unsplash.com uses the Imgix API)
-  -> smaller download sizes on mobile devices
-- Starkwindwarnung ab 6 Bft
+  -> smaller download sizes on smaller-resolution-screens and on mobile.
+- Strong wind warning for wind speeds >= 6 Bft
 
 
 ===========
@@ -106,13 +107,17 @@ Bugs
 - Bug: Mit Testdaten für current weather.
   Uncaught TypeError: Invalid attempt to spread non-iterable instance
 
+- Check error: Ich glaube während des for-loops in ForecastWeather
+  Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    in ForecastWeather (at WeatherApp.js:65)
+    in WeatherApp (at App.js:91)
+
 - Lösung für client side routing. Serverseitig registrieren?
 
 - Asynchronous tasks und subscriptions in componentWillUnmount canceln.
     setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
     Component müssen diese direkt zurückgesetzt werden!
     componentWillUnmount()
-    Möglicherweise auch currBg.remove() in CurrentWeather.js.
     http-Anfragen unterbrechen?
 
 - Fullscreen function/F11 bug

@@ -16,6 +16,13 @@ class ForecastWeather extends Component {
   state = { response: null }
   
   elementRef = React.createRef()
+  controller = new AbortController()
+  signal = this.controller.signal
+
+  componentWillUnmount() {
+    // cancel http fetch request:
+    this.controller.abort();
+  }
 
 	componentDidMount() {
     this.getWoeid(this.props.lat, this.props.lon);
@@ -26,7 +33,8 @@ class ForecastWeather extends Component {
 	getWoeid(lat, lon) {
 		fetch(proxyUrl + url + `search/?lattlong=${lat},${lon}`, {
       origin: null,
-      'X-Requested-With': "XMLHttpRequest"
+      'X-Requested-With': "XMLHttpRequest",
+      signal : this.signal
     }).then(response => {
       if (response.ok) {
         return response.json();

@@ -855,7 +855,7 @@ const weatherPictures = {
 }
        
 
-//export { weatherPictures };
+export { weatherPictures };
 
 
 //////////////////////////////////////////////////////
@@ -892,7 +892,7 @@ function writeNewCollection() {
   return newObj;
 } */
 
-
+/* 
 function analyseImageCollection() {
   let info = {
     insgesamt: 0
@@ -917,6 +917,6 @@ function analyseImageCollection() {
 }
 
 analyseImageCollection();
-
+ */
 
 //#endregion
