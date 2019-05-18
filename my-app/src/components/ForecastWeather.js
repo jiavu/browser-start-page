@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
-import { convertWindSpeed } from "../scripts/converter";
+import { convertWindSpeed, windDescription } from "../scripts/converter";
 import { fadeInAfterMount } from '../scripts/utils';
 
 import windsock from "../img/windsock.svg";
@@ -87,29 +87,34 @@ class ForecastWeather extends Component {
 
 		return this.state.response ? (
 			<section className="app-frame forecast-weather" ref={this.elementRef}>
-        <div className="forecast-head">At {this.state.location} </div>
+        <div className="fc-head">At {this.state.location} </div>
         
-        <div className="forecast-body flex-row-auto-wrap">
+        <div className="fc-body flex-row-auto-wrap">
 
           { this.state.w_data.map( (day, i) => (
-            <div key={i} className="forecast-tile">
+            <div key={i} className="fc-tile">
               <h3>{i === 0 ? "Today" : day.day}</h3>
-              <div className="forecast-icon-wrapper">
+              <div className="fc-icon-wrapper">
                 <img src={day.imgSrc} alt={day.abbr}></img>
               </div>
               <p>{Math.round(day.min_temp)}° / {Math.round(day.max_temp)}°</p>
-              <p className="fc-wind-descr">
-                {convertWindSpeed(day.wind_speed)} Bft
+              <p className="fc-wind">
+                <span className="fc-wind-short">
+                  {convertWindSpeed(day.wind_speed)} Bft
                   <i className="fas fa-location-arrow wind-arrow"
-                      style={{
-                        transform: `rotate(${day.wind_deg + 135}deg)`
-                      }}>
+                    style={{
+                      transform: `rotate(${day.wind_deg + 135}deg)`
+                    }}>
                   </i>
-                { this.state.wind_speed > 10.8 && (
-                  <img src={windsock} alt="ws" className="wind-sock"/>
-                )}
+                  {day.wind_speed > 10.8 && (
+                    <img src={windsock} alt="ws" className="wind-sock" />
+                  )}
+                </span>
+                <span className="fc-wind-descr">
+                  {windDescription[this.props.lang][convertWindSpeed(day.wind_speed)]}
+                </span>
               </p>
-              <p className="pred">pred. {day.pred}%</p>
+              <p className="fc-pred">pred. {day.pred}%</p>
             </div>
           )) }
 

@@ -35,6 +35,7 @@ FEATURES      // done
 - Intelligent sizing of background images (unsplash.com uses the Imgix API)
   -> smaller download sizes on smaller-resolution-screens and on mobile.
 - Strong wind warning for wind speeds >= 6 Bft
+- Wind description when hovering over wind infos in forecast.
 
 
 ===========
@@ -128,10 +129,7 @@ Bugs
 Features
 --------
 
-- forecast: mouse over fc-wind-descr: zeige Windbeschreibung in einem tooltip an.
-  https://www.w3schools.com/howto/howto_css_tooltip.asp
-
-- mehr Photos
+- mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
 
 - Das 'loading' (+ Fehlermeldung und fade-in!) umsetzen, oder weglassen?
 

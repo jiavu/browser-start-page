@@ -1,6 +1,5 @@
 
 /* Background-Picture corresponding to weather :=) */
-
 .bg-fs-fixed {
   position: fixed;
   top: 0; left: 0;
@@ -12,6 +11,10 @@
   transition: opacity var(--trans-time-slow);
 }
 
+/*========*/
+/* common */
+/*========*/
+
 .wind-arrow {
   font-size: 0.8em;
   margin-left: 0.8em;
@@ -19,7 +22,6 @@
   top: -0.3em;
   color: var(--light);
 }
-
 .wind-sock {
   height: 0.9em;
   padding-left: 0.75em;
@@ -55,29 +57,54 @@
 /* FORECAST WEATHER */
 /*==================*/
 
-.forecast-weather .forecast-head {
+.forecast-weather .fc-head {
 
 }
-.forecast-weather .forecast-body {
+.forecast-weather .fc-body {
   /* flex: */
   justify-content: space-around;
 }
-.forecast-weather .forecast-tile {
-  /* float: left; */
+.forecast-weather .fc-tile {
   padding-top: 0.9em;
   padding-bottom: 0.45em;
   width: calc( (320px - 1rem - 1.8rem) / 2 );
-  /* text-align: center; */
-  /* padding: 0.3em 0.4em 0; */
+  text-align: center;
 }
-.forecast-weather .forecast-icon-wrapper {
+.forecast-weather .fc-icon-wrapper {
   margin: 0.4em 0;
   width: 4em;
+  display: inline-block;
 }
-.forecast-weather .fc-wind-descr {
+.forecast-weather .fc-wind {
+  position: relative;
   padding: 0.4em 0;
   font-size: 0.8em;
+  cursor: pointer;
 }
-.forecast-weather .pred {
+.fc-wind span {
+  transition: opacity var(--trans-time-fast);
+}
+.forecast-weather .fc-wind-descr {
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.forecast-weather .fc-wind:hover .fc-wind-short {
+  opacity: 0;
+}
+.forecast-weather .fc-wind:hover .fc-wind-descr {
+  opacity: 1;
+}
+.forecast-weather .fc-pred {
   font-size: 0.8em;
+}
+
+@media only screen and (max-width: 447px) { /* .fc-tile wrappen von 3x1 auf 2x2 */
+  .forecast-weather .fc-tile {
+    text-align: left;
+  }
 }
