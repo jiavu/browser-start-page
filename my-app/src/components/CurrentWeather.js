@@ -21,23 +21,26 @@ class CurrentWeather extends Component {
     pictureList: null
   }
 
-  elementRef = React.createRef()
+  elRefList = []
+  elementRef1 = React.createRef()
+  elementRef2 = React.createRef()
 
   timeoutIDs = {}
 
   xhr = null;
+
+	componentDidMount() {
+    //this.getWeather(this.props.lat, this.props.lon);
+    //this.updateState(tempData);   // DELETE after production!
+    this.elRefList.push(this.elementRef1);
+    //fadeInAfterMount.call(this);
+  }
 
   componentWillUnmount() {
     for (let el in this.timeoutIDs) {
       window.clearTimeout(this.timeoutIDs[el]);
     }
     if (this.xhr) this.xhr.abort();
-  }
-
-	componentDidMount() {
-    fadeInAfterMount.call(this);
-    this.getWeather(this.props.lat, this.props.lon);
-    //this.updateState(tempData);   // DELETE after production!
   }
 
   componentDidUpdate(prevProps) {
@@ -206,7 +209,7 @@ class CurrentWeather extends Component {
 	render() {
 
 		return (
-			<section className="app-frame current-weather" ref={this.elementRef}>
+			<section className="app-frame current-weather" ref={this.elementRef1}>
         { this.state.response ? (
           <React.Fragment>
             <div className="head">
@@ -241,7 +244,7 @@ class CurrentWeather extends Component {
               <p>{this.state.location}</p>
             </div>
           </React.Fragment>
-        ) : <p><i>Current Weather loading...</i></p> }
+        ) : <p ref={this.elementRef2}><i>Current Weather loading...</i></p> }
 			</section>
 		);
 	}

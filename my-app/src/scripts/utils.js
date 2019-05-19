@@ -39,8 +39,8 @@ const arrayGen2 = function*(arr) {
 }
 
 /**
- * Creates a function that keeps back a function from running and delays run
- * of this function after a given number of milliseconds.
+ * Creates a function that keeps back a function from running, and delays
+ * the function after a given number of milliseconds.
  * @param {function} func - The callback function to debounce
  * @param {number} ms - The milliseconds to wait until callback function will run.
  */
@@ -62,18 +62,25 @@ const debounce = function(func, ms) {
 
 /**
  * Sets opacity of a referenced HTML element of a React Component to 1.
- * With css transition set for opacity, that element will fade in.
- * If referenced element is not rendered yet, function will do polling.
+ * With a css transition set for opacity, that element will fade in.
+ * If element is not rendered yet, hence unknown (null), function will do polling.
  */
-function fadeInAfterMount() {
-  window.setTimeout( () => {
-    const curr = this.elementRef.current;
-    if (!curr) fadeInAfterMount.call(this);
-    else curr.style.opacity = "1";
-  }, 50);
+function fadeInAfterMount(ref) {
+  /* 
+  console.log(ref);
+  if (ref) window.setTimeout(fadeInAfterMount, 200, ref); */
+  /* 
+  this.elRefList.forEach( ref => {
+    window.setTimeout( () => {
+      const curr = ref.current;
+      //console.log(curr);
+      if (!curr) fadeInAfterMount.call(this);
+      else curr.style.opacity = "1";
+    }, 50);
+  });*/
 };
 
-/* 
+/* Doesn't work. chrome.downloads.onChanged is made for extensions only?
 function showTraffic() {
   const trfcMonitor = document.createElement("div");
   trfcMonitor.id = "trfcMonitor";

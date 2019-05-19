@@ -19,15 +19,15 @@ class ForecastWeather extends Component {
   controller = new AbortController()
   signal = this.controller.signal
 
+	componentDidMount() {
+    //this.getWoeid(this.props.lat, this.props.lon);
+    //this.updateState(example); // DELETE after production!
+    //fadeInAfterMount.call(this);
+  }
+
   componentWillUnmount() {
     // cancel http fetch request:
     this.controller.abort();
-  }
-
-	componentDidMount() {
-    this.getWoeid(this.props.lat, this.props.lon);
-    //this.updateState(example); // DELETE after production!
-    fadeInAfterMount.call(this);
   }
 
 	getWoeid(lat, lon) {

@@ -14,7 +14,7 @@ class Settings extends React.Component {
 	}
 
   componentDidMount() {
-    fadeInAfterMount.call(this);
+    //fadeInAfterMount.call(this);
   }
 
   handleChange(event) {

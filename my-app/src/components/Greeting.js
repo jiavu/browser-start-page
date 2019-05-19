@@ -26,7 +26,7 @@ class Greeting extends Component {
       greeting: visits > 1 ? timeToGreet(this.props.hourOfDay) : "Welcome"
     } );
 
-    fadeInAfterMount.call(this);
+    //fadeInAfterMount.call(this);
   }
   
   componentDidUpdate(prevProps) {
