@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fadeInAfterMount } from '../scripts/utils';
+import { fadeIn } from '../scripts/utils';
 import '../styles/settings.css';
 
 class Settings extends React.Component {
@@ -9,17 +9,25 @@ class Settings extends React.Component {
 		super(props);
     this.state = { value: "" };
     this.elementRef = React.createRef();
+    this.timeoutIDs = {};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+  }
 
   componentDidMount() {
-    //fadeInAfterMount.call(this);
+    fadeIn.call(this, "getCurrentElement");
+  }
+
+  componentWillUnmount() {
+    for (let el in this.timeoutIDs) {
+      window.clearTimeout(this.timeoutIDs[el]);
+    }
   }
 
   handleChange(event) {
 		this.setState({ value: event.target.value })
-	}
+  }
+  
 	handleSubmit(event) {
     event.preventDefault();
     let inputs = Array.from( event.currentTarget.querySelectorAll('input[type="text"]') );

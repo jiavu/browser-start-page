@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/greeting.css';
 import Clock from "./Clock";
 import {getLocalStorageData, setLocalStorageData} from "../scripts/localStorage";
-import { fadeInAfterMount } from '../scripts/utils';
+import { fadeIn } from '../scripts/utils';
 import {timeToGreet} from "../scripts/converter";
 
 class Greeting extends Component {
@@ -10,6 +10,7 @@ class Greeting extends Component {
   state = { greeting: null }
 
   elementRef = React.createRef()
+  timeoutIDs = {}
 
 	//setLocalStorageData("firstVisit", false);
 	/* localStorage.setItem("key", "value");
@@ -26,12 +27,18 @@ class Greeting extends Component {
       greeting: visits > 1 ? timeToGreet(this.props.hourOfDay) : "Welcome"
     } );
 
-    //fadeInAfterMount.call(this);
+    fadeIn.call(this, "getCurrentElement");
   }
   
   componentDidUpdate(prevProps) {
     if (this.props.hourOfDay !== prevProps.hourOfDay) {
       this.state.visits > 1 && this.setState( {greeting : timeToGreet(this.props.hourOfDay)});
+    }
+  }
+
+  componentWillUnmount() {
+    for (let el in this.timeoutIDs) {
+      window.clearTimeout(this.timeoutIDs[el]);
     }
   }
 

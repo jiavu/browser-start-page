@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
 import './styles/App.css';
 import fullscreen from './img/expand.svg';
+
 // Components:
 import GetVisitorsName from "./components/GetVisitorsName";
 import Greeting from "./components/Greeting";

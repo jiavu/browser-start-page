@@ -105,6 +105,10 @@ TO DO
 Bugs
 ----
 
+- main ist möglicherweise noch nicht vorhanden bei event DOMContentLoaded in
+  index.html, da von React gerendert.
+  document.querySelector("main").style.minHeight führt somit zum Crash.
+
 - Bug: Mit Testdaten für current weather.
   Uncaught TypeError: Invalid attempt to spread non-iterable instance
 
@@ -116,10 +120,8 @@ Bugs
 - Lösung für client side routing. Serverseitig registrieren?
 
 - Asynchronous tasks und subscriptions in componentWillUnmount canceln.
-    setTimeouts in Componenten (z. B. CurrentWeather): Nach Dismounten von
-    Component müssen diese direkt zurückgesetzt werden!
-    componentWillUnmount()
-    http-Anfragen unterbrechen?
+    setTimeouts in Componenten (z. B. CurrentWeather)
+    http-Anfragen
 
 - Fullscreen function/F11 bug
 
@@ -129,9 +131,10 @@ Bugs
 Features
 --------
 
-- mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
+- Status Meldung http request für Wetterdaten umsetzen.
+  Fehlermeldung bei scheitern.
 
-- Das 'loading' (+ Fehlermeldung und fade-in!) umsetzen, oder weglassen?
+- mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
 
 - Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
 

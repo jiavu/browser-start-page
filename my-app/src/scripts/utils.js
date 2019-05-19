@@ -1,4 +1,4 @@
-//"use strict"; // unnecessary
+import TweenMax from 'gsap/TweenMax';
 
 // Helper Functions, Utilities
 
@@ -61,24 +61,29 @@ const debounce = function(func, ms) {
 };
 
 /**
- * Sets opacity of a referenced HTML element of a React Component to 1.
- * With a css transition set for opacity, that element will fade in.
- * If element is not rendered yet, hence unknown (null), function will do polling.
+ * Fades in an HTML element of a React Component. The element has
+ * to be referenced by React.createRef().
+ * Requirement:
+ * - One property named this.elementRef in the React Component,
+ * - A property of type object named this.timeoutIDs in the React Component.
+ * @param {string} idName - name for the timeoutID
  */
-function fadeInAfterMount(ref) {
-  /* 
-  console.log(ref);
-  if (ref) window.setTimeout(fadeInAfterMount, 200, ref); */
-  /* 
-  this.elRefList.forEach( ref => {
-    window.setTimeout( () => {
-      const curr = ref.current;
-      //console.log(curr);
-      if (!curr) fadeInAfterMount.call(this);
-      else curr.style.opacity = "1";
-    }, 50);
-  });*/
-};
+function fadeIn(idName) {
+  this.timeoutIDs[idName] = window.setTimeout( ()=> {
+    if (!this.elementRef.current) fadeIn.call(this, idName);
+    else {
+      const element = this.elementRef.current;
+      /* Exception handling:
+      if React removes the element from virtual DOM,
+      reference becomes a null target and TweenMax crashes. */
+      try {
+        TweenMax.fromTo(element, 0.6, { opacity: 0 }, { opacity: 1 });
+      } catch (error) {
+        console.log("Error. " + error);
+      }
+    }
+  }, 50);
+}
 
 /* Doesn't work. chrome.downloads.onChanged is made for extensions only?
 function showTraffic() {
@@ -91,5 +96,4 @@ function showTraffic() {
 }
  */
 
-
-export {mixList, arrayGen, arrayGen2, debounce, fadeInAfterMount };
+export {mixList, arrayGen, arrayGen2, debounce, fadeIn };

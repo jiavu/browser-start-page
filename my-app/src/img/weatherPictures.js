@@ -627,8 +627,8 @@ const weatherPictures = {
     }
   ],
  
- lr_n:
-  [ { name: 'Ohmky',
+ lr_n: [
+    { name: 'Ohmky',
       profileURL: 'https://unsplash.com/@ohmky2540',
       url: 'https://images.unsplash.com/photo-1536424868245-13b715e11e71' },
     { name: 'Todd Diemer',
@@ -640,27 +640,27 @@ const weatherPictures = {
     { name: 'Luca Bravo',
       profileURL: 'https://unsplash.com/@lucabravo',
       url: 'https://images.unsplash.com/photo-1521794414102-37606728dd9c' },
-     {
-       name: 'oshua K. Jackson',
-       profileURL: 'https://unsplash.com/@joshua',
-       url: 'https://images.unsplash.com/photo-1519219481154-3def552ca367'
-     },{
-       name: 'Geetanjal Khanna',
-       profileURL: 'https://unsplash.com/@geetanjalkhanna',
-       url: 'https://images.unsplash.com/photo-1460013477427-b0cce3e30151'
-     },{
-       name: 'reza shayestehpour',
-       profileURL: 'https://unsplash.com/@r_shayesrehpour',
-       url: 'https://images.unsplash.com/photo-1428592953211-077101b2021b'
-     },{
-       name: 'Gabriel Santiago',
-       profileURL: 'https://unsplash.com/@whileimout',
-       url: 'https://images.unsplash.com/photo-1432836431433-925d3cc0a5cd'
-     },{
-       name: "Rowan Heuvel",
-       profileURL: "Rowan Heuvel",
-       url: "https://images.unsplash.com/photo-1438260483147-81148f799f25"
-     }
+    {
+      name: 'Joshua K. Jackson',
+      profileURL: 'https://unsplash.com/@joshua',
+      url: 'https://images.unsplash.com/photo-1519219481154-3def552ca367'
+    },{
+      name: 'Geetanjal Khanna',
+      profileURL: 'https://unsplash.com/@geetanjalkhanna',
+      url: 'https://images.unsplash.com/photo-1460013477427-b0cce3e30151'
+    },{
+      name: 'reza shayestehpour',
+      profileURL: 'https://unsplash.com/@r_shayesrehpour',
+      url: 'https://images.unsplash.com/photo-1428592953211-077101b2021b'
+    },{
+      name: 'Gabriel Santiago',
+      profileURL: 'https://unsplash.com/@whileimout',
+      url: 'https://images.unsplash.com/photo-1432836431433-925d3cc0a5cd'
+    },{
+      name: "Rowan Heuvel",
+      profileURL: "Rowan Heuvel",
+      url: "https://images.unsplash.com/photo-1438260483147-81148f799f25"
+    }
   ],
  
   // heavy rain, shower rain.

@@ -118,8 +118,8 @@ button.fs-button:hover {
 
 .app-frame {
   opacity: 0; /* Will be set to 1 after componentDidMount */
-  -webkit-transition: opacity var(--trans-time-fast);
-  transition: opacity var(--trans-time-fast);
+  /* -webkit-transition: opacity var(--trans-time-fast);
+  transition: opacity var(--trans-time-fast); */
   z-index: 2;
   width: 100%;
   max-width: 560px;
