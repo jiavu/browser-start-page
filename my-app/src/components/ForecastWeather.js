@@ -11,7 +11,10 @@ const url = "https://www.metaweather.com/api/location/";
 
 class ForecastWeather extends Component {
 
-  state = { response: null }
+  state = {
+    response: null,
+    requestState : ""
+  }
   
   elementRef = React.createRef()
   controller = new AbortController()
@@ -27,7 +30,14 @@ class ForecastWeather extends Component {
     this.controller.abort();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.updateWeather !== prevProps.updateWeather) {
+      this.getWoeid(this.props.lat, this.props.lon);
+    }
+  }
+
 	getWoeid(lat, lon) {
+    this.setState({ requestState: "Forecast Weather loading..." });
 		fetch(proxyUrl + url + `search/?lattlong=${lat},${lon}`, {
       origin: null,
       'X-Requested-With': "XMLHttpRequest",
@@ -37,10 +47,13 @@ class ForecastWeather extends Component {
         return response.json();
       }
       throw new Error("response is not ok.");
-    }, error => console.log(error)
+    }, error => console.error(error)
     ).then(jsonResponse => {
       this.getWeather(jsonResponse[0].woeid);
-    }).catch( err => console.log(err) );
+    }).catch( err => {
+      console.log(err);
+      this.setState({requestState: "Failed to load weather forecast. Try again later."});
+    });
   }
 
   getWeather(woeid) {
@@ -49,7 +62,10 @@ class ForecastWeather extends Component {
         return response.json();
       }
       throw new Error("response is not ok.");
-    }, error => console.log(error)
+    }, error => {
+      console.log(error);
+      this.setState({requestState: "Failed to load weather forecast. Try again later."});
+    }
     ).then(jsonResponse => {
       this.setState( { response: jsonResponse });
     });
@@ -59,7 +75,7 @@ class ForecastWeather extends Component {
 
 		return this.state.response ? (
 			<ForecastWeatherData data={this.state.response} lang={this.props.lang}/>
-		) : <RequestState/>;
+      ) : <RequestState message={this.state.requestState}/>;
 	}
 }
 

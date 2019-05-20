@@ -63,7 +63,7 @@ class WeatherApp extends Component {
             setPhotographerInfo={this.props.setPhotographerInfo}/>
         )}
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang}/>
+					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
 			</React.Fragment>
 		) : null;
 	}

@@ -19,7 +19,8 @@ class CurrentWeather extends Component {
     response: null,
     prev_abbrID: null,
     arrIterator: null,
-    pictureList: null
+    pictureList: null,
+    requestState: ""
   }
 
   timeoutIDs = {}
@@ -60,15 +61,20 @@ class CurrentWeather extends Component {
           /* Shuzenji?? False answer. Try again. Sorry Shuzenji. */
           if (this.xhr.response.name === "Shuzenji") {
             console.log( this.xhr.response.name );
+            this.setState({ requestState: "Current Weather loading... Shuzenji..." });
             this.timeoutIDs.shuzenjiTryAgain = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
           } else {
             this.updateState(this.xhr.response);
           }
-        } else console.log(this.xhr);
+        } else {
+          console.log(this.xhr);
+          this.setState({ requestState: "Failed to load current weather. Try again later." });
+        }
 			}
 		};
 		this.xhr.open("GET", endpoint);
-		this.xhr.send();
+    this.xhr.send();
+    this.setState({ requestState: "Current Weather loading..." });
 	}
 
   updateState(data) {
@@ -182,12 +188,11 @@ class CurrentWeather extends Component {
 
   }
 
-
 	render() {
 
 		return this.state.response ? (
       <CurrentWeatherData data={this.state.response} lang={this.props.lang}/>
-    ) : <RequestState/>;
+    ) : <RequestState message={this.state.requestState}/>;
 
 	}
 }

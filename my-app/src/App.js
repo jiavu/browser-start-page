@@ -93,7 +93,6 @@ class App extends Component {
                             changePic={this.state.changePic}
                             updateWeather={this.state.updateWeather}
                             setPhotographerInfo={this.setPhotographerInfo}/>
-              
                 </React.Fragment>
               ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
 
