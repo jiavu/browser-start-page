@@ -10,7 +10,7 @@
 }
 .settings p {
   margin: 0.5rem;
-  line-height: 1.08;
+  line-height: 1.2;
   color: var(--light-t);
 }
 .settings p a {
@@ -22,5 +22,5 @@
   color: var(--color1-light);
 }
 .settings .my-credits p {
-  line-height: 1.2;
+  line-height: 1.15;
 }

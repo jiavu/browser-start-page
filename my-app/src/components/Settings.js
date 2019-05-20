@@ -79,7 +79,7 @@ class Settings extends React.Component {
           CC BY 4.0</a>
         </p>
         <p>
-          Windsock icon made by&nbsp;
+          Windsock and fullscreen icon made by&nbsp;
           <a href="https://www.freepik.com/" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik</a> from&nbsp;
           <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a><br/>
           is licensed by&nbsp;

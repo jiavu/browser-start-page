@@ -131,12 +131,9 @@ Bugs
 Features
 --------
 
-- Status Meldung http request für Wetterdaten umsetzen.
-  Fehlermeldung bei scheitern.
+- Status Meldung http request verbesserbar? Am besten mit http status?
 
 - mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
-
-- Das forecast-weather wird nicht aktualisiert. Auch wie current weather alle 10 Minuten?
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
