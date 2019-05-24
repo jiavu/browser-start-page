@@ -46,13 +46,16 @@ class ForecastWeather extends Component {
       if (response.ok) {
         return response.json();
       }
-      throw new Error("response is not ok.");
-    }, error => console.error(error)
-    ).then(jsonResponse => {
+      throw new Error(response.status);
+    }, error => {
+      console.error(error);
+      throw new Error("Fetch failed / network error");
+      // failed to fetch/ connection error
+    }).then(jsonResponse => {
       this.getWeather(jsonResponse[0].woeid);
-    }).catch( err => {
-      console.log(err);
-      this.setState({requestState: "Failed to load weather forecast. Try again later."});
+    }, error => {
+      console.error(error);
+      this.setState({ requestState: `Failed to load forecast weather. (${error})`});
     });
   }
 
@@ -61,13 +64,17 @@ class ForecastWeather extends Component {
       if (response.ok) {
         return response.json();
       }
-      throw new Error("response is not ok.");
+      throw new Error(response.status);
     }, error => {
-      console.log(error);
-      this.setState({requestState: "Failed to load weather forecast. Try again later."});
+      console.error(error);
+      throw new Error("Fetch failed / network error");
+      // failed to fetch/ connection error
     }
     ).then(jsonResponse => {
       this.setState( { response: jsonResponse });
+    }, error => {
+      console.error(error);
+      this.setState({ requestState: `Failed to load forecast weather. (${error})`});
     });
   }
 

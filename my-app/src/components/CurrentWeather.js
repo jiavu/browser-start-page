@@ -20,12 +20,14 @@ class CurrentWeather extends Component {
     prev_abbrID: null,
     arrIterator: null,
     pictureList: null,
-    requestState: ""
+    requestState: "",
+    error: ""
   }
 
   timeoutIDs = {}
 
-  xhr = null;
+  controller = new AbortController()
+  signal = this.controller.signal
 
 	componentDidMount() {
     this.getWeather(this.props.lat, this.props.lon);
@@ -36,7 +38,7 @@ class CurrentWeather extends Component {
     for (let el in this.timeoutIDs) {
       window.clearTimeout(this.timeoutIDs[el]);
     }
-    if (this.xhr) this.xhr.abort();
+    this.controller.abort();
   }
 
   componentDidUpdate(prevProps) {
@@ -48,33 +50,30 @@ class CurrentWeather extends Component {
   }
 
 	getWeather(lat, lon) {
-
-    this.xhr = new XMLHttpRequest();
-    
     const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
 
-		this.xhr.responseType = "json";
-		this.xhr.onreadystatechange = () => {
-
-			if (this.xhr.readyState === XMLHttpRequest.DONE) {
-        if (this.xhr.response) {
-          /* Shuzenji?? False answer. Try again. Sorry Shuzenji. */
-          if (this.xhr.response.name === "Shuzenji") {
-            console.log( this.xhr.response.name );
-            this.setState({ requestState: "Current Weather loading... Shuzenji..." });
-            this.timeoutIDs.shuzenjiTryAgain = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
-          } else {
-            this.updateState(this.xhr.response);
-          }
-        } else {
-          console.log(this.xhr);
-          this.setState({ requestState: "Failed to load current weather. Try again later." });
-        }
-			}
-		};
-		this.xhr.open("GET", endpoint);
-    this.xhr.send();
     this.setState({ requestState: "Current Weather loading..." });
+    fetch(endpoint).then( response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.status);
+    }, error => {
+      console.error(error);
+      throw new Error("Fetch failed / network error");
+      // failed to fetch/ connection error
+    }).then(jsonResponse => {
+      if (jsonResponse.error) throw new Error(jsonResponse.error);
+      // Shuzenji?? False answer. Try again. Sorry Shuzenji.
+      if ( jsonResponse.name === "Shuzenji" ) {
+        this.setState({ requestState: "Shuzenji response. New request..." });
+        this.timeoutIDs.newHttpRequest = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
+      }
+      this.updateState(jsonResponse);
+    }, error => {
+      console.error(error);
+      this.setState({ requestState: `Failed to load current weather. (${error})`});
+    });
 	}
 
   updateState(data) {

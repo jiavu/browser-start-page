@@ -34,7 +34,7 @@ class WeatherApp extends Component {
     /* 
     const lat = 51.532808,
           lon = 9.935340;
-    */
+     */
     //this.setState( {lat, lon} );
 		this.getGeoLocation();
 	}
