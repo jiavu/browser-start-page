@@ -20,8 +20,8 @@ class CurrentWeatherData extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.data !== prevProps.data) {
-      console.log("CurrentWeatherData updated.");
       this.updateState(this.props.data);
+      console.log("CurrentWeatherData updated.");
     }
   }
 

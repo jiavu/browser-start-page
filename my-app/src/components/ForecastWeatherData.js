@@ -19,6 +19,13 @@ class ForecastWeatherData extends Component {
     fadeIn.call(this, "getCurrentElement");
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.data !== prevProps.data) {
+      this.updateState(this.props.data);
+      console.log("ForecastWeatherData updated.");
+    }
+  }
+
   componentWillUnmount() {
     for (let el in this.timeoutIDs) {
       window.clearTimeout(this.timeoutIDs[el]);
@@ -26,13 +33,11 @@ class ForecastWeatherData extends Component {
   }
 
   updateState(data) {
-   
+   const fcWeather = [];
     for (let i = 0; i <= 3; i++) {
-      
       const day_data = data.consolidated_weather[i];
       let date = new Date(day_data.applicable_date);
-      
-      this.state.fcWeather.push( {
+      fcWeather.push( {
         day: date.toLocaleDateString(this.props.lang, {weekday: "long"} ),
         abbr: day_data.weather_state_abbr,
         imgSrc: imgUrl + day_data.weather_state_abbr + ".svg",
@@ -43,8 +48,10 @@ class ForecastWeatherData extends Component {
         pred: day_data.predictability
        } );
     }
-
-    this.setState({ location: data.title + ", " + data.parent.title });
+    this.setState({
+      location: data.title + ", " + data.parent.title,
+      fcWeather
+    });
   }
 
 	render() {

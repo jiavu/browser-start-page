@@ -105,18 +105,19 @@ TO DO
 Bugs
 ----
 
+- main ist möglicherweise noch nicht vorhanden bei event DOMContentLoaded in
+  index.html, da von React gerendert.
+  document.querySelector("main").style.minHeight führt somit zum Crash.
+  -> eventlistener sollte in App.js
+  
 - Bug: Mit Testdaten für current weather.
   Uncaught TypeError: Invalid attempt to spread non-iterable instance
   -> kann ich nicht mehr reproduzieren.
   
   Aber:
   Zeile 126, cannot read property 'next' of null. Anscheinend wird in 118 this.loadPicture()
-  ausgeführt, befor arrIteratior in Zeile 115 bestimmt wurde.
+  ausgeführt, befor arrIteratior in Zeile 115 bestimmt wurde?
     
-- main ist möglicherweise noch nicht vorhanden bei event DOMContentLoaded in
-  index.html, da von React gerendert.
-  document.querySelector("main").style.minHeight führt somit zum Crash.
-
 - Lösung für client side routing. Serverseitig registrieren?
 
 - Check error: Ich glaube während des for-loops in ForecastWeather
@@ -135,8 +136,6 @@ Bugs
 
 Features
 --------
-
-- Status Meldung http request verbesserbar? Am besten mit http status?
 
 - mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
 

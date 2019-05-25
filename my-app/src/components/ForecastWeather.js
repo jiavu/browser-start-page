@@ -16,7 +16,6 @@ class ForecastWeather extends Component {
     requestState : ""
   }
   
-  elementRef = React.createRef()
   controller = new AbortController()
   signal = this.controller.signal
 
