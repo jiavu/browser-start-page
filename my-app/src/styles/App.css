@@ -17,7 +17,6 @@
 }
 .full-height-width {
   min-height: 100%;
-  /* height: auto !important; */
   width: 100%;
 }
 
@@ -62,8 +61,6 @@ a:hover { color: var(--color1-light); }
 
 button, input[type="submit"] {
   margin: 0.4rem 0;
-  /* background: none;
-  color: inherit; */
   outline: none;
   font: inherit;
   cursor: pointer;
@@ -91,7 +88,6 @@ button.fs-button:hover {
 }
 .large-button:hover {
   background-color: var(--color1-light-t);
-  /* color: var(--darkest); */
 }
 
 
@@ -100,36 +96,21 @@ button.fs-button:hover {
 .clock {
   display: inline-block;
   width: 3.6em;
-  /* 
-  background-color: white;
-  padding: 0.2em 0.5em;
-  font-family: 'Expletus Sans', cursive;
-  color: var(--dark); */
   }
-  /* 
-  font-family: 'Megrim', cursive;
-  font-family: 'Wallpoet', cursive;
-  font-family: 'Expletus Sans', cursive;
-  font-family: 'Stardos Stencil', cursive;
- */
+
  .tabspace { padding-left: 0.8em; }
 
 /*==============================*/
 
 .app-frame {
-  opacity: 0;
-  /* currently using gsap animation for the fade.
-  -webkit-animation: fade-in 0.6s ease-in-out;
-  animation: fade-in 0.6s ease-in-out; */
+  -webkit-animation: fade-in 0.65s ease-in-out;
+  animation: fade-in 0.65s ease-in-out;
   z-index: 2;
   width: 100%;
   max-width: 560px;
   margin: 0;
   padding: 0.9rem;
-  /* max-width: 600px; */
   position: relative;
-  /* border: 4px ridge var(--dark);
-  border-radius: 0.8rem; */
   overflow: hidden;
   background-color: var(--dark-t);
   font-size: 0.8rem;
@@ -163,11 +144,6 @@ button.fs-button:hover {
   font-size: 0.6rem;
   text-align: center;
 }
-/* 
-#options p {
-  line-height: 1.5;
-}
-*/
 #options .full-screen-icon {
   font-size: 2rem;
   margin-left: 2rem;
@@ -191,29 +167,3 @@ main {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-
-/*===============*/
-/* Media queries */
-/*===============*/
-
-/* 
-@media only screen and (max-width: 451px) {     /* bp 451px
-
-}
-
-@media only screen and (min-width: 451px) {     /* bp 451px
-
-}
-
-@media only screen and (min-width: 600px) {     /* bp 600px
-
-}
-
-@media only screen and (min-width: 768px) {     /* bp 768px
-
-}
-
-@media only screen and (min-width: 1080px) {     /* bp 1080px
-
-} */

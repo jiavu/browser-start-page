@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
-import { fadeIn } from "../scripts/utils";
 
 import windsock from "../img/windsock.svg";
 
@@ -10,12 +9,8 @@ class CurrentWeatherData extends Component {
 
   state = { currentWeather: null }
 
-  elementRef = React.createRef()
-  timeoutIDs = {}
-
 	componentDidMount() {
     this.updateState(this.props.data);
-    fadeIn.call(this, "getCurrentElement");
   }
 
   componentDidUpdate(prevProps) {
@@ -25,15 +20,11 @@ class CurrentWeatherData extends Component {
     }
   }
 
-  componentWillUnmount() {
-    for (let el in this.timeoutIDs) {
-      window.clearTimeout(this.timeoutIDs[el]);
-    }
-  }
-
   updateState(data) {
+    console.log(data);
     let sunrise = new Date(data.sys.sunrise * 1000);
     let sunset = new Date(data.sys.sunset * 1000);
+    const dt = new Date(data.dt * 1000);
     const timeFormat = { hour: "numeric", minute: "2-digit" };
 
     const currentWeather = {
@@ -49,6 +40,7 @@ class CurrentWeatherData extends Component {
       sunrise: sunrise.toLocaleTimeString(this.props.lang, timeFormat),
       sunset: sunset.toLocaleTimeString(this.props.lang, timeFormat),
       location: `${data.name}, ${data.sys.country}`,
+      timestamp: dt.toLocaleTimeString(this.props.lang, timeFormat)
     };
     this.setState( { currentWeather });
   }
@@ -58,7 +50,7 @@ class CurrentWeatherData extends Component {
     const data = this.state.currentWeather;
 
 		return this.state.currentWeather ? (
-			<section className="app-frame current-weather" ref={this.elementRef}>
+			<section className="app-frame current-weather">
             <div className="head">
               <img src={data.imgSrc} alt={this.wID_descr} className="weather-icon"/>
               <p style={{ paddingLeft: "0.5em" }}>{Math.round(data.temp)}°C</p>
@@ -85,6 +77,7 @@ class CurrentWeatherData extends Component {
                 <span style={{paddingLeft:"1em"}}>Sunset: {data.sunset}</span>
               </p>
               <p>{data.location}</p>
+              <div className="timestamp">from<br/>{data.timestamp}</div>
             </div>
 			</section>
 		) : null;

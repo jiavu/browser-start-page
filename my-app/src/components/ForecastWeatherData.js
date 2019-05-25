@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
 import { convertWindSpeed, windDescription } from "../scripts/converter";
-import { fadeIn } from '../scripts/utils';
 
 import windsock from "../img/windsock.svg";
 
@@ -11,24 +10,14 @@ class ForecastWeatherData extends Component {
 
   state = { fcWeather: [] }
   
-  elementRef = React.createRef()
-  timeoutIDs = {}
-
 	componentDidMount() {
     this.updateState(this.props.data);
-    fadeIn.call(this, "getCurrentElement");
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.data !== prevProps.data) {
       this.updateState(this.props.data);
       console.log("ForecastWeatherData updated.");
-    }
-  }
-
-  componentWillUnmount() {
-    for (let el in this.timeoutIDs) {
-      window.clearTimeout(this.timeoutIDs[el]);
     }
   }
 
@@ -57,7 +46,7 @@ class ForecastWeatherData extends Component {
 	render() {
 
     return this.state.fcWeather.length ? (
-			<section className="app-frame forecast-weather" ref={this.elementRef}>
+			<section className="app-frame forecast-weather">
         <div className="fc-head">At {this.state.location} </div>
         <div className="fc-body flex-row-auto-wrap">
           { this.state.fcWeather.map( (day, i) => (

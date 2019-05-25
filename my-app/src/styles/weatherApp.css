@@ -32,25 +32,32 @@
 /*=================*/
 
 .current-weather .head {
-    font-size: 2.6em;
-    padding-right: 1em;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+  font-size: 2.6em;
+  padding-right: 1em;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .current-weather .weather-icon {
-    height: 1.8em;
+  height: 1.8em;
 }
 .current-weather .descr {
-    font-size: 1.55em;
-    padding: 0.4em 0 0.45em;
+  font-size: 1.55em;
+  padding: 0.4em 0 0.45em;
 }
-/* .current-weather .body {
-    font-size: 0.8rem;
-} */
+.current-weather .body {
+  position: relative;
+}
 .current-weather .wind-descr {
-    margin-bottom: 0.7em;
+  margin-bottom: 0.7em;
+}
+.current-weather .timestamp {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8em;
 }
 
 /*==================*/

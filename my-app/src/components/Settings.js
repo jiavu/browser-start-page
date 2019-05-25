@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fadeIn } from '../scripts/utils';
 import '../styles/settings.css';
 
 class Settings extends React.Component {
@@ -8,20 +7,8 @@ class Settings extends React.Component {
   constructor(props) {
 		super(props);
     this.state = { value: "" };
-    this.elementRef = React.createRef();
-    this.timeoutIDs = {};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    fadeIn.call(this, "getCurrentElement");
-  }
-
-  componentWillUnmount() {
-    for (let el in this.timeoutIDs) {
-      window.clearTimeout(this.timeoutIDs[el]);
-    }
   }
 
   handleChange(event) {
@@ -41,7 +28,7 @@ class Settings extends React.Component {
   render() {
     
     return (
-      <section className="app-frame settings" ref={this.elementRef}>
+      <section className="app-frame settings">
         <h2>About</h2>
         <div className="my-credits">
           {/* <h3>Imprint</h3> */}

@@ -30,8 +30,8 @@ class CurrentWeather extends Component {
   signal = this.controller.signal
 
 	componentDidMount() {
-    this.getWeather(this.props.lat, this.props.lon);
-    //this.updateState(tempData);   // DELETE after production!
+    //this.getWeather(this.props.lat, this.props.lon);
+    this.updateState(tempData);   // DELETE after production!
   }
 
   componentWillUnmount() {
@@ -68,8 +68,9 @@ class CurrentWeather extends Component {
       if ( jsonResponse.name === "Shuzenji" ) {
         this.setState({ requestState: "Shuzenji response. New request..." });
         this.timeoutIDs.newHttpRequest = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
+      } else {
+        this.updateState(jsonResponse);
       }
-      this.updateState(jsonResponse);
     }, error => {
       console.error(error);
       this.setState({ requestState: `Failed to load current weather. (${error})`});
@@ -112,16 +113,14 @@ class CurrentWeather extends Component {
       const pictureList = mixList([...weatherPictures[abbrID]]);
       this.setState({
         pictureList,
-        arrIterator: arrayGen2(pictureList)
+        arrIterator: arrayGen2(pictureList),
+        prev_abbrID: this.state.abbrID
       });
-      this.setState({ prev_abbrID: this.state.abbrID });
-      this.loadPicture();
+      //this.loadPicture();
     }
   }
 
   loadPicture() {
-    /* Maybe that's not the React-way. */
-
     // get next picture from Iterator:
     let el = this.state.arrIterator.next();
 

@@ -1,6 +1,6 @@
-import TweenMax from 'gsap/TweenMax';
-
-// Helper Functions, Utilities
+/*=============================*/
+/* Helper Functions, Utilities */
+/*=============================*/
 
 /**
   * Gives back a new Array with a mixed order of the given one.
@@ -39,10 +39,10 @@ const arrayGen2 = function*(arr) {
 }
 
 /**
- * Creates a function that keeps back a function from running, and delays
- * the function after a given number of milliseconds.
- * @param {function} func - The callback function to debounce
- * @param {number} ms - The milliseconds to wait until callback function will run.
+ * Returns a function that keeps a given function back from running,
+ * by delaying the execution of it.
+ * @param {function} func - The function to debounce
+ * @param {number} ms - The milliseconds to wait until function will run.
  */
 const debounce = function(func, ms) {
 
@@ -61,39 +61,13 @@ const debounce = function(func, ms) {
 };
 
 /**
- * Fades in an HTML element of a React Component. The element has
- * to be referenced by React.createRef().
- * Requirement:
- * - One property named this.elementRef in the React Component,
- * - A property of type object named this.timeoutIDs in the React Component.
- * @param {string} idName - name for the timeoutID
+ * Especially for mobile: page will expand to full height of
+ * window.innerHeight (viewable html page area).
+ * Better than using 100vh on #root.
  */
-function fadeIn(idName) {
-  this.timeoutIDs[idName] = window.setTimeout( ()=> {
-    if (!this.elementRef.current) fadeIn.call(this, idName);
-    else {
-      const element = this.elementRef.current;
-      /* Exception handling:
-      if React removes the element from virtual DOM,
-      reference becomes a null target and TweenMax crashes. */
-      try {
-        TweenMax.fromTo(element, 0.6, { opacity: 0 }, { opacity: 1 });
-      } catch (error) {
-        console.log("Error. " + error);
-      }
-    }
-  }, 50);
+const elementToWindowHeight = element => {
+  document.querySelector(element).style.minHeight = window.innerHeight + "px";
 }
+  
 
-/* Doesn't work. chrome.downloads.onChanged is made for extensions only?
-function showTraffic() {
-  const trfcMonitor = document.createElement("div");
-  trfcMonitor.id = "trfcMonitor";
-  window.appendChild(trfcMonitor);
-  chrome.downloads.onChanged.addListener( delta => {
-    trfcMonitor.innerText = delta.fileSize;
-  });
-}
- */
-
-export {mixList, arrayGen, arrayGen2, debounce, fadeIn };
+export {mixList, arrayGen, arrayGen2, debounce, elementToWindowHeight };

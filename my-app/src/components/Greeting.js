@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import '../styles/greeting.css';
 import Clock from "./Clock";
 import {getLocalStorageData, setLocalStorageData} from "../scripts/localStorage";
-import { fadeIn } from '../scripts/utils';
 import {timeToGreet} from "../scripts/converter";
 
 class Greeting extends Component {
 
   state = { greeting: null }
 
-  elementRef = React.createRef()
-  timeoutIDs = {}
-
-	//setLocalStorageData("firstVisit", false);
-	/* localStorage.setItem("key", "value");
-	localStorage.getItem("key"); */
 	componentDidMount() {
     let visits = getLocalStorageData().visits;
     if (!visits) {
@@ -26,8 +19,6 @@ class Greeting extends Component {
       visits,
       greeting: visits > 1 ? timeToGreet(this.props.hourOfDay) : "Welcome"
     } );
-
-    fadeIn.call(this, "getCurrentElement");
   }
   
   componentDidUpdate(prevProps) {
@@ -36,17 +27,11 @@ class Greeting extends Component {
     }
   }
 
-  componentWillUnmount() {
-    for (let el in this.timeoutIDs) {
-      window.clearTimeout(this.timeoutIDs[el]);
-    }
-  }
-
 	render() {
     let visitorsName = this.props.visitorsName;
 
 		return (
-			<section className="app-frame" ref={this.elementRef}>
+			<section className="app-frame">
           { visitorsName === "anonymous" ?
             <h1>{this.state.greeting}!</h1>
           : (

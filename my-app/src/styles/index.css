@@ -24,56 +24,18 @@
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+@media only screen and (max-width: 385px) {   /* Custom breakpoint */
+  :root { font-size: 20.5px; }
+}
 @media only screen and (max-width: 350px) {   /* Custom breakpoint */
-  :root { font-size: 20px; }
+  :root { font-size: 19px; }
 }
 
-	/* Base font (from Google Fonts): */
-	/*	
-	<link href="https://fonts.googleapis.com/css?family=Advent+Pro:100|BenchNine:300|Heebo:100|Josefin+Sans:100|Kanit:100|Lato:100|Roboto:100|Source+Sans+Pro:200|Yanone+Kaffeesatz:200|Yantramanav:100" rel="stylesheet">
-  
-  font-family: 'Josefin Sans', sans-serif; maybe
-	font-family: 'Yantramanav', sans-serif; maybe
-	font-family: 'Yanone Kaffeesatz', sans-serif; maybe.
-	font-family: 'Source Sans Pro', sans-serif; maybe.
-	font-family: 'Lato', sans-serif; maybe.
-  font-family: 'Advent Pro', sans-serif; maybe..
-	font-family: 'Heebo', sans-serif; probably not
-	font-family: 'Kanit', sans-serif; probably not
-	font-family: 'BenchNine', sans-serif; probably not
-	font-family: 'Roboto', sans-serif; probably not
-	font-family: 'Wire One', sans-serif; no
-	font-family: 'Assistant', sans-serif; no
-	*/
-
-/* Interesting, but special styles: */
-/* 
-<link href="https://fonts.googleapis.com/css?family=Cute+Font|Iceland|Kirang+Haerang|NTR|Stylish" rel="stylesheet">
-font-family: 'Iceland', cursive;
-font-family: 'NTR', sans-serif;
-font-family: 'Cute Font', cursive;
-font-family: 'Stylish', sans-serif;
-font-family: 'Kirang Haerang', cursive;
-*/
-/* Clock, Numbers, WeatherApp */
-/* 
-<link href="https://fonts.googleapis.com/css?family=Expletus+Sans|Megrim|Stardos+Stencil|Wallpoet" rel="stylesheet">
-font-family: 'Megrim', cursive;
-font-family: 'Wallpoet', cursive;
-font-family: 'Expletus Sans', cursive;
-font-family: 'Stardos Stencil', cursive;
-*/
-
-html {
-  /* height: 100vh; */
-  /* scroll-behavior: smooth; */
-}
 * {
   margin: 0; padding: 0;
   box-sizing: border-box;
 }
 body {
-  /* min-height: 100%; */
   min-width: 320px;
   position: relative;
 	background-color: var(--color1-light);

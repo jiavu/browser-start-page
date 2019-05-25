@@ -105,34 +105,23 @@ TO DO
 Bugs
 ----
 
-- main ist möglicherweise noch nicht vorhanden bei event DOMContentLoaded in
-  index.html, da von React gerendert.
-  document.querySelector("main").style.minHeight führt somit zum Crash.
-  -> eventlistener sollte in App.js
-  
-- Bug: Mit Testdaten für current weather.
-  Uncaught TypeError: Invalid attempt to spread non-iterable instance
-  -> kann ich nicht mehr reproduzieren.
-  
-  Aber:
-  Zeile 126, cannot read property 'next' of null. Anscheinend wird in 118 this.loadPicture()
-  ausgeführt, befor arrIteratior in Zeile 115 bestimmt wurde?
+- Memory leaks. Z. B., wenn eine this.state property abgerufen wird, kurz
+  nach dem sie erst durch this.setState() gesetzt wurde.
+
+  CurrentWeather.js ==> cannot read property 'next' of null.
     
 - Lösung für client side routing. Serverseitig registrieren?
 
-- Check error: Ich glaube während des for-loops in ForecastWeather
-  Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
-    in ForecastWeather (at WeatherApp.js:65)
-    in WeatherApp (at App.js:91)
-
-- Alle asynchronous tasks und subscriptions in componentWillUnmount canceln.
-    setTimeouts in Componenten (z. B. CurrentWeather)
-    http-Anfragen
-
 - Fullscreen function/F11 bug
 
-- propTypes setzen
+Last checks:
 
+- Sicher gehen:
+  Alle asynchronous tasks und subscriptions in componentWillUnmount canceln.
+    - setTimeouts in Componenten (z. B. CurrentWeather)
+    - http-Anfragen
+
+- propTypes setzen
 
 Features
 --------
@@ -141,6 +130,7 @@ Features
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
+- "Windpfeile" sollte ich austauschen. Diese sehen aus wie Mauszeiger.
 
 Legal
 -----

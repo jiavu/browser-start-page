@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
+import { debounce, elementToWindowHeight } from './scripts/utils';
 import './styles/App.css';
 import fullscreen from './img/expand.svg';
 
@@ -24,7 +25,6 @@ class App extends Component {
       updateWeather : false,
       photographerInfo : null
     };
-
     this.setVisitorsName = this.setVisitorsName.bind(this);
     this.setHourOfDay = this.setHourOfDay.bind(this);
     this.timer = this.timer.bind(this);
@@ -35,6 +35,10 @@ class App extends Component {
     this.setState( {
       visitorsName: storage.visitorsName
     });
+    // <main> has to be mounted!
+    elementToWindowHeight("main");
+    const adjustHeight = debounce(elementToWindowHeight, 100);
+    window.addEventListener("resize", () => adjustHeight("main"));
   }
 
   setVisitorsName(name) {
@@ -59,8 +63,10 @@ class App extends Component {
     this.setState({ timer: newSecond });
     if (this.state.timer % 18 === 0) this.setState( {changePic : !this.state.changePic} );
     if (this.state.timer === 600) {
-      this.setState( { timer : 0} );
-      this.setState( {updateWeather : !this.state.updateWeather} );
+      this.setState({
+        timer : 0,
+        updateWeather : !this.state.updateWeather
+      });
     }
   }
 
