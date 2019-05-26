@@ -101,14 +101,21 @@ TO DO
 =====
 
 - BROWSER-TESTS
+- removed unused vars
+- remove test data
+- remove proxys
 
 Bugs
 ----
 
-- Memory leaks. Z. B., wenn eine this.state property abgerufen wird, kurz
-  nach dem sie erst durch this.setState() gesetzt wurde.
+- signal für zweiten fetch request in ForecastWeather.js setzen?
 
-  CurrentWeather.js ==> cannot read property 'next' of null.
+- Mögliche Schwachstelle:
+  Stichwort memory leaks;
+  for-loop in forecastWeatherData. Array mit den forecast-daten ist im state
+  der Component. Beim Dismounten könnte es Probleme geben, wenn das Update über
+  setState (=asynchrone Funktion) durchgeführt wird.
+  Habe ich möglicherweise aber schon optimiert?
     
 - Lösung für client side routing. Serverseitig registrieren?
 

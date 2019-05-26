@@ -21,7 +21,6 @@ class CurrentWeatherData extends Component {
   }
 
   updateState(data) {
-    console.log(data);
     let sunrise = new Date(data.sys.sunrise * 1000);
     let sunset = new Date(data.sys.sunset * 1000);
     const dt = new Date(data.dt * 1000);

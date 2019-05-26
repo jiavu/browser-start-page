@@ -16,8 +16,10 @@ class ForecastWeather extends Component {
     requestState : ""
   }
   
-  controller = new AbortController()
-  signal = this.controller.signal
+  controller1 = new AbortController()
+  controller2 = new AbortController()
+  signal1 = this.controller1.signal
+  signal2 = this.controller2.signal
 
 	componentDidMount() {
     this.getWoeid(this.props.lat, this.props.lon);
@@ -26,7 +28,8 @@ class ForecastWeather extends Component {
 
   componentWillUnmount() {
     // cancel http fetch request:
-    this.controller.abort();
+    this.controller1.abort();
+    this.controller2.abort();
   }
 
   componentDidUpdate(prevProps) {
@@ -38,9 +41,9 @@ class ForecastWeather extends Component {
 	getWoeid(lat, lon) {
     this.setState({ requestState: "Forecast Weather loading..." });
 		fetch(proxyUrl + url + `search/?lattlong=${lat},${lon}`, {
-      origin: null,
-      'X-Requested-With': "XMLHttpRequest",
-      signal : this.signal
+      /* origin: null,
+      'X-Requested-With': "XMLHttpRequest", */
+      signal : this.signal1
     }).then(response => {
       if (response.ok) {
         return response.json();
@@ -59,7 +62,10 @@ class ForecastWeather extends Component {
   }
 
   getWeather(woeid) {
-    fetch(proxyUrl + url + woeid).then(response => {
+    // works without headers though?
+    fetch(proxyUrl + url + woeid, {
+      signal: this.signal2
+    }).then(response => {
       if (response.ok) {
         return response.json();
       }

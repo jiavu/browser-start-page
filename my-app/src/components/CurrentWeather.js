@@ -17,21 +17,22 @@ class CurrentWeather extends Component {
 
 	state = {
     response: null,
-    prev_abbrID: null,
-    arrIterator: null,
-    pictureList: null,
     requestState: "",
     error: ""
   }
 
   timeoutIDs = {}
 
+  prev_abbrID = null
+  pictureList = null
+  pictureListIterator = null
+
   controller = new AbortController()
   signal = this.controller.signal
 
 	componentDidMount() {
-    //this.getWeather(this.props.lat, this.props.lon);
-    this.updateState(tempData);   // DELETE after production!
+    this.getWeather(this.props.lat, this.props.lon);
+    //this.updateState(tempData);   // DELETE after production!
   }
 
   componentWillUnmount() {
@@ -43,17 +44,21 @@ class CurrentWeather extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.changePic !== prevProps.changePic &&
-        this.state.arrIterator) this.loadPicture();
+        this.pictureListIterator) this.loadPicture();
     if (this.props.updateWeather !== prevProps.updateWeather) {
       this.getWeather(this.props.lat, this.props.lon);
     }
   }
 
 	getWeather(lat, lon) {
-    const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
+    const endpoint = proxyUrl +  url +  path + `?lat=${lat}&lon=${lon}`;
 
     this.setState({ requestState: "Current Weather loading..." });
-    fetch(endpoint).then( response => {
+    fetch(endpoint, {
+      /* origin: null,
+      'X-Requested-With': "XMLHttpRequest", */
+      signal : this.signal
+    }).then( response => {
       if (response.ok) {
         return response.json();
       }
@@ -109,20 +114,17 @@ class CurrentWeather extends Component {
 
     /* Load new picture set?
     If weather or day/night state didn't change, keep old picture set. */
-    if (!this.state.pictureList || abbrID !== this.state.prev_abbrID) {
-      const pictureList = mixList([...weatherPictures[abbrID]]);
-      this.setState({
-        pictureList,
-        arrIterator: arrayGen2(pictureList),
-        prev_abbrID: this.state.abbrID
-      });
-      //this.loadPicture();
+    if (!this.pictureList || abbrID !== this.prev_abbrID) {
+      this.pictureList = mixList([...weatherPictures[abbrID]]);
+      this.pictureListIterator = arrayGen2(this.pictureList);
+      this.prev_abbrID = this.state.abbrID;
+      this.loadPicture();
     }
   }
 
   loadPicture() {
     // get next picture from Iterator:
-    let el = this.state.arrIterator.next();
+    let el = this.pictureListIterator.next();
 
     // append query string to url (Imgix API params):
     let imgURL = el.value.url;
