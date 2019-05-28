@@ -51,7 +51,7 @@ class CurrentWeather extends Component {
   }
 
 	getWeather(lat, lon) {
-    const endpoint = proxyUrl +  url +  path + `?lat=${lat}&lon=${lon}`;
+    const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
 
     this.setState({ requestState: "Current Weather loading..." });
     fetch(endpoint, {

@@ -16,7 +16,8 @@ class CurrentWeatherData extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.data !== prevProps.data) {
       this.updateState(this.props.data);
-      console.log("CurrentWeatherData updated.");
+      let time = new Date();
+      console.log(`CurrentWeatherData updated at ${time.toLocaleTimeString()}.`);
     }
   }
 

@@ -115,7 +115,7 @@ Bugs
   for-loop in forecastWeatherData. Array mit den forecast-daten ist im state
   der Component. Beim Dismounten könnte es Probleme geben, wenn das Update über
   setState (=asynchrone Funktion) durchgeführt wird.
-  Habe ich möglicherweise aber schon optimiert?
+  Sollte aber eigentlich schon optimiert sein.
     
 - Lösung für client side routing. Serverseitig registrieren?
 
