@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
 
 import windsock from "../img/windsock.svg";
@@ -83,5 +84,10 @@ class CurrentWeatherData extends Component {
 		) : null;
 	}
 }
+
+CurrentWeatherData.propTypes = {
+  data: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired
+};
 
 export default CurrentWeatherData;

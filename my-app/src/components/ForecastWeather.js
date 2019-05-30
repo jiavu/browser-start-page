@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Components:
 import RequestState from './RequestState';
@@ -91,5 +92,11 @@ class ForecastWeather extends Component {
 	}
 }
 
+ForecastWeather.propTypes = {
+  lat: PropTypes.number.isRequired,
+  lon: PropTypes.number.isRequired,
+  updateWeather: PropTypes.bool.isRequired,
+  lang: PropTypes.string.isRequired
+};
 
 export default ForecastWeather;

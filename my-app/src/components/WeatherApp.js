@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
 import "../styles/weatherApp.css";
 import CurrentWeather from "./CurrentWeather";
@@ -68,5 +69,13 @@ class WeatherApp extends Component {
 		) : null;
 	}
 }
+
+WeatherApp.propTypes = {
+  lang: PropTypes.string.isRequired,
+  hourOfDay: PropTypes.number.isRequired,
+  changePic: PropTypes.bool.isRequired,
+  updateWeather: PropTypes.bool.isRequired,
+  setPhotographerInfo: PropTypes.func.isRequired
+};
 
 export default WeatherApp;

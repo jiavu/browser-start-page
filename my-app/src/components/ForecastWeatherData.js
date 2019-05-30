@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
+import PropTypes from 'prop-types';
 import { convertWindSpeed, windDescription } from "../scripts/converter";
 
 import windsock from "../img/windsock.svg";
@@ -82,5 +82,9 @@ class ForecastWeatherData extends Component {
 	}
 }
 
+ForecastWeatherData.propTypes = {
+  data: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired
+};
 
 export default ForecastWeatherData;

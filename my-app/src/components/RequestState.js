@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class RequestState extends Component {
 
@@ -15,4 +16,8 @@ export default class RequestState extends Component {
 const style = {
   fontSize: "0.8em",
   textAlign: "center"
+};
+
+RequestState.propTypes = {
+  message: PropTypes.string.isRequired
 };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/greeting.css';
 import Clock from "./Clock";
 import {getLocalStorageData, setLocalStorageData} from "../scripts/localStorage";
@@ -47,5 +48,13 @@ class Greeting extends Component {
 		);
 	}
 }
+
+Greeting.propTypes = {
+  visitorsName: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  hourOfDay: PropTypes.number.isRequired,
+  timer: PropTypes.func.isRequired,
+  setHourOfDay: PropTypes.func.isRequired
+};
 
 export default Greeting;

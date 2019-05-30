@@ -107,7 +107,6 @@ class App extends Component {
                 <div className="photographer-info">
                   {this.state.photographerInfo}
                 </div>
-                {/* <i className="fas fa-arrows-alt full-screen-icon"></i> */}
                   <button className="no-button fs-button"
                           onClick={this.toggleFullscreen}>
                     <img src={fullscreen} alt="FS"/>

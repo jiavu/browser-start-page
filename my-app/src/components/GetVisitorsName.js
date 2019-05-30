@@ -50,7 +50,7 @@ class GetVisitorsName extends React.Component {
 
 GetVisitorsName.propTypes = {
 	setVisitorsName: PropTypes.func.isRequired
-}
+};
 
 
 export default GetVisitorsName;

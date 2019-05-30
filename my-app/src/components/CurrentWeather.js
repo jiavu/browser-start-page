@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { owmIDToMwAbbr } from "../scripts/converter";
 import { mixList, arrayGen2 } from "../scripts/utils";
 import { weatherPictures } from "../img/weatherPictures";
@@ -196,5 +197,16 @@ class CurrentWeather extends Component {
 
 	}
 }
+
+CurrentWeather.propTypes = {
+  lat: PropTypes.number.isRequired,
+  lon: PropTypes.number.isRequired,
+  updateWeather: PropTypes.bool.isRequired,
+  lang: PropTypes.string.isRequired,
+  hourOfDay: PropTypes.number.isRequired,
+  changePic: PropTypes.bool.isRequired,
+  setPhotographerInfo: PropTypes.func.isRequired
+};
+
 
 export default CurrentWeather;

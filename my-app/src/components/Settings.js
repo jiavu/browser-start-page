@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../styles/settings.css';
 
@@ -79,5 +80,10 @@ class Settings extends React.Component {
     )
   }
 }
+
+Settings.propTypes = {
+  visitorsName = PropTypes.string.isRequired,
+  setVisitorsName = PropTypes.func.isRequired
+};
 
 export default Settings;

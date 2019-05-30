@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Clock extends Component {
 
@@ -39,5 +40,10 @@ class Clock extends Component {
     }
 }
 
+Clock.PropTypes = {
+  lang: PropTypes.string.isRequired,
+  setHourOfDay: PropTypes.func.isRequired,
+  timer: PropTypes.func.isRequired
+};
 
 export default Clock;
