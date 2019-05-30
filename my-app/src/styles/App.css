@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  }
+}
 .flex-row-auto-wrap {
   display: -webkit-flex;
   display: flex;
