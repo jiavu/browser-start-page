@@ -768,18 +768,121 @@ const weatherPictures = {
       url: 'https://images.unsplash.com/photo-1431440869543-efaf3388c585' } ],
  
  // hail, freezing rain
- h: [],
+ h: [
+  {
+    name: 'Lola Guti',
+    profileURL: 'https://unsplash.com/@lolaguti',
+    url: 'https://images.unsplash.com/photo-1444384851176-6e23071c6127'
+  }
+ ],
  
  // sleet (Schneeregen)
- sl: [],
+ sl: [
+  {
+    name: 'Lola Guti',
+    profileURL: 'https://unsplash.com/@lolaguti',
+    url: 'https://images.unsplash.com/photo-1444384851176-6e23071c6127'
+  },{ name: 'Dollar Gill',
+    profileURL: 'https://unsplash.com/@dollargill',
+    url: 'https://images.unsplash.com/photo-1550938147-1202a4c1aa3e'
+  },{
+    name: 'Dollar Gill',
+    profileURL: 'https://unsplash.com/@dollargill',
+    url: 'https://images.unsplash.com/photo-1550938156-61ae75ffe4cc'
+  },{ name: 'Dollar Gill',
+    profileURL: 'https://unsplash.com/@dollargill',
+    url: 'https://images.unsplash.com/photo-1550938156-a474a8d5e253'
+  },{
+    name: "Dominik Schröder",
+    profileURL: "https://unsplash.com/@wirhabenzeit",
+    url: "https://images.unsplash.com/photo-1428908200541-d395094cc816"
+  }
+ ],
  
  // snow
  sn: [
-   {
-     name: "Osman Rana",
-     profileURL: "https://unsplash.com/@osmanrana",
-     url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef"
-   }
+  {
+    name: "Osman Rana",
+    profileURL: "https://unsplash.com/@osmanrana",
+    url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef"
+  },{
+    name: "Daud Balling",
+    profileURL: "https://unsplash.com/@daudballing",
+    url: "https://images.unsplash.com/photo-1540682814466-3d84fee22c49" 
+  },{
+    name: "Anastasia Vityukova",
+    profileURL: "https://unsplash.com/@anastasiavitph",
+    url: "https://images.unsplash.com/photo-1548541501-d01cd9e06074"
+  },{
+    name: "Jonathan Knepper",
+    profileURL: "https://unsplash.com/@jknepp",
+    url: "https://images.unsplash.com/photo-1542254503-d802f00c2342"
+  },{
+    name: "Cody Chan",
+    profileURL: "https://unsplash.com/@cceee",
+    url: "https://images.unsplash.com/photo-1549989142-806009a4efde"
+  },{
+    name: "Artiom Vallat",
+    profileURL: "https://unsplash.com/@virussinside",
+    url: "https://images.unsplash.com/photo-1552653291-82b40fe924e6"
+  },{
+    name: "Jessica Fadel",
+    profileURL: "https://unsplash.com/@jessicalfadel",
+    url: "https://images.unsplash.com/photo-1511131341194-24e2eeeebb09"
+  },{
+    name: "Aaron Burden",
+    profileURL: "https://unsplash.com/@aaronburden",
+    url: "https://images.unsplash.com/photo-1457269449834-928af64c684d"
+  },{
+    name: "Aaron Burden",
+    profileURL: "https://unsplash.com/@aaronburden",
+    url: "https://images.unsplash.com/photo-1457270508644-1e4905fabd7e"
+  },{
+    name: "Aaron Burden",
+    profileURL: "https://unsplash.com/@aaronburden",
+    url: "https://images.unsplash.com/photo-1454688515140-ce3372b1b6f8"
+  },{
+    name: "Jeffrey Blum",
+    profileURL: "https://unsplash.com/@jeffreyblum",
+    url: "https://images.unsplash.com/photo-1506978520653-bb3accebb1a3"
+  },{
+    name: "Jeffrey Blum",
+    profileURL: "https://unsplash.com/@jeffreyblum",
+    url: "https://images.unsplash.com/photo-1518035192191-9872107848e7"
+  },{
+    name: "Brian Jones",
+    profileURL: "https://unsplash.com/@caslad48",
+    url: "https://images.unsplash.com/photo-1516431883659-655d41c09bf9"
+  },{
+    name: "Adam Chang",
+    profileURL: "https://unsplash.com/@sametomorrow",
+    url: "https://images.unsplash.com/photo-1491002052546-bf38f186af56"
+  },{
+    name: "Noah Silliman",
+    profileURL: "https://unsplash.com/@noahsilliman",
+    url: "https://images.unsplash.com/photo-1487204370947-961cb4f261da"
+  },{
+    name: "Ray Hennessy",
+    profileURL: "https://unsplash.com/@rayhennessy",
+    url: "https://images.unsplash.com/photo-1480775292373-5175d0634811"
+  },{
+    name: "Torbjorn Sandbakk",
+    profileURL: "https://unsplash.com/@torbjs",
+    url: "https://images.unsplash.com/photo-1489868155831-faf942b596e5"
+  },{
+    name: "Jonny McNee",
+    profileURL: "https://unsplash.com/@jmcnee",
+    url: "https://images.unsplash.com/photo-1483056293146-9eac9521932f"
+  },{
+    name: "Tyson Dudley",
+    profileURL: "https://unsplash.com/@ty_dudley",
+    url: "https://images.unsplash.com/photo-1470883361187-d6eaa64cdf00"
+  },{
+    name: "Takemaru Hirai",
+    profileURL: "https://unsplash.com/@takemaru",
+    url: "https://images.unsplash.com/photo-1544274411-a7afe6230711"
+  }
+
  ],
  
  // 7xx Atmosphere, fog
@@ -838,7 +941,7 @@ const weatherPictures = {
 }
        
 
-export { weatherPictures };
+//export { weatherPictures };
 
 
 //////////////////////////////////////////////////////
@@ -875,7 +978,7 @@ function writeNewCollection() {
   return newObj;
 } */
 
-/* 
+
 function analyseImageCollection() {
   let info = {
     insgesamt: 0
@@ -900,6 +1003,6 @@ function analyseImageCollection() {
 }
 
 analyseImageCollection();
- */
+
 
 //#endregion

@@ -66,7 +66,9 @@ const debounce = function(func, ms) {
  * Better than using 100vh on #root.
  */
 const elementToWindowHeight = element => {
-  document.querySelector(element).style.minHeight = window.innerHeight + "px";
+  if (document.querySelector(element)) {
+    document.querySelector(element).style.minHeight = window.innerHeight + "px";
+  }  
 }
   
 

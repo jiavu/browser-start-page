@@ -101,14 +101,16 @@ TO DO
 =====
 
 - BROWSER-TESTS
-- removed unused vars
-- remove test data
+
 - remove proxys
 
 Bugs
 ----
 
-- signal für zweiten fetch request in ForecastWeather.js setzen?
+- Fullscreen function/F11 bug
+
+
+Last checks:
 
 - Mögliche Schwachstelle:
   Stichwort memory leaks;
@@ -116,19 +118,11 @@ Bugs
   der Component. Beim Dismounten könnte es Probleme geben, wenn das Update über
   setState (=asynchrone Funktion) durchgeführt wird.
   Sollte aber eigentlich schon optimiert sein.
-    
-- Lösung für client side routing. Serverseitig registrieren?
-
-- Fullscreen function/F11 bug
-
-Last checks:
-
 - Sicher gehen:
   Alle asynchronous tasks und subscriptions in componentWillUnmount canceln.
     - setTimeouts in Componenten (z. B. CurrentWeather)
     - http-Anfragen
 
-- propTypes setzen
 
 Features
 --------
@@ -136,8 +130,6 @@ Features
 - mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
-
-- "Windpfeile" sollte ich austauschen. Diese sehen aus wie Mauszeiger.
 
 Legal
 -----

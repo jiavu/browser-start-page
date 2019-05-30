@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import {getLocalStorageData, setLocalStorageData} from "./scripts/localStorage";
 import { debounce, elementToWindowHeight } from './scripts/utils';
 import './styles/App.css';
@@ -19,7 +19,7 @@ class App extends Component {
     super();
     this.state = {
       visitorsName: "",
-      hourOfDay: null,
+      hourOfDay: 12,
       timer : 0,
       changePic : false,
       updateWeather : false,
@@ -84,7 +84,7 @@ class App extends Component {
     const visitorsName = this.state.visitorsName;
     
     return (
-      <Router>
+      <Router basename="/" hashType="noslash">
         <div className="bg-fs-fixed"/>
         <main className="full-height-width perfect-centering-contents">
           <div className="flex-column">
@@ -95,10 +95,10 @@ class App extends Component {
                   <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
                     timer={this.timer} setHourOfDay={this.setHourOfDay} />
                   
-                <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
-                            changePic={this.state.changePic}
-                            updateWeather={this.state.updateWeather}
-                            setPhotographerInfo={this.setPhotographerInfo}/>
+                  <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
+                              changePic={this.state.changePic}
+                              updateWeather={this.state.updateWeather}
+                              setPhotographerInfo={this.setPhotographerInfo}/>
                 </React.Fragment>
               ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
 

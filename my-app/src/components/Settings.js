@@ -52,7 +52,7 @@ class Settings extends React.Component {
           </form>
         <h3>Sources</h3>
         <p>
-          Current Weather data from <a href="https://fcc-weather-api.glitch.me/" target="_blank" rel="noopener noreferrer"> Free Code Camp Weather API</a>
+          Current Weather data from <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">openweathermap.org</a>
         </p>
         <p>
           Daily Forecast Weather data from <a href="https://www.metaweather.com/" target="_blank" rel="noopener noreferrer">metaweather.com</a>
@@ -82,8 +82,8 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
-  visitorsName = PropTypes.string.isRequired,
-  setVisitorsName = PropTypes.func.isRequired
+  visitorsName: PropTypes.string.isRequired,
+  setVisitorsName: PropTypes.func.isRequired
 };
 
 export default Settings;

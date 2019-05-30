@@ -62,9 +62,9 @@ class CurrentWeatherData extends Component {
               <p>
                 {convertWindSpeed(data.wind_speed)} Bft
                   { data.wind_deg && (
-                    <i className="fas fa-location-arrow wind-arrow"
+                    <i className="fas fa-arrow-up wind-arrow"
                       style={{
-                        transform: `rotate(${data.wind_deg + 135}deg)`
+                        transform: `rotate(${data.wind_deg + 180}deg)`
                       }}>
                   </i>
                   )}

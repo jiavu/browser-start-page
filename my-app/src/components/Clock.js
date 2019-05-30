@@ -40,7 +40,7 @@ class Clock extends Component {
     }
 }
 
-Clock.PropTypes = {
+Clock.propTypes = {
   lang: PropTypes.string.isRequired,
   setHourOfDay: PropTypes.func.isRequired,
   timer: PropTypes.func.isRequired

@@ -8,11 +8,10 @@ import { weatherPictures } from "../img/weatherPictures";
 import RequestState from './RequestState';
 import CurrentWeatherData from './CurrentWeatherData';
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://fcc-weather-api.glitch.me/";
-const path = "api/current";
-
-let tempData = {"coord":{"lon":13.32,"lat":52.45},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F01n.png?1499366020783"}],"base":"stations","main":{"temp":15.57,"pressure":1009,"humidity":72,"temp_min":13.33,"temp_max":17.22},"visibility":10000,"wind":{"speed":3.6,"deg":90},"clouds":{"all":0},"dt":1558122258,"sys":{"type":1,"id":1275,"message":0.0055,"country":"DE","sunrise":1558062514,"sunset":1558119471},"id":2880498,"name":"Lankwitz","cod":200};
+//const url = "https://fcc-weather-api.glitch.me/";
+//const path = "api/current";
+const url = "http://api.openweathermap.org/data/2.5/weather";
+const reqParams = "?units=metric";
 
 class CurrentWeather extends Component {
 
@@ -52,7 +51,7 @@ class CurrentWeather extends Component {
   }
 
 	getWeather(lat, lon) {
-    const endpoint = url +  path + `?lat=${lat}&lon=${lon}`;
+    const endpoint = url + reqParams + `&lat=${lat}&lon=${lon}&APPID=4ea805561bd617edddb3ff2a1bcbb5ac`;
 
     this.setState({ requestState: "Current Weather loading..." });
     fetch(endpoint, {

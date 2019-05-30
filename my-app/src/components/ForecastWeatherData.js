@@ -60,7 +60,7 @@ class ForecastWeatherData extends Component {
               <p className="fc-wind">
                 <span className="fc-wind-short">
                   {convertWindSpeed(day.wind_speed)} Bft
-                  <i className="fas fa-location-arrow wind-arrow"
+                  <i className="fas fa-arrow-up wind-arrow"
                     style={{
                       transform: `rotate(${day.wind_deg + 135}deg)`
                     }}>

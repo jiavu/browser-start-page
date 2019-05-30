@@ -9,11 +9,12 @@
  * @param {number|string} hour - The number of day hour to convert.
  */
 function timeToGreet(hour) {
-  
+
+  if (typeof hour != "number") return "Hello";
 	if (hour >= 5 && hour <= 10) return "Good morning";
 	if (hour >= 11 && hour <= 14) return "Good day"; // or "Hello"
-	if (hour >= 15 && hour <= 17) return "Good afternoon";
-	else return "Good evening";
+  if (hour >= 15 && hour <= 17) return "Good afternoon";
+	return "Good evening";
 	/*
 		Nachts: 1-3
 		Morgens: 7-9
