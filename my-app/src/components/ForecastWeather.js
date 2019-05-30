@@ -63,8 +63,7 @@ class ForecastWeather extends Component {
   }
 
   getWeather(woeid) {
-    // works without headers though?
-    fetch(proxyUrl + url + woeid, {
+    fetch(url + woeid, {
       signal: this.signal2
     }).then(response => {
       if (response.ok) {
