@@ -2,6 +2,7 @@
   "name": "browser-start-page",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jiavu.de/weather",
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",

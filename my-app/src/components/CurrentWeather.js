@@ -10,7 +10,7 @@ import CurrentWeatherData from './CurrentWeatherData';
 
 //const url = "https://fcc-weather-api.glitch.me/";
 //const path = "api/current";
-const url = "http://api.openweathermap.org/data/2.5/weather";
+const url = "https://api.openweathermap.org/data/2.5/weather";
 const reqParams = "?units=metric";
 
 class CurrentWeather extends Component {
