@@ -37,7 +37,7 @@ class App extends Component {
     });
     // <main> has to be mounted!
     elementToWindowHeight("main");
-    const adjustHeight = debounce(elementToWindowHeight, 25);
+    const adjustHeight = debounce(elementToWindowHeight, 40);
     window.addEventListener("resize", () => adjustHeight("main"));
   }
 

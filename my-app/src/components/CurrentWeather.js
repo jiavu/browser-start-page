@@ -69,7 +69,7 @@ class CurrentWeather extends Component {
       // failed to fetch/ connection error
     }).then(jsonResponse => {
       if (jsonResponse.error) throw new Error(jsonResponse.error);
-      // Shuzenji?? False answer. Try again. Sorry Shuzenji.
+      // Shuzenji?? False answer. Try again. Sorry Shuzenji.    // (deprecated. Using another API now.)
       if ( jsonResponse.name === "Shuzenji" ) {
         this.setState({ requestState: "Shuzenji response. New request..." });
         this.timeoutIDs.newHttpRequest = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);
@@ -104,6 +104,8 @@ class CurrentWeather extends Component {
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
+    console.log("ID: " + ID);
+    console.log("abbrID: " + abbrID);
     
     // all 7xx are "fog":
     if (Math.floor(ID / 100) === 7) abbrID = "fog";

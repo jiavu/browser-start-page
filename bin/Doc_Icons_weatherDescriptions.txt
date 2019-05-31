@@ -40,6 +40,9 @@ e. g. lr
 --> get icon:
 https://www.metaweather.com/static/img/weather/lr.svg
 
+===========================================================
+
+https://openweathermap.org/weather-conditions
 
 metaweather
 abbr	Name											          entspricht möglicherweise (openweathermap)
@@ -55,3 +58,12 @@ h		  Hail			  Hagel					          511 rain (freezing rain)
 sl		Sleet			  Schneeregen					    611	snow (sleet)
 sn		Snow											          6xx	snow
 			hc als Ersatz					              7xx Nebel gibt es bei metaweather nicht als icon.
+
+
+Besser:
+s     Showers        500, 501, 520
+lr    light rain     300 - 400 außer 314 // 520, 521
+hr    heavy rain     314 // 502, 503, 504, 521, 522, 531
+
+
+

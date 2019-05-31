@@ -139,10 +139,10 @@ function owmIDToMwAbbr(id) {
 	if (id === 800) return "c";
 	if (id === 801) return "lc";
 	if (id >= 802 && id <= 804) return "hc";
-	if (id >= 500 && id <= 504) return "s";
-	if (id >= 300 && id < 400) return "lr";
-	if ( (id >= 520 && id <= 522) || id === 531) return "hr";
-	if (id >= 200 && id < 300) return "t";
+	if (id === 500 || id === 501 || id === 520) return "s";
+  if ( (id >= 520 && id <= 522) || id === 531 || id === 314) return "hr";
+  if (Math.floor(id / 100) === 3) return "lr";
+	if (Math.floor(id / 100) === 2) return "t";
 	if (id === 511) return "h";
 	if (id === 611) return "sl";
 	if ( Math.floor(id / 100) === 6) return "sn";
