@@ -100,9 +100,7 @@ Dynamic resizing of unsplash photos
 TO DO
 =====
 
-- BROWSER-TESTS
-
-- remove proxys
+- remove proxys if possible
 
 Bugs
 ----
@@ -127,7 +125,7 @@ Last checks:
 Features
 --------
 
-- mehr Photos. Snow, hail, sleet und evtl. mehr für die rains
+- mehr Photos. Hail, sleet und evtl. mehr für die rains
 
 - mobile: Ich will eine progressive web app! (service workers & Co)
 
@@ -153,8 +151,6 @@ Sonstiges
 
 (
 - Beide Wetter-Apps rendern im Sekundentakt..
-- React icon ersetzen
 - forecast width bei wrap ist blöd.
-- im Response von fcc-weather sind manchmal 2/mehrere Wetter unter <response>.weather[0] oder halt [1] (Objects).
 - metaweather.com hat nur ein Tageswetter und nur 10 Orte in Deutschland.
 )

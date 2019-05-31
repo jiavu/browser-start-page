@@ -55,7 +55,7 @@ class Settings extends React.Component {
           Current Weather data from <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">openweathermap.org</a>
         </p>
         <p>
-          Daily Forecast Weather data from <a href="https://www.metaweather.com/" target="_blank" rel="noopener noreferrer">metaweather.com</a>
+          Daily Weather Forecast data from <a href="https://www.metaweather.com/" target="_blank" rel="noopener noreferrer">metaweather.com</a>
         </p>
         <p>
           Photos from <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a>
