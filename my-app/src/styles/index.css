@@ -15,7 +15,7 @@
 
   --color1-dark: hsl(206, 58%, 25%);
 	--color1: hsl(206, 58%, 50%);
-	--color1-light: hsl(206, 58%, 60%);
+	--color1-light: rgb(93, 160, 212);
 	--color1-light-t: hsla(206, 58%, 60%, 0.75);
 
   --trans-time-slow: 2s;

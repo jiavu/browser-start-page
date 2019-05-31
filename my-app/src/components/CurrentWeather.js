@@ -104,8 +104,6 @@ class CurrentWeather extends Component {
   loadPictureList(hourOfDay, ID, sunriseHour, sunsetHour) {
 
     let abbrID = owmIDToMwAbbr(ID);
-    console.log("ID: " + ID);
-    console.log("abbrID: " + abbrID);
     
     // all 7xx are "fog":
     if (Math.floor(ID / 100) === 7) abbrID = "fog";

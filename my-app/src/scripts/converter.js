@@ -134,6 +134,7 @@ Bft		m/s			German
 //////////////////////////////////////////////////////////////
 // openweathermap.org weatherID to
 // metaweather.com weather state abbreviation
+// https://openweathermap.org/weather-conditions
 
 function owmIDToMwAbbr(id) {
 	if (id === 800) return "c";
@@ -151,7 +152,3 @@ function owmIDToMwAbbr(id) {
 }
 
 export {timeToGreet, getCompassPoint, convertWindSpeed, windDescription, owmIDToMwAbbr};
-
-
-/* Hier könnten noch die Übersetzungen von Windgeschwindigkeit in 
-Beschreibung hin kommen (Beaufort Skala). */
