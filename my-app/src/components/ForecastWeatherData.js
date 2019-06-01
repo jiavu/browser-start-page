@@ -47,7 +47,7 @@ class ForecastWeatherData extends Component {
 	render() {
 
     return this.state.fcWeather.length ? (
-			<section className="app-frame forecast-weather">
+			<section className="app-frame forecast-weather no-text-selection">
         <div className="fc-head">At {this.state.location} </div>
         <div className="fc-body flex-row-auto-wrap">
           { this.state.fcWeather.map( (day, i) => (

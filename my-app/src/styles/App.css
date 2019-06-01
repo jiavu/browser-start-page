@@ -20,6 +20,13 @@
   width: 100%;
 }
 
+.no-text-selection {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /*==============================*/
 
 /* Disable right click context menu (disables all clicks) */

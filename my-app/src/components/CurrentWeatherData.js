@@ -51,7 +51,7 @@ class CurrentWeatherData extends Component {
     const data = this.state.currentWeather;
 
 		return this.state.currentWeather ? (
-			<section className="app-frame current-weather">
+			<section className="app-frame current-weather no-text-selection">
             <div className="head">
               <img src={data.imgSrc} alt={this.wID_descr} className="weather-icon"/>
               <p style={{ paddingLeft: "0.5em" }}>{Math.round(data.temp)}°C</p>

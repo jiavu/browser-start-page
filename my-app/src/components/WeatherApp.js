@@ -26,11 +26,17 @@ class WeatherApp extends Component {
 			setLocalStorageData("latitude", latitude);
       setLocalStorageData("longitude", longitude);
 			this.setState({ lat: latitude, lon: longitude });
-		}, function (err) {
+		}, err => {
+      // Fallback to older values of local storage:
       let storage = getLocalStorageData();
       if (!storage.latitude || !storage.longitude) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
         window.alert("Allow your location to get weather shown.");
+      } else {
+        this.setState( {
+          lat: Number(storage.latitude),
+          lon: Number(storage.longitude)
+        });
       }
 		});
 	}

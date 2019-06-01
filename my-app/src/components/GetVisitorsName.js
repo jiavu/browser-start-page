@@ -26,7 +26,7 @@ class GetVisitorsName extends React.Component {
 	render() {
 
 		return (
-      <section className="app-frame"
+      <section className="app-frame no-text-selection"
               onLoad={ ()=> console.log("Hallo!") }>
         <h2>Hello Visitor, what's your name?</h2>
         <div style={{ textAlign: "center" }}>
