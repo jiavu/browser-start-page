@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { debounce } from './scripts/utils';
 import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const body = document.querySelector('body');
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root);
@@ -14,12 +16,26 @@ ReactDOM.render(<App />, root);
 serviceWorker.register();
 
 
+// #region - xx Baustelle xx
+// Maus soll über dem Hintergrundbild nach ca. 2. Sekunden ausblenden.
+// Bzw. soll nur durch Bewegung einblenden, und dann für 2 Sekunden bleiben.
+
+const showMouse = debounce( () => {
+  body.style.cursor = "default";
+}, 2000, true);
+
+document.addEventListener('DOMContentLoaded', ()=> {
+  body.addEventListener("mousemove", showMouse)
+});
+// #endregion
+
+
 /* =================================================================== */
 /* Installation prompt for Chrome and PWA */
 // https://developers.google.com/web/fundamentals/app-install-banners/
 
 
-////////////////////////////////              
+////////////////////////////////
 /*  -- Achtung Baustelle! --  */
 ////////////////////////////////
 

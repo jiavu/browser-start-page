@@ -39,24 +39,29 @@ const arrayGen2 = function*(arr) {
 }
 
 /**
- * Returns a function that keeps a given function back from running,
- * by delaying the execution of it.
+ * Returns a function that will not be triggered, as long as it continues
+ * to be invoked. 
  * @param {function} func - The function to debounce
  * @param {number} ms - The milliseconds to wait until function will run.
+ * @param {boolean} immediate - trigger function on the leading edge, not on the trailing.
  */
-const debounce = function(func, ms) {
+const debounce = function(func, ms=1000, immediate=false) {
 
 	let timeout;
 	
 	return (...args) => {
-		if (timeout) {
+    const callNow = immediate && !timeout;
+    if (timeout) {
 			clearTimeout(timeout);
 			timeout = null;
-		}
+    }
+    
 		timeout = setTimeout( () => {
-			clearTimeout(timeout);
-			func.apply(null, args);
-		}, ms);
+      clearTimeout(timeout);
+      timeout = null;
+			if (!immediate) func.apply(null, args);
+    }, ms);
+    if (callNow) func.apply(null, args);
 	};
 };
 

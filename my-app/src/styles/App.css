@@ -119,6 +119,7 @@ button.fs-button:hover {
   text-shadow: 0 0 0.15rem hsla(0, 0%, 100%, 0.2), 0 0 0.6rem hsla(57, 100%, 100%, 0.2);
   border-top: 0.5px solid var(--shadow);
   border-bottom: 0.5px solid var(--shadow);
+  cursor: default;
 }
 
 .app-frame h1, .app-frame h2 {
