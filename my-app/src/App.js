@@ -102,7 +102,7 @@ class App extends Component {
                 </React.Fragment>
               ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
 
-              <div id="options" className="app-frame flex-row-auto-wrap">
+              <div id="options" className="app-frame flex-row-auto-wrap no-text-selection">
                 <Link to="/settings"><b>About</b></Link>
                 <div className="photographer-info">
                   {this.state.photographerInfo}

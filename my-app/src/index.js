@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 let deferredPrompt;
 let PWAInstallable = false;   // eigene Erfindung
 
-window.setTimeout( ()=> console.log("schwingelding"), 4000);
-
 window.addEventListener('beforeinstallprompt', e => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();

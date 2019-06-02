@@ -32,7 +32,7 @@ class Greeting extends Component {
     let visitorsName = this.props.visitorsName;
 
 		return (
-			<section className="app-frame">
+			<section className="app-frame no-text-selection">
           { visitorsName === "anonymous" ?
             <h1>{this.state.greeting}!</h1>
           : (
