@@ -75,6 +75,51 @@ const elementToWindowHeight = element => {
     document.querySelector(element).style.minHeight = window.innerHeight + "px";
   }  
 }
-  
 
-export {mixList, arrayGen, arrayGen2, debounce, elementToWindowHeight };
+/**
+ * Hides mouse over element after a given time of milliseconds.
+ * Requires debounce() function.
+ * @param {string} element - selects HTML element with querySelector.
+ * @param {number} timeout - timeout in milliseconds.
+ */
+/* 
+function hideMousePointer(element="html", timeout=1000) {
+  const el = document.querySelector(element);
+  const hide = debounce( () => {
+    el.style.cursor = "none";
+  }, timeout);
+  document.addEventListener("mousemove", () => {
+    el.style.cursor = "default";
+    hide();
+  });
+} */
+
+
+// Independent version, doesn't require debounce():
+/**
+ * Hides mouse over element after a given time of milliseconds.
+ * @param {string} element - selects HTML element with querySelector.
+ * @param {number} timeout - timeout in milliseconds.
+ */
+
+function hideMousePointer(element="html", timeout=1000) {
+  const el = document.querySelector(element);
+  let timer, buffer;
+  document.addEventListener("mousemove", () => {
+    if (!buffer) {
+      if (timer) {
+        window.clearTimeout(timer);
+        timer = null;
+      }
+    } else {
+      el.style.cursor = "default";
+      buffer = false;
+    }
+    timer = window.setTimeout( () => {
+      el.style.cursor = "none";
+      buffer = true;
+    }, timeout);
+  });
+}
+
+export {mixList, arrayGen, arrayGen2, debounce, elementToWindowHeight, hideMousePointer };

@@ -42,7 +42,6 @@ body {
   color: var(--darkest);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
 }
 
 code {

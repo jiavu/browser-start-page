@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { debounce } from './scripts/utils';
+import { hideMousePointer } from './scripts/utils';
 import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,19 +15,7 @@ ReactDOM.render(<App />, root);
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
 
-
-// #region - xx Baustelle xx
-// Maus soll über dem Hintergrundbild nach ca. 2. Sekunden ausblenden.
-// Bzw. soll nur durch Bewegung einblenden, und dann für 2 Sekunden bleiben.
-
-const showMouse = debounce( () => {
-  body.style.cursor = "default";
-}, 2000, true);
-
-document.addEventListener('DOMContentLoaded', ()=> {
-  body.addEventListener("mousemove", showMouse)
-});
-// #endregion
+hideMousePointer();
 
 
 /* =================================================================== */
