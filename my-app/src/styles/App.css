@@ -1,3 +1,7 @@
+.just-flex {
+  display: -webkit-flex;
+  display: flex;
+}
 .perfect-centering-contents {
   display: -webkit-flex;
   display: flex;
@@ -133,14 +137,14 @@ button.fs-button:hover {
   padding: 0.75rem 0 1rem;
   line-height: 1.25;
 }
-.app-frame h1 { font-size: 2.5em; }
+.app-frame h1 { font-size: 2.49em; }
 .app-frame h2 { font-size: 1.8em; }
 
 #options {
   opacity: 1;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.9rem;
+  margin-top: 1.45rem;
   padding-top: 0.5rem;
   padding-bottom: 0.2rem;
 }

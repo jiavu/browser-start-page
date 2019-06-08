@@ -29,8 +29,8 @@ class HourlyForecast extends Component {
   signal = this.controller.signal
 
 	componentDidMount() {
-    //this.getWeather(this.props.lat, this.props.lon);
-    this.updateState(testData);   // DELETE after production!
+    this.getWeather(this.props.lat, this.props.lon);
+    // this.updateState(testData);   // DELETE after production!
   }
 
   componentWillUnmount() {

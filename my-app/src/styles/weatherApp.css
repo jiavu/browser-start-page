@@ -61,31 +61,62 @@
   font-size: 0.8em;
 }
 
-/*==================*/
-/* FORECAST WEATHER */
-/*==================*/
+/*=================*/
+/* HOURLY FORECAST */
+/*=================*/
 
-.forecast-weather .fc-head {
-
+.hourly-forecast .hfc-body {
+  /* -ms-overflow-style: none; */
+  /* overflow: -moz-scrollbars-none; */
+  /* overflow-x: scroll; */
+  overflow: hidden;
 }
+/* 
+.hfc-body::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+ */
+.hourly-forecast .hfc-tile {
+  display: block;
+  padding-left: 0.5em;
+  padding-right: 1.5em;
+  text-align: center;
+}
+.hourly-forecast .hfc-tile > p:first-child {
+  font-size: 0.75em;
+}
+.hourly-forecast .hfc-icon-wrapper {
+  width: 2.2em;
+  display: inline-block;
+  margin: 0.3em 0 0.01em;
+}
+
+
+/*=================*/
+/* DAILY FORECAST */
+/*=================*/
+
+.forecast-weather .fc-head {}
 .forecast-weather .fc-body {
   /* flex: */
   justify-content: space-around;
+  font-size: 0.96em;
 }
 .forecast-weather .fc-tile {
-  padding-top: 0.9em;
+  padding-top: 0.85em;
   padding-bottom: 0.45em;
   width: calc( (320px - 1rem - 1.8rem) / 2 );
   text-align: center;
 }
 .forecast-weather .fc-icon-wrapper {
   margin: 0.4em 0;
-  width: 4em;
+  width: 3.65em;
   display: inline-block;
 }
 .forecast-weather .fc-wind {
   position: relative;
-  padding: 0.4em 0;
+  padding: 0.35em 0;
   font-size: 0.8em;
   cursor: pointer;
 }

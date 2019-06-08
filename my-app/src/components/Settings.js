@@ -36,7 +36,7 @@ class Settings extends React.Component {
           <p>
             Developed by <a href="https://jiavu.de" target="_blank" rel="noopener noreferrer">Jan-Patrick Tyra</a><br/>
             <a href="https://github.com/jiavu/browser-start-page" target="_blank" rel="noopener noreferrer">github.com</a><br/>
-            Version 1.0 - May 2019<br/>
+            Version 1.5 - June 2019<br/>
             created with <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a>
           </p>
         </div>

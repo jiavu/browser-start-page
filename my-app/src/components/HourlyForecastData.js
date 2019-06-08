@@ -43,15 +43,15 @@ class HourlyForecastData extends Component {
 	render() {
 
     return this.state.hourlyForecastData.length ? (
-			<section className="app-frame forecast-weather no-text-selection">
-        <div className="fc-body flex-row-auto-wrap">
+			<section className="app-frame hourly-forecast no-text-selection">
+        <div className="hfc-body just-flex">
           { this.state.hourlyForecastData.map( (hour, i) => (
-            <div key={i} className="fc-tile">
-              <h3>{Math.round(hour.temp)}°</h3>
-              <div className="fc-icon-wrapper">
+            <div key={i} className="hfc-tile">
+              <p>{hour.hour}</p>
+              <div className="hfc-icon-wrapper">
                 <img src={hour.imgSrc} alt={hour.abbr}></img>
               </div>
-              <p>{hour.hour}</p>
+              <p>{Math.round(hour.temp)}°</p>
               {/* <p className="fc-wind">
                 <span className="fc-wind-short">
                   {convertWindSpeed(hour.wind_speed)} Bft

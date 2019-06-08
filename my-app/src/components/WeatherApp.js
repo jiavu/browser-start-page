@@ -46,7 +46,7 @@ class WeatherApp extends Component {
 
 		return (this.state.lat && this.state.lon) ? (
 			<React.Fragment>
-        {typeof this.props.hourOfDay === "number" && false && (
+        {typeof this.props.hourOfDay === "number" && (
           <CurrentWeather lat={this.state.lat} lon={this.state.lon}
             changePic={this.props.changePic}
             updateWeather={this.props.updateWeather}
@@ -55,9 +55,8 @@ class WeatherApp extends Component {
         )}
         <HourlyForecast lat={this.state.lat} lon={this.state.lon}
 					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
-          {/* 
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang} updateWeather={this.props.updateWeather}/> */}
+					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
 			</React.Fragment>
 		) : null;
 	}
