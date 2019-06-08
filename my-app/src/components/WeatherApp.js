@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getLocalStorageData, setLocalStorageData } from "../scripts/localStorage";
 import "../styles/weatherApp.css";
 import CurrentWeather from "./CurrentWeather";
+import HourlyForecast from "./HourlyForecast";
 import ForecastWeather from "./ForecastWeather";
 
 
@@ -45,15 +46,18 @@ class WeatherApp extends Component {
 
 		return (this.state.lat && this.state.lon) ? (
 			<React.Fragment>
-        {typeof this.props.hourOfDay === "number" && (
+        {typeof this.props.hourOfDay === "number" && false && (
           <CurrentWeather lat={this.state.lat} lon={this.state.lon}
             changePic={this.props.changePic}
             updateWeather={this.props.updateWeather}
 					  lang={this.props.lang} hourOfDay={this.props.hourOfDay}
             setPhotographerInfo={this.props.setPhotographerInfo}/>
         )}
-				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
+        <HourlyForecast lat={this.state.lat} lon={this.state.lon}
 					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
+          {/* 
+				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
+					lang={this.props.lang} updateWeather={this.props.updateWeather}/> */}
 			</React.Fragment>
 		) : null;
 	}
