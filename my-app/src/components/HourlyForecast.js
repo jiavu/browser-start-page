@@ -76,14 +76,10 @@ class HourlyForecast extends Component {
     this.setState( { response: data });
   }
 
-
-
 	render() {
-
 		return this.state.response ? (
       <HourlyForecastData data={this.state.response} lang={this.props.lang}/>
     ) : <RequestState message={this.state.requestState}/>;
-
 	}
 }
 

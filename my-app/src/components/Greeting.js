@@ -42,8 +42,7 @@ class Greeting extends Component {
               </h1>
             )
           }
-        <Clock lang={this.props.lang} setHourOfDay={this.props.setHourOfDay}
-              timer={this.props.timer}/>
+        <Clock lang={this.props.lang} setHourOfDay={this.props.setHourOfDay}/>
 			</section>
 		);
 	}
@@ -53,7 +52,6 @@ Greeting.propTypes = {
   visitorsName: PropTypes.string.isRequired,
   lang: PropTypes.string.isRequired,
   hourOfDay: PropTypes.number.isRequired,
-  timer: PropTypes.func.isRequired,
   setHourOfDay: PropTypes.func.isRequired
 };
 

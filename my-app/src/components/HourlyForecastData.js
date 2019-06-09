@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
+import { dragScroll } from "../scripts/dragScrolling";
 
 import windsock from "../img/windsock.svg";
 
@@ -8,7 +9,16 @@ const imgUrl = "https://www.metaweather.com/static/img/weather/";
 
 class HourlyForecastData extends Component {
 
-  state = { hourlyForecastData: [] }
+  constructor(props) {
+    super(props);
+    this.state = {
+      hourlyForecastData: [],
+      switchTo: 'Wind'
+    };
+    this.elmRef = React.createRef();
+    this.attachDragScrolling.bind(this);
+    this.changeMode = this.changeMode.bind(this);
+  }
   
 	componentDidMount() {
     this.updateState(this.props.data);
@@ -19,6 +29,26 @@ class HourlyForecastData extends Component {
       this.updateState(this.props.data);
       let time = new Date();
       console.log(`Hourly weather forecast updated at ${time.toLocaleTimeString()}.`);
+    }
+  }
+
+  attachDragScrolling(element) {
+      if (element) dragScroll(element);
+  }
+
+  changeMode() {
+    if (this.state.switchTo === "Wind") {
+      this.setState( {switchTo: "Temperature"} );
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
+        .forEach( el => el.style.display = "block");
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
+      .forEach( el => el.style.display = "none");
+    } else {
+      this.setState( {switchTo: "Wind"} );
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
+        .forEach( el => el.style.display = "none");
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
+      .forEach( el => el.style.display = "block");
     }
   }
 
@@ -44,16 +74,16 @@ class HourlyForecastData extends Component {
 
     return this.state.hourlyForecastData.length ? (
 			<section className="app-frame hourly-forecast no-text-selection">
-        <div className="hfc-body just-flex">
+        <div className="hfc-body just-flex" ref={ elm => this.attachDragScrolling(elm) }>
           { this.state.hourlyForecastData.map( (hour, i) => (
             <div key={i} className="hfc-tile">
               <p>{hour.hour}</p>
               <div className="hfc-icon-wrapper">
                 <img src={hour.imgSrc} alt={hour.abbr}></img>
               </div>
-              <p>{Math.round(hour.temp)}°</p>
-              {/* <p className="fc-wind">
-                <span className="fc-wind-short">
+              <p className="hfc-temp">{Math.round(hour.temp)}°</p>
+              <p className="hfc-wind">
+                <span>
                   {convertWindSpeed(hour.wind_speed)} Bft
                   <i className="fas fa-arrow-up wind-arrow"
                     style={{
@@ -64,12 +94,18 @@ class HourlyForecastData extends Component {
                     <img src={windsock} alt="ws" className="wind-sock" />
                   )}
                 </span>
-                <span className="fc-wind-descr">
+                {/* <span className="fc-wind-descr">
                   {windDescription[this.props.lang][convertWindSpeed(hour.wind_speed)]}
-                </span>
-              </p> */}
+                </span> */}
+              </p>
             </div>
           )) }
+        </div>
+        <div className="hfc-footer">
+          <button type="button" className="no-button"
+                  onClick={this.changeMode}>
+                  {this.state.switchTo}
+          </button>
         </div>
       </section>
 		) : null;

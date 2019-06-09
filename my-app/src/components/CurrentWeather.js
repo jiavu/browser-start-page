@@ -18,11 +18,11 @@ class CurrentWeather extends Component {
 	state = {
     response: null,
     requestState: "",
-    error: ""
+    error: "",
   }
 
   timeoutIDs = {}
-
+  seconds = 0
   prev_abbrID = null
   pictureList = null
   pictureListIterator = null
@@ -33,20 +33,30 @@ class CurrentWeather extends Component {
 	componentDidMount() {
     this.getWeather(this.props.lat, this.props.lon);
     //this.updateState(tempData);   // DELETE after production!
+    this.timerID = setInterval( () => this.timer(), 1000);
   }
 
   componentWillUnmount() {
     for (let el in this.timeoutIDs) {
       window.clearTimeout(this.timeoutIDs[el]);
     }
+    clearInterval(this.timerID);
     this.controller.abort();
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.changePic !== prevProps.changePic &&
-        this.pictureListIterator) this.loadPicture();
     if (this.props.updateWeather !== prevProps.updateWeather) {
       this.getWeather(this.props.lat, this.props.lon);
+    }
+  }
+
+  timer() {
+    this.seconds++;
+    /* Schwachstelle: innerhalb setState auf state beziehen... setState ist eine
+    asynchrone Funktion. Es gibt hierfür eine sicherere Methode. */
+    if (this.seconds % 18 === 0 && this.pictureListIterator) {
+      this.loadPicture();
+      this.seconds = 0;
     }
   }
 
@@ -203,7 +213,6 @@ CurrentWeather.propTypes = {
   updateWeather: PropTypes.bool.isRequired,
   lang: PropTypes.string.isRequired,
   hourOfDay: PropTypes.number.isRequired,
-  changePic: PropTypes.bool.isRequired,
   setPhotographerInfo: PropTypes.func.isRequired
 };
 

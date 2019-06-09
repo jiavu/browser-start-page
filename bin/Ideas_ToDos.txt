@@ -105,6 +105,13 @@ TO DO
 Bugs
 ----
 
+- in CurrentWeather.js: loadPicture()
+
+  let currBg = document.querySelector(".bg-fs-fixed");
+  currBg.style.opacity = 0;
+  currBg war undefined!
+
+
 - Fullscreen function/F11 bug
 
 

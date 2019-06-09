@@ -5,7 +5,6 @@ import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const body = document.querySelector('body');
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root);
@@ -15,7 +14,7 @@ ReactDOM.render(<App />, root);
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();
 
-hideMousePointer();
+//hideMousePointer();
 
 
 /* =================================================================== */

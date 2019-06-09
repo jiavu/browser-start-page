@@ -6,6 +6,9 @@ class Clock extends Component {
     constructor(props) {
       super(props);
       this.state = { date: new Date() };
+      this.dateFormatOptions = {
+        weekday: "long", year: "numeric", month: "long", day: "numeric"
+      }
     }
 
     componentDidMount() {
@@ -20,16 +23,12 @@ class Clock extends Component {
     tick() {
       this.setState( { date: new Date() } );
       this.props.setHourOfDay(this.state.date.getHours() );
-      this.props.timer(); // Timer for updating photos and weather
     }
 
     render() {
 
         const lang = this.props.lang;
-        let options = {
-          weekday: "long", year: "numeric", month: "long", day: "numeric"
-        }
-        let date = this.state.date.toLocaleDateString(lang, options);
+        let date = this.state.date.toLocaleDateString(lang, this.dateFormatOptions);
         let time = this.state.date.toLocaleTimeString(lang);
 
         return (
@@ -43,7 +42,6 @@ class Clock extends Component {
 Clock.propTypes = {
   lang: PropTypes.string.isRequired,
   setHourOfDay: PropTypes.func.isRequired,
-  timer: PropTypes.func.isRequired
 };
 
 export default Clock;

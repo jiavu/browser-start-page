@@ -9,17 +9,31 @@ import ForecastWeather from "./ForecastWeather";
 
 class WeatherApp extends Component {
 
-	state = { lat: null, lon: null }
+  state = {
+    lat: null, lon: null,
+    updateWeather : false,
+  }
+  
+  seconds = 0
 
 	componentDidMount() {
-    /* 
-    let storage = getLocalStorageData();
-		if (!storage.latitude && !storage.longitude) {
-			window.alert("To show you the current weather, this page has to know your location. Choose 'Allow' if your browser asks.");
+    this.getGeoLocation();
+    this.timerID = setInterval( () => this.timer(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  timer() {
+    this.seconds++;
+    if (this.seconds === 600) {
+      this.setState({
+        updateWeather : !this.state.updateWeather
+      });
+      this.seconds = 0;
     }
-     */
-		this.getGeoLocation();
-	}
+  }
 
 	getGeoLocation() {
 		navigator.geolocation.getCurrentPosition(loc => {
@@ -48,15 +62,14 @@ class WeatherApp extends Component {
 			<React.Fragment>
         {typeof this.props.hourOfDay === "number" && (
           <CurrentWeather lat={this.state.lat} lon={this.state.lon}
-            changePic={this.props.changePic}
-            updateWeather={this.props.updateWeather}
+            updateWeather={this.state.updateWeather}
 					  lang={this.props.lang} hourOfDay={this.props.hourOfDay}
             setPhotographerInfo={this.props.setPhotographerInfo}/>
         )}
         <HourlyForecast lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
+					lang={this.props.lang} updateWeather={this.state.updateWeather}/>
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
-					lang={this.props.lang} updateWeather={this.props.updateWeather}/>
+					lang={this.props.lang} updateWeather={this.state.updateWeather}/>
 			</React.Fragment>
 		) : null;
 	}
@@ -65,8 +78,6 @@ class WeatherApp extends Component {
 WeatherApp.propTypes = {
   lang: PropTypes.string.isRequired,
   hourOfDay: PropTypes.number.isRequired,
-  changePic: PropTypes.bool.isRequired,
-  updateWeather: PropTypes.bool.isRequired,
   setPhotographerInfo: PropTypes.func.isRequired
 };
 
