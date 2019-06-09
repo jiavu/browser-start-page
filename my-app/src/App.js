@@ -85,41 +85,39 @@ class App extends Component {
     
     return (
       <Router basename="/" hashType="noslash">
-        <div className="bg-fs-fixed"/>
-        <main className="full-height-width perfect-centering-contents">
-          <div className="flex-column">
-            <Route exact path="/" render={ () => (
-              <React.Fragment>
-              { visitorsName ? (
+        <div className="bg-fs-fixed" />
+        <main className="flex-column full-height-width flex-perfect-centering-contents">
+          <Route exact path="/" render={() => (
+            <React.Fragment>
+              {visitorsName ? (
                 <React.Fragment>
                   <Greeting visitorsName={visitorsName} lang={lang} hourOfDay={this.state.hourOfDay}
                     timer={this.timer} setHourOfDay={this.setHourOfDay} />
-                  
+
                   <WeatherApp lang={lang} hourOfDay={this.state.hourOfDay}
-                              changePic={this.state.changePic}
-                              updateWeather={this.state.updateWeather}
-                              setPhotographerInfo={this.setPhotographerInfo}/>
+                    changePic={this.state.changePic}
+                    updateWeather={this.state.updateWeather}
+                    setPhotographerInfo={this.setPhotographerInfo} />
                 </React.Fragment>
-              ) : <GetVisitorsName setVisitorsName={this.setVisitorsName }/> }
+              ) : <GetVisitorsName setVisitorsName={this.setVisitorsName} />}
 
               <div id="options" className="app-frame flex-row-auto-wrap no-text-selection">
                 <Link to="/settings"><b>About</b></Link>
                 <div className="photographer-info">
                   {this.state.photographerInfo}
                 </div>
-                  <button className="no-button fs-button"
-                          onClick={this.toggleFullscreen}>
-                    <img src={fullscreen} alt="FS"/>
-                  </button>
+                <button className="no-button fs-button"
+                  onClick={this.toggleFullscreen}>
+                  <img src={fullscreen} alt="FS" />
+                </button>
               </div>
-              </React.Fragment>
-            )}/>
-          <Route path="/settings" render={ () => (
+            </React.Fragment>
+          )} />
+          <Route path="/settings" render={() => (
             <Settings className="flex-row-auto-wrap"
-                      visitorsName={this.state.visitorsName}
-                      setVisitorsName={this.setVisitorsName}/>
-          ) } />  
-          </div>
+              visitorsName={this.state.visitorsName}
+              setVisitorsName={this.setVisitorsName} />
+          )} />
         </main>
       </Router>
     );

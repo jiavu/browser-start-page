@@ -61,6 +61,7 @@
   font-size: 0.8em;
 }
 
+
 /*=================*/
 /* HOURLY FORECAST */
 /*=================*/
@@ -69,7 +70,7 @@
   /* -ms-overflow-style: none; */
   /* overflow: -moz-scrollbars-none; */
   /* overflow-x: scroll; */
-  overflow: hidden;
+  overflow-x: scroll;
 }
 /* 
 .hfc-body::-webkit-scrollbar {
