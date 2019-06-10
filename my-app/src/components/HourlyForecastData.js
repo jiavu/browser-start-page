@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
-import { dragScroll } from "../scripts/dragScrolling";
+import { dragScroll, touchScroll } from "../scripts/dragScrolling";
 
 import windsock from "../img/windsock.svg";
 
 const imgUrl = "https://www.metaweather.com/static/img/weather/";
+
+function isTouchScreen() {
+  try { document.createEvent("TouchEvent"); return true; }
+  catch (e) { return false;}
+}
 
 class HourlyForecastData extends Component {
 
@@ -13,7 +18,7 @@ class HourlyForecastData extends Component {
     super(props);
     this.state = {
       hourlyForecastData: [],
-      switchTo: 'Wind'
+      hfcMode: 'Temperature'
     };
     this.elmRef = React.createRef();
     this.attachDragScrolling.bind(this);
@@ -22,6 +27,8 @@ class HourlyForecastData extends Component {
   
 	componentDidMount() {
     this.updateState(this.props.data);
+    this.isTouchScreen = isTouchScreen();
+    console.log("Touchscreen: " + this.isTouchScreen);
   }
 
   componentDidUpdate(prevProps) {
@@ -33,22 +40,25 @@ class HourlyForecastData extends Component {
   }
 
   attachDragScrolling(element) {
-      if (element) dragScroll(element);
+      if (element) {
+        if (!this.isTouchScreen) dragScroll(element);
+        else touchScroll(element);
+      }
   }
 
   changeMode() {
-    if (this.state.switchTo === "Wind") {
-      this.setState( {switchTo: "Temperature"} );
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
-        .forEach( el => el.style.display = "block");
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
-      .forEach( el => el.style.display = "none");
-    } else {
-      this.setState( {switchTo: "Wind"} );
+    if (this.state.hfcMode === "Wind") {
+      this.setState( {hfcMode: "Temperature"} );
       Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
         .forEach( el => el.style.display = "none");
       Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
       .forEach( el => el.style.display = "block");
+    } else {
+      this.setState( {hfcMode: "Wind"} );
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
+        .forEach( el => el.style.display = "block");
+      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
+      .forEach( el => el.style.display = "none");
     }
   }
 
@@ -73,7 +83,20 @@ class HourlyForecastData extends Component {
 	render() {
 
     return this.state.hourlyForecastData.length ? (
-			<section className="app-frame hourly-forecast no-text-selection">
+			<section className="app-frame hourly-forecast just-flex no-text-selection">
+        <div className="hfc-sidebar">
+          <button type="button" className="no-button"
+                    onClick={this.changeMode}>
+            {this.state.hfcMode === "Temperature" ? (
+              <i className="fas fa-wind"></i>
+            ) : <i className="fas fa-thermometer-half"></i> }
+          </button>
+        </div>
+        <div className="hfc-slide-arrow flex-column flex-perfect-centering-contents">
+          <button type="button" className="no-button">
+            <i className="fas fa-angle-left" id="hfc-arrow-left"></i>
+          </button>
+        </div>
         <div className="hfc-body just-flex" ref={ elm => this.attachDragScrolling(elm) }>
           { this.state.hourlyForecastData.map( (hour, i) => (
             <div key={i} className="hfc-tile">
@@ -81,30 +104,24 @@ class HourlyForecastData extends Component {
               <div className="hfc-icon-wrapper">
                 <img src={hour.imgSrc} alt={hour.abbr}></img>
               </div>
-              <p className="hfc-temp">{Math.round(hour.temp)}°</p>
+              <p className="hfc-temp">{Math.round(hour.temp)}°C</p>
               <p className="hfc-wind">
-                <span>
-                  {convertWindSpeed(hour.wind_speed)} Bft
-                  <i className="fas fa-arrow-up wind-arrow"
-                    style={{
-                      transform: `rotate(${hour.wind_deg + 135}deg)`
-                    }}>
-                  </i>
-                  {hour.wind_speed > 10.8 && (
-                    <img src={windsock} alt="ws" className="wind-sock" />
+                {convertWindSpeed(hour.wind_speed)} Bft
+                <i className="fas fa-arrow-up wind-arrow"
+                  style={{
+                    transform: `rotate(${hour.wind_deg + 135}deg)`
+                  }}>
+                </i>
+                {hour.wind_speed > 10.8 && (
+                  <img src={windsock} alt="ws" className="wind-sock" />
                   )}
-                </span>
-                {/* <span className="fc-wind-descr">
-                  {windDescription[this.props.lang][convertWindSpeed(hour.wind_speed)]}
-                </span> */}
               </p>
             </div>
           )) }
         </div>
-        <div className="hfc-footer">
-          <button type="button" className="no-button"
-                  onClick={this.changeMode}>
-                  {this.state.switchTo}
+        <div className="hfc-slide-arrow flex-column flex-perfect-centering-contents">
+          <button type="button" className="no-button">
+            <i className="fas fa-angle-right" id="hfc-arrow-right"></i>
           </button>
         </div>
       </section>

@@ -8,6 +8,7 @@
   --dark: hsl(0, 0%, 18%);
   --dark-t: hsla(0, 0%, 18%, 0.75);
   --medium: hsl(0, 0%, 60%);
+  --medium-t: hsla(0, 0%, 60%, 0.3);
 	--light: hsl(0, 0%, 93%);
 	--light-t: hsla(0, 0%, 93%, 0.75);
 	--lightest: hsl(0, 0%, 96%);

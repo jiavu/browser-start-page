@@ -102,6 +102,8 @@ TO DO
 
 - remove proxys if possible
 
+- update readme in repo (new Features)
+
 Bugs
 ----
 

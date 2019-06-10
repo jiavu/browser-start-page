@@ -66,6 +66,22 @@
 /* HOURLY FORECAST */
 /*=================*/
 
+.hourly-forecast {
+  padding-left: 0;
+}
+.hfc-sidebar {
+  border-right: 3px double var(--medium-t);
+  min-width: 3.3em;
+  padding-left: 0.5em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.hfc-slide-arrow {
+  min-width: 1.75em;
+  font-size: 1.45em;
+  color: var(--light-t);
+}
 .hourly-forecast .hfc-body {
   overflow: hidden;
   cursor: pointer;
@@ -76,27 +92,23 @@
 }
 .hourly-forecast .hfc-tile {
   display: block;
-  min-width: 4.8em;
+  min-width: 3.6em;
+  margin-left: 0.2em;
+  margin-right: 2em;
   text-align: center;
+  white-space: nowrap;
 }
 .hourly-forecast .hfc-tile > p:first-child {
-  font-size: 0.75em;
+  font-size: 0.74em;
 }
 .hourly-forecast .hfc-icon-wrapper {
   width: 2.2em;
   display: inline-block;
   margin: 0.3em 0 0.01em;
 }
-.hourly-forecast .hfc-footer {
-  margin-top: 0.4em;
-  text-align: center;
-  font-size: 0.8em;
-  color: var(--light-t);
-  cursor: pointer;
-}
+.hfc-wind, .hfc-temp { margin-top: 0.2em; }
 .hourly-forecast .hfc-wind {
   display: none;
-  /* font-size: 0.8em; */
 }
 
 
