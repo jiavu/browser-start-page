@@ -58,7 +58,7 @@ class HourlyForecast extends Component {
       throw new Error(response.status);
     }, error => {
       console.error(error);
-      throw new Error("Fetch failed / network error");
+      throw new Error("(openweathermap forecast) Fetch failed / network error");
       // failed to fetch/ connection error
     }).then(jsonResponse => {
       if (jsonResponse.error) throw new Error(jsonResponse.error);

@@ -50,7 +50,7 @@ class ForecastWeather extends Component {
       throw new Error(response.status);
     }, error => {
       console.error(error);
-      throw new Error("Fetch failed / network error");
+      throw new Error("(herokuapp/metaweather) Fetch failed / network error");
       // failed to fetch/ connection error
     }).then(jsonResponse => {
       this.getWeather(jsonResponse[0].woeid);

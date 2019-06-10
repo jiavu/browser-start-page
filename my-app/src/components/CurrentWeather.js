@@ -75,11 +75,11 @@ class CurrentWeather extends Component {
       throw new Error(response.status);
     }, error => {
       console.error(error);
-      throw new Error("Fetch failed / network error");
+      throw new Error("(openweathermap current) Fetch failed / network error");
       // failed to fetch/ connection error
     }).then(jsonResponse => {
       if (jsonResponse.error) throw new Error(jsonResponse.error);
-      // Shuzenji?? False answer. Try again. Sorry Shuzenji.    // (deprecated. Using another API now.)
+      // deprecated, not using fcc api anymore:
       if ( jsonResponse.name === "Shuzenji" ) {
         this.setState({ requestState: "Shuzenji response. New request..." });
         this.timeoutIDs.newHttpRequest = window.setTimeout( this.getWeather.bind(this, lat, lon), 4000);

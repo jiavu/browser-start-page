@@ -5,16 +5,21 @@ import "../styles/weatherApp.css";
 import CurrentWeather from "./CurrentWeather";
 import HourlyForecast from "./HourlyForecast";
 import ForecastWeather from "./ForecastWeather";
+import RequestState from './RequestState';
 
+const urlIpAPI = "http://ip-api.com/json/";
 
 class WeatherApp extends Component {
 
   state = {
     lat: null, lon: null,
     updateWeather : false,
+    requestState: "Request IP location..."
   }
   
   seconds = 0
+  controller = new AbortController()
+  signal = this.controller.signal
 
 	componentDidMount() {
     this.getGeoLocation();
@@ -23,6 +28,7 @@ class WeatherApp extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timerID);
+    this.controller.abort();
   }
 
   timer() {
@@ -41,20 +47,48 @@ class WeatherApp extends Component {
 			setLocalStorageData("latitude", latitude);
       setLocalStorageData("longitude", longitude);
 			this.setState({ lat: latitude, lon: longitude });
-		}, err => {
-      // Fallback to older values of local storage:
+		}, error => {
+      console.warn(`ERROR(${error.code}): ${error.message}`);
+      /* So we'll use ip-api now :D */
+      this.getIPLocation();
+		});
+  }
+  
+  getIPLocation() {
+    fetch(urlIpAPI, { signal: this.signal })
+    .then( response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.status);
+    }, error => {
+      console.error(error);
+      throw new Error("(ip-api) Fetch failed / network error");
+    }).then(jsonResponse => {
+      this.setState( {
+        lat: jsonResponse.lat,
+        lon: jsonResponse.lon
+      });
+      console.log("Got an IP location from ip-api");
+    }, error => {
+      console.warn(error);
+      // Fallback to older values of local storage if available:
       let storage = getLocalStorageData();
       if (!storage.latitude || !storage.longitude) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-        window.alert("To get weather shown, allow your location and reload page.");
+        // window.alert("To get weather shown, allow your location and reload page.");
+        this.setState({
+          requestState: `Failed to get a location.\n
+          To get weather shown, allow your location and reload page.
+        `});
       } else {
         this.setState( {
           lat: Number(storage.latitude),
           lon: Number(storage.longitude)
         });
+        console.log("Fetched location data from local storage.")
       }
-		});
-	}
+    });
+  }
 
 	render() {
 
@@ -71,7 +105,7 @@ class WeatherApp extends Component {
 				<ForecastWeather lat={this.state.lat} lon={this.state.lon}
 					lang={this.props.lang} updateWeather={this.state.updateWeather}/>
 			</React.Fragment>
-		) : null;
+		) : <RequestState message={this.state.requestState}/>;
 	}
 }
 
