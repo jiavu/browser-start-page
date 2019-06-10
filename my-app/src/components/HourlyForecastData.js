@@ -49,20 +49,20 @@ class HourlyForecastData extends Component {
   }
 
   changeMode(mode) {
-    if (mode === "Wind") {
+    if (mode === "Temperature") {
       Array.from(document.querySelectorAll(".hfc__wind"))
         .forEach( el => el.style.display = "none");
       Array.from(document.querySelectorAll(".hfc__temp"))
       .forEach( el => el.style.display = "block");
-      document.getElementById("hfc__wind-button").classList.remove("no-button--inactive");
-      document.getElementById("hfc__temp-button").classList.add("no-button--inactive");
+      document.getElementById("hfc__wind-button").classList.add("no-button--inactive");
+      document.getElementById("hfc__temp-button").classList.remove("no-button--inactive");
     } else {
       Array.from(document.querySelectorAll(".hfc__wind"))
         .forEach( el => el.style.display = "block");
       Array.from(document.querySelectorAll(".hfc__temp"))
       .forEach( el => el.style.display = "none");
-      document.getElementById("hfc__wind-button").classList.add("no-button--inactive");
-      document.getElementById("hfc__temp-button").classList.remove("no-button--inactive");
+      document.getElementById("hfc__wind-button").classList.remove("no-button--inactive");
+      document.getElementById("hfc__temp-button").classList.add("no-button--inactive");
     }
   }
 
@@ -88,23 +88,26 @@ class HourlyForecastData extends Component {
 
     return this.state.hourlyForecastData.length ? (
 			<section className="app-frame hourly-forecast just-flex no-text-selection">
+
         <div className="hfc__sidebar flex-column flex-perfect-centering-contents">
-          <button type="button" className="no-button" id="hfc__wind-button"
-                  onClick={ () => this.changeMode("Wind")}>
+          <button type="button" className="no-button" id="hfc__temp-button"
+                  onMouseDown={ () => this.changeMode("Temperature")}>
             <i className="fas fa-thermometer-half"></i>
           </button>
           <button type="button" className="no-button no-button--inactive"
-                    id="hfc__temp-button"
-                    onClick={ () => this.changeMode("Temperature")}>
+                    id="hfc__wind-button"
+                    onMouseDown={ () => this.changeMode("Wind")}>
             <i className="fas fa-wind"></i>
           </button>
         </div>
-        <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
-          <button type="button" className="no-button no-button--inactive"
-                  id="hfc__arrow-left" onClick={ () => this.moveCarousel('left')}>
-            <i className="fas fa-angle-left"></i>
-          </button>
-        </div>
+
+        <button type="button" id="hfc__arrow-left" 
+                className="no-button no-button--inactive hfc__slide-arrow
+                  flex-column flex-perfect-centering-contents "
+                onMouseDown={ () => this.moveCarousel('left')}>
+          <i className="fas fa-angle-left"></i>
+        </button>
+
         <div className="hfc__body just-flex" ref={ elm => this.attachDragScrolling(elm) }>
           { this.state.hourlyForecastData.map( (hour, i) => (
             <div key={i} className="hfc__tile">
@@ -127,12 +130,13 @@ class HourlyForecastData extends Component {
             </div>
           )) }
         </div>
-        <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
-          <button type="button" className="no-button" id="hfc__arrow-right"
-                  onClick={() => this.moveCarousel('right')}>
-            <i className="fas fa-angle-right"></i>
-          </button>
-        </div>
+
+        <button type="button" id="hfc__arrow-right"
+                className="no-button hfc__slide-arrow
+                  flex-column flex-perfect-centering-contents"
+                onMouseDown={() => this.moveCarousel('right')}>
+          <i className="fas fa-angle-right"></i>
+        </button>
       </section>
 		) : null;
 	}

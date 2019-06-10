@@ -1,10 +1,14 @@
 # Browser start page
 
-First version of a browser start page displaying current weather and forecast.
+First version of a browser start page displaying current weather, hourly, and daily weather forecast.
+
+**visit on:**
+
+[jiavu.de/weather](https://jiavu.de/weather)
 
 ## Features
 
-- Current weather, daily forecast weather
+- Current weather, 3-hour-steps forecast, daily forecast
 - Background slide show: Photos according to current weather
 - Weather Pictures: "night mode"; in the night the app will show night pictures.
 - Smooth background image loader
@@ -12,16 +16,18 @@ First version of a browser start page displaying current weather and forecast.
 
   -> Smaller download sizes on smaller-resolution-screens and on mobile.
 - Strong wind warning for wind speeds >= 6 Bft
-- Wind description when hovering over wind infos in forecast.
+- Wind description when hovering over wind infos in daily forecast.
+- hourly forecast: switch between temperature and wind.
+- hourly forecast: 24 hours displayed in a carousel.
 
 ---
 
 ### Credits
 developed by [Jan-Patrick Tyra](https://jiavu.de)  
-Version 1.0 - 30 May 2019
+Version 1.5 - 10 June 2019
 
 #### Sources
-weather data from [openweathermap.org](https://openweathermap.org/) (current weather)  
+weather data from [openweathermap.org](https://openweathermap.org/) (current weather and hourly forecast)  
 and from [metaweather.com](https://www.metaweather.com) (daily forecast)
 
 created with [React.js](http://reactjs.org)

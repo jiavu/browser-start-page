@@ -85,8 +85,9 @@ button.no-button { /* showed as link */
 button.no-button--inactive {
   color: var(--medium);
 }
-button.no-button:hover {
-  color: var(--color1-light);
+button.no-button:hover,
+button.no-button--inactive:hover {
+  color: var(--color1-light) !important;
 }
 button.no-button--inactive:hover {
   color: var(--medium);

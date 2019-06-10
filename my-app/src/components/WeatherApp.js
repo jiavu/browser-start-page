@@ -46,7 +46,7 @@ class WeatherApp extends Component {
       let storage = getLocalStorageData();
       if (!storage.latitude || !storage.longitude) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
-        window.alert("Allow your location to get weather shown.");
+        window.alert("To get weather shown, allow your location and reload page.");
       } else {
         this.setState( {
           lat: Number(storage.latitude),
