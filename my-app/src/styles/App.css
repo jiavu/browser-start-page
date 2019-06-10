@@ -82,8 +82,15 @@ button.no-button { /* showed as link */
   color: var(--light);
   background: none;
 }
+button.no-button--inactive {
+  color: var(--medium);
+}
 button.no-button:hover {
   color: var(--color1-light);
+}
+button.no-button--inactive:hover {
+  color: var(--medium);
+  /* cursor: default; */
 }
 button.fs-button:hover {
   transform: scale(1.1);

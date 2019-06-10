@@ -66,10 +66,12 @@
 /* HOURLY FORECAST */
 /*=================*/
 
+/* I am getting BEM now */
+
 .hourly-forecast {
   padding-left: 0;
 }
-.hfc-sidebar {
+.hfc__sidebar {
   border-right: 3px double var(--medium-t);
   min-width: 3.3em;
   padding-left: 0.5em;
@@ -77,20 +79,20 @@
   color: white;
   font-weight: bold;
 }
-.hfc-slide-arrow {
+.hfc__slide-arrow {
   min-width: 1.75em;
   font-size: 1.45em;
   color: var(--light-t);
 }
-.hourly-forecast .hfc-body {
+.hourly-forecast .hfc__body {
   overflow: hidden;
   cursor: pointer;
 }
-.hourly-forecast .hfc-body.active {
+.hourly-forecast .hfc__body.active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
 }
-.hourly-forecast .hfc-tile {
+.hourly-forecast .hfc__tile {
   display: block;
   min-width: 3.6em;
   margin-left: 0.2em;
@@ -98,16 +100,16 @@
   text-align: center;
   white-space: nowrap;
 }
-.hourly-forecast .hfc-tile > p:first-child {
+.hourly-forecast .hfc__tile > p:first-child {
   font-size: 0.74em;
 }
-.hourly-forecast .hfc-icon-wrapper {
+.hourly-forecast .hfc__icon-wrapper {
   width: 2.2em;
   display: inline-block;
   margin: 0.3em 0 0.01em;
 }
-.hfc-wind, .hfc-temp { margin-top: 0.2em; }
-.hourly-forecast .hfc-wind {
+.hfc__wind, .hfc__temp { margin-top: 0.2em; }
+.hourly-forecast .hfc__wind {
   display: none;
 }
 

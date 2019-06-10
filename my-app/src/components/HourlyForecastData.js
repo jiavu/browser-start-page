@@ -16,12 +16,9 @@ class HourlyForecastData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      hourlyForecastData: [],
-      hfcMode: 'Temperature'
-    };
-    this.elmRef = React.createRef();
-    this.attachDragScrolling.bind(this);
+    this.state = { hourlyForecastData: [] };
+    this.slider = null;
+    this.spinCarousel = this.spinCarousel.bind(this);
     this.changeMode = this.changeMode.bind(this);
   }
   
@@ -41,24 +38,38 @@ class HourlyForecastData extends Component {
 
   attachDragScrolling(element) {
       if (element) {
+        this.slider = element;
         if (!this.isTouchScreen) dragScroll(element);
         else touchScroll(element);
       }
   }
 
-  changeMode() {
-    if (this.state.hfcMode === "Wind") {
-      this.setState( {hfcMode: "Temperature"} );
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
+  spinCarousel(direction) {
+    if (this.slider) {
+      console.log("arrow clicked");
+      if (direction === 'right') {
+        this.slider.scrollLeft += 85.75;
+      } else {
+        this.slider.scrollLeft -= 85.75;
+      }
+    }
+  }
+
+  changeMode(mode) {
+    if (mode === "Wind") {
+      Array.from(document.querySelectorAll(".hfc__wind"))
         .forEach( el => el.style.display = "none");
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
+      Array.from(document.querySelectorAll(".hfc__temp"))
       .forEach( el => el.style.display = "block");
+      document.getElementById("hfc__wind-button").classList.remove("no-button--inactive");
+      document.getElementById("hfc__temp-button").classList.add("no-button--inactive");
     } else {
-      this.setState( {hfcMode: "Wind"} );
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-wind"))
+      Array.from(document.querySelectorAll(".hfc__wind"))
         .forEach( el => el.style.display = "block");
-      Array.from(document.querySelectorAll(".hourly-forecast .hfc-temp"))
+      Array.from(document.querySelectorAll(".hfc__temp"))
       .forEach( el => el.style.display = "none");
+      document.getElementById("hfc__wind-button").classList.add("no-button--inactive");
+      document.getElementById("hfc__temp-button").classList.remove("no-button--inactive");
     }
   }
 
@@ -84,28 +95,32 @@ class HourlyForecastData extends Component {
 
     return this.state.hourlyForecastData.length ? (
 			<section className="app-frame hourly-forecast just-flex no-text-selection">
-        <div className="hfc-sidebar">
-          <button type="button" className="no-button"
-                    onClick={this.changeMode}>
-            {this.state.hfcMode === "Temperature" ? (
-              <i className="fas fa-wind"></i>
-            ) : <i className="fas fa-thermometer-half"></i> }
+        <div className="hfc__sidebar flex-column flex-perfect-centering-contents">
+          <button type="button" className="no-button" id="hfc__wind-button"
+                  onClick={ () => this.changeMode("Wind")}>
+            <i className="fas fa-thermometer-half"></i>
+          </button>
+          <button type="button" className="no-button no-button--inactive"
+                    id="hfc__temp-button"
+                    onClick={ () => this.changeMode("Temperature")}>
+            <i className="fas fa-wind"></i>
           </button>
         </div>
-        <div className="hfc-slide-arrow flex-column flex-perfect-centering-contents">
-          <button type="button" className="no-button">
-            <i className="fas fa-angle-left" id="hfc-arrow-left"></i>
+        <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
+          <button type="button" className="no-button no-button--inactive"
+                  id="hfc__arrow-left" onClick={ () => this.spinCarousel('left')}>
+            <i className="fas fa-angle-left"></i>
           </button>
         </div>
-        <div className="hfc-body just-flex" ref={ elm => this.attachDragScrolling(elm) }>
+        <div className="hfc__body just-flex" ref={ elm => this.attachDragScrolling(elm) }>
           { this.state.hourlyForecastData.map( (hour, i) => (
-            <div key={i} className="hfc-tile">
+            <div key={i} className="hfc__tile">
               <p>{hour.hour}</p>
-              <div className="hfc-icon-wrapper">
+              <div className="hfc__icon-wrapper">
                 <img src={hour.imgSrc} alt={hour.abbr}></img>
               </div>
-              <p className="hfc-temp">{Math.round(hour.temp)}°C</p>
-              <p className="hfc-wind">
+              <p className="hfc__temp">{Math.round(hour.temp)}°C</p>
+              <p className="hfc__wind">
                 {convertWindSpeed(hour.wind_speed)} Bft
                 <i className="fas fa-arrow-up wind-arrow"
                   style={{
@@ -119,9 +134,10 @@ class HourlyForecastData extends Component {
             </div>
           )) }
         </div>
-        <div className="hfc-slide-arrow flex-column flex-perfect-centering-contents">
-          <button type="button" className="no-button">
-            <i className="fas fa-angle-right" id="hfc-arrow-right"></i>
+        <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
+          <button type="button" className="no-button" id="hfc__arrow-right"
+                  onClick={() => this.spinCarousel('right')}>
+            <i className="fas fa-angle-right"></i>
           </button>
         </div>
       </section>

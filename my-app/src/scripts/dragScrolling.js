@@ -1,9 +1,10 @@
 
 /**
  * Horizontal Click and Drag Srolling
- * from:
+ * Base code from:
  * https://codepen.io/toddwebdev/pen/yExKoj
  * A pen by ToddWebDev
+ * modified by jiavu (me).
  * @param {HTMLElement} element - e. g. React element ref
  */
 function dragScroll(element) {
@@ -47,8 +48,6 @@ function touchScroll(element) {
   let startX;
   let scrollLeft;
 
-  document.getElementById("hfc-arrow-left").style.visibility = "hidden";
-
   slider.addEventListener('touchstart', e => {
     isDown = true;
     startX = e.touches[0].clientX - slider.offsetLeft;
@@ -68,21 +67,22 @@ function touchScroll(element) {
 }
 
 /**
- * Hides the scroll Arrows of the HourlyForecastData Component.
+ * Adds class inactive to the scroll Arrows of the HourlyForecastData Component.
  * @param {HTMLElement} slider - slider from dragScroll() or touchScroll()
  */
 function hideScrollArrows(slider) {
   let maxScroll = slider.scrollWidth - slider.clientWidth;
   if (slider.scrollLeft === 0) {
-    document.getElementById("hfc-arrow-left").style.visibility = "hidden";
+    document.getElementById("hfc__arrow-left").classList.add("no-button--inactive");
   } else {
-    document.getElementById("hfc-arrow-left").style.visibility = "visible";
+    document.getElementById("hfc__arrow-left").classList.remove("no-button--inactive");
   }
   if (slider.scrollLeft === maxScroll) {
-    document.getElementById("hfc-arrow-right").style.visibility = "hidden";
+    document.getElementById("hfc__arrow-right").classList.add("no-button--inactive");
   } else {
-    document.getElementById("hfc-arrow-right").style.visibility = "visible";
+    document.getElementById("hfc__arrow-right").classList.remove("no-button--inactive");
   }
 }
+
 
 export { dragScroll, touchScroll };
