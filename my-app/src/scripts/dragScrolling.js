@@ -67,6 +67,30 @@ function touchScroll(element) {
 }
 
 /**
+ * Animated carousel movement.
+ * @param {HTMLElement} element - e. g. React element ref.
+ * @param {string} direction - if not 'right' then it's left.
+ */
+function spinCarousel(element, direction) {
+  const distance = 105,
+        time = 0.028;
+  let start = 1;
+  const xDiff = direction === 'right' ? distance / 10 : -distance / 10;
+  const animate = () => {
+    let step = Math.sin(start);
+    if (step <= 0) {
+      window.cancelAnimationFrame(animate);
+    } else {
+      element.scrollLeft += xDiff * step;
+      hideScrollArrows(element);
+      start -= time;
+      window.requestAnimationFrame(animate);
+    }
+  };
+  animate();
+}
+
+/**
  * Adds class inactive to the scroll Arrows of the HourlyForecastData Component.
  * @param {HTMLElement} slider - slider from dragScroll() or touchScroll()
  */
@@ -85,4 +109,4 @@ function hideScrollArrows(slider) {
 }
 
 
-export { dragScroll, touchScroll };
+export { dragScroll, touchScroll, spinCarousel };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { convertWindSpeed, windDescription, owmIDToMwAbbr } from "../scripts/converter";
-import { dragScroll, touchScroll } from "../scripts/dragScrolling";
+import { dragScroll, touchScroll, spinCarousel } from "../scripts/dragScrolling";
 
 import windsock from "../img/windsock.svg";
 
@@ -18,7 +18,7 @@ class HourlyForecastData extends Component {
     super(props);
     this.state = { hourlyForecastData: [] };
     this.slider = null;
-    this.spinCarousel = this.spinCarousel.bind(this);
+    this.moveCarousel = this.moveCarousel.bind(this);
     this.changeMode = this.changeMode.bind(this);
   }
   
@@ -44,15 +44,8 @@ class HourlyForecastData extends Component {
       }
   }
 
-  spinCarousel(direction) {
-    if (this.slider) {
-      console.log("arrow clicked");
-      if (direction === 'right') {
-        this.slider.scrollLeft += 85.75;
-      } else {
-        this.slider.scrollLeft -= 85.75;
-      }
-    }
+  moveCarousel(direction) {
+    if (this.slider) spinCarousel(this.slider, direction);
   }
 
   changeMode(mode) {
@@ -108,7 +101,7 @@ class HourlyForecastData extends Component {
         </div>
         <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
           <button type="button" className="no-button no-button--inactive"
-                  id="hfc__arrow-left" onClick={ () => this.spinCarousel('left')}>
+                  id="hfc__arrow-left" onClick={ () => this.moveCarousel('left')}>
             <i className="fas fa-angle-left"></i>
           </button>
         </div>
@@ -136,7 +129,7 @@ class HourlyForecastData extends Component {
         </div>
         <div className="hfc__slide-arrow flex-column flex-perfect-centering-contents">
           <button type="button" className="no-button" id="hfc__arrow-right"
-                  onClick={() => this.spinCarousel('right')}>
+                  onClick={() => this.moveCarousel('right')}>
             <i className="fas fa-angle-right"></i>
           </button>
         </div>
