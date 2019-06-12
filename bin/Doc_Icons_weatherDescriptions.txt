@@ -52,7 +52,7 @@ lc		Light Cloud		                      Sonne mit leichten Wolken		801 few clouds
 hc		Heavy Cloud		Bewölkt						  	802-804 scattered clouds - broken clouds
 s		  Showers			Regen, aber auch mit Sonne		500-504 rain
 lr		Light Rain		Regen ohne Sonne			3xx shower rain (group Drizzle)
-hr		Heavy Rain										      520-522, 531 shower rain (group Rain)
+hr		Heavy Rain										      503, 520-522, 531 shower rain (group Rain)
 t		  Thunderstorm	  						        2xx thunderstorm
 h		  Hail			  Hagel					          511 rain (freezing rain)
 sl		Sleet			  Schneeregen					    611	snow (sleet)

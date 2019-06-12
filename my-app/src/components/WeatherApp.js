@@ -14,7 +14,7 @@ class WeatherApp extends Component {
   state = {
     lat: null, lon: null,
     updateWeather : false,
-    requestState: "Request IP location..."
+    requestState: ""
   }
   
   seconds = 0
@@ -42,6 +42,7 @@ class WeatherApp extends Component {
   }
 
 	getGeoLocation() {
+    this.setState( { requestState: "Request location..."} );
 		navigator.geolocation.getCurrentPosition(loc => {
 			let { latitude, longitude } = loc.coords;
 			setLocalStorageData("latitude", latitude);
@@ -55,6 +56,7 @@ class WeatherApp extends Component {
   }
   
   getIPLocation() {
+    this.setState( { requestState: "Request IP location..."} );
     fetch(urlIpAPI, { signal: this.signal })
     .then( response => {
       if (response.ok) {
@@ -63,7 +65,7 @@ class WeatherApp extends Component {
       throw new Error(response.status);
     }, error => {
       console.error(error);
-      throw new Error("(ip-api) Fetch failed / network error");
+      throw new Error(`(ip-api) Fetch failed / network error: \n${error}`);
     }).then(jsonResponse => {
       this.setState( {
         lat: jsonResponse.lat,

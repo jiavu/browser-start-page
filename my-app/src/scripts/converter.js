@@ -141,7 +141,7 @@ function owmIDToMwAbbr(id) {
 	if (id === 801) return "lc";
 	if (id >= 802 && id <= 804) return "hc";
 	if (id === 500 || id === 501 || id === 520) return "s";
-  if ( (id >= 520 && id <= 522) || id === 531 || id === 314) return "hr";
+  if ( id >= 502 && id <= 404 || (id >= 520 && id <= 522) || id === 531 || id === 314) return "hr";
   if (Math.floor(id / 100) === 3) return "lr";
 	if (Math.floor(id / 100) === 2) return "t";
 	if (id === 511) return "h";
