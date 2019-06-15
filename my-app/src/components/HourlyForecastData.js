@@ -68,7 +68,7 @@ class HourlyForecastData extends Component {
 
   updateState(data) {
    const hourlyForecastData = [];
-    for (let i = 0; i <= 7; i++) {
+    for (let i = 0; i <= 15; i++) {
       const hour_data = data.list[i];
       let date = new Date(hour_data.dt * 1000);
       hourlyForecastData.push( {
