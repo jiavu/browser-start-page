@@ -57,7 +57,7 @@ function getCompassPoint(deg) {
 // https://de.wikipedia.org/wiki/Windgeschwindigkeit
 //https://de.wikipedia.org/wiki/Windgeschwindigkeit
 /**
- * converts from ms to Bft (Beaufort). 
+ * converts from ms to Bft (Beaufort).
  * @param {float} speed - meter/sec
  */
 function convertWindSpeed(speed) {
@@ -114,7 +114,7 @@ const windDescription = {
 	}
 }
 
-/*						
+/*
 Bft		m/s			German
 0		0,0 – <0,3   | Windstill
 1		0,3 – <1,6   | geringer Wind / leiser Zug
@@ -147,7 +147,7 @@ function owmIDToMwAbbr(id) {
 	if (id === 511) return "h";
 	if (id === 611) return "sl";
 	if ( Math.floor(id / 100) === 6) return "sn";
-  if (id === 700) return "hc";
+  if (Math.floor(id / 100) === 7) return "hc";
   // not working for weatherPictures.js. using "fog" there for 7xx
 }
 
