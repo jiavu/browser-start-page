@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import RequestState from './RequestState';
 import ForecastWeatherData from './ForecastWeatherData';
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+// const proxyUrl = "https://app.cors.bridged.cc/?method=GET&url=";
+const proxyUrl = "https://api.codetabs.com/v1/proxy?quest=";
 const url = "https://www.metaweather.com/api/location/";
 
 class ForecastWeather extends Component {
@@ -14,7 +15,7 @@ class ForecastWeather extends Component {
     response: null,
     requestState : ""
   }
-  
+
   controller1 = new AbortController()
   controller2 = new AbortController()
   signal1 = this.controller1.signal
@@ -22,7 +23,6 @@ class ForecastWeather extends Component {
 
 	componentDidMount() {
     this.getWoeid(this.props.lat, this.props.lon);
-    //this.updateState(example); // DELETE after production!
   }
 
   componentWillUnmount() {
@@ -39,10 +39,11 @@ class ForecastWeather extends Component {
 
 	getWoeid(lat, lon) {
     this.setState({ requestState: "Forecast Weather loading..." });
+
 		fetch(proxyUrl + url + `search/?lattlong=${lat},${lon}`, {
-      /* origin: null,
-      'X-Requested-With': "XMLHttpRequest", */
-      signal : this.signal1
+      // origin: null,
+      // 'X-Requested-With': "XMLHttpRequest",
+      signal : this.signal1,
     }).then(response => {
       if (response.ok) {
         return response.json();
@@ -50,7 +51,7 @@ class ForecastWeather extends Component {
       throw new Error(response.status);
     }, error => {
       console.error(error);
-      throw new Error("(herokuapp/metaweather) Fetch failed / network error");
+      throw new Error("(metaweather) Fetch failed / network error");
       // failed to fetch/ connection error
     }).then(jsonResponse => {
       this.getWeather(jsonResponse[0].woeid);
@@ -61,10 +62,12 @@ class ForecastWeather extends Component {
   }
 
   getWeather(woeid) {
-    // works without headers though?
     fetch(proxyUrl + url + woeid, {
-      signal: this.signal2
+      // 'X-Requested-With': "XMLHttpRequest",
+      signal: this.signal2,
     }).then(response => {
+      console.log(response);
+
       if (response.ok) {
         return response.json();
       }
